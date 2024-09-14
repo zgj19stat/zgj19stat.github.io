@@ -11,7 +11,9 @@ redirect_from:
 
 Education
 ======
-* B.S. in Wuhan, Wuhan University, 2019
+* Sep. 2019 – Jun. 2023, B.S. in Mathematics
+  
+  [School of Mathematics and Statistics](https://maths.whu.edu.cn/), [Wuhan University](https://www.whu.edu.cn/)
 
 Teaching Experiences
 ======
