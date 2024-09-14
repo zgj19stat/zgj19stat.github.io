@@ -24,4 +24,4 @@ Teaching Assistant (Postgraduate Courses)
 
 
 Teaching Assistant (Undergraduate Courses)
-* Probability and Statistics (Fall 2024)
+* Probability and Statistics (Fall 2024) [Exercise Course Note](https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024)
