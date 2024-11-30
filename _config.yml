@@ -8,13 +8,13 @@
 
 # Basic Site Settings
 locale                   : "en-US"
-title                    : "Your Name / Site Title"
+title                    : "Guojun Zhu/Personal Homepage"
 title_separator          : "-"
-name                     : &name "Your Name"
-description              : &description "personal description"
-url                      : https://academicpages.github.io # the base hostname & protocol for your site e.g. "https://[your GitHub username].github.io"
+name                     : &name "Guojun Zhu"
+description              : &description "a second-year doctoral student from University of Chinese Academic Sciences"
+url                      : "https://zgj19stat.github.io/"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
-repository               : "academicpages/academicpages.github.io"
+repository               : "zgj19stat/zgj19stat.github.io"
 
 # Site Author - The following control what appear as part of the author content on the side bar.
 #               If a field is blank the icon and link will not appear, otherwise it will be shown.
@@ -22,57 +22,56 @@ repository               : "academicpages/academicpages.github.io"
 author:
   # Biographic information
   avatar           : "profile.png"
-  name             : "Your Sidebar Name"
-  pronouns         : # example: "she/her"  
-  bio              : "Short biography for the left-hand sidebar"
-  location         : "Earth"
-  employer         : "Red Brick University"
-  uri              : # URL
-  email            : "none@example.org" 
+  name             : "Guojun Zhu (祝国隽)"
+  pronouns         : "he/him"
+  bio              : "a second-year doctoral student from University of Chinese Academic Sciences"
+  location         : "China, Beijing"
+  employer         : "UCAS"
+  uri              : "https://zgj19stat.github.io/"
+  email            : "zgj19stat@gmail.com" 
 
   # Academic websites
-  arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
-  impactstory      : # URL
-  orcid            : "http://orcid.org/yourorcidurl"
-  semantic         : # URL
-  pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
-  scopus           : # URL
+  # arxiv            : # URL - Update with the correct link to your profile
+  # googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  # impactstory      : # URL
+  # orcid            : "http://orcid.org/yourorcidurl"
+  # semantic         : # URL
+  # pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
+  # researchgate     : # URL
 
   # Repositories and software development
-  bitbucket        : # Username - Update with your username on the site
-  codepen          : # Username
-  dribbble         : # Username
-  github           : "academicpages"
-  kaggle           : # Username  
-  stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
+  # bitbucket        : # Username - Update with your username on the site
+  # codepen          : # Username
+  # dribbble         : # Username
+  github           : "zgj19stat"
+  # kaggle           : # Username  
+  # stackoverflow    : # User number or user number and name (i.e., use "1" or "1/jeff-atwood")    
 
   # Social media
-  bluesky          : "bsky.app" # Replace this with you Bluesky username
-  facebook         : # Username
-  flickr           : # Username
-  foursquare       : # Username
-  goodreads        : # Username
-  google_plus      : # Username
-  keybase          : # Username
-  instagram        : # Username
-  lastfm           : # Username
-  linkedin         : # Username
-  mastodon         : # URL
-  medium           : # URL
-  pinterest        : # Username
-  soundcloud       : # Username
-  steam            : # Username
-  telegram         : # URL
-  tumblr           : # Username
-  twitter          : # Username for X / Twitter
-  vine             : # Username
-  weibo            : # Username
-  wikipedia        : # Username
-  xing             : # Username
-  youtube          : # Username
-  zhihu            : # Username
+  # bluesky          : "bsky.app" # Replace this with you Bluesky username
+  # facebook         : # Username
+  # flickr           : # Username
+  # foursquare       : # Username
+  # goodreads        : # Username
+  # google_plus      : # Username
+  # keybase          : # Username
+  # instagram        : # Username
+  # lastfm           : # Username
+  # linkedin         : # Username
+  # mastodon         : # URL
+  # medium           : # URL
+  # pinterest        : # Username
+  # soundcloud       : # Username
+  # steam            : # Username
+  # telegram         : # URL
+  # tumblr           : # Username
+  # twitter          : # Username for X / Twitter
+  # vine             : # Username
+  # weibo            : # Username
+  # wikipedia        : # Username
+  # xing             : # Username
+  # youtube          : # Username
+  zhihu            : "https://www.zhihu.com/people/zgjkt"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
@@ -170,12 +169,10 @@ exclude:
   - CHANGELOG
   - Capfile
   - config
-  - Dockerfile
   - Gemfile
   - Gruntfile.js
   - gulpfile.js
   - LICENSE
-  - local
   - log
   - node_modules
   - package.json*
@@ -225,7 +222,7 @@ collections:
     output: true
     permalink: /:collection/:path/
 
-
+    
 # These settings control how pages and collections are included in the site
 defaults:
   # _posts
@@ -293,23 +290,22 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: Etc/UTC # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
 plugins:
-  - jekyll-feed
-  - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
-  - jemoji
-
-# Mimic GitHub Pages with --safe
+  - jekyll-gist
+  - jekyll-feed
+  - jekyll-redirect-from
+# mimic GitHub Pages with --safe
 whitelist:
-  - jekyll-feed
-  - jekyll-gist
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-gist
+  - jekyll-feed
   - jemoji
 
 
