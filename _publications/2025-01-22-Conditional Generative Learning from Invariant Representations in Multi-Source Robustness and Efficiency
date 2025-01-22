@@ -6,7 +6,9 @@ permalink: /publication/2025-01-22-Conditional Generative Learning from Invarian
 excerpt: 'This paper is about fixing template issue #693.'
 date: 2025-01-22
 venue: 'AISTATS2025'
-paperurl: 'http://academicpages.github.io/files/STWGAN.pdf'
+slidesurl: 'http://academicpages.github.io/files/STWGAN-slides.pdf'
+paperurl: 'http://academicpages.github.io/files/STWGAN-manuscript.pdf'
+appendixurl: 'http://academicpages.github.io/files/STWGAN-appendix.pdf'
 citation: '-'
 ---
 
