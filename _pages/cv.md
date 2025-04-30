@@ -15,6 +15,10 @@ Education
   
   [School of Mathematics and Statistics](https://maths.whu.edu.cn/), [Wuhan University](https://www.whu.edu.cn/)
 
+* Sep. 2023 – , Ph.D. in Statistics 
+  
+  [School of Mathematical Sciences](https://math.ucas.ac.cn/), [University of Chinese Academy of Sciences](https://www.ucas.ac.cn/)
+
 Teaching Experiences
 ======
 
