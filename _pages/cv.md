@@ -41,4 +41,4 @@ Award
 * 2023  Excellent Graduates of the College, Wuhan University
 * 2023  Excellent Bachelar Dissertation Award, Wuhan University
 * 2022  Finalist (Top 2%), 2022 Mathematical Contest In Modeling
-* 2021  Second Prize, CUMCM (Contemporary Undergraduate Mathematical Contest in Modeling), 
+* 2021  Second Prize, CUMCM (Contemporary Undergraduate Mathematical Contest in Modeling)
