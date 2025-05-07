@@ -21,16 +21,12 @@ Education
 
 Teaching Experiences
 ======
-
-University of Chinese Academy of Sciences
-======
-
-Teaching Assistant (Postgraduate Courses)
+Teaching Assistant (Postgraduate Courses), University of Chinese Academy of Sciences
 * Advanced Mathematical Statistics (Fall 2024)
 * Stochastic Process (Spring 2025)
 
 
-Teaching Assistant (Undergraduate Courses)
+Teaching Assistant (Undergraduate Courses), University of Chinese Academy of Sciences
 * Probability and Statistics (Fall 2024) [(Exercise Course Note)](https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024)
 
 
