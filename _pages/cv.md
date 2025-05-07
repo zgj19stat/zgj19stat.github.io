@@ -32,3 +32,13 @@ Teaching Assistant (Postgraduate Courses)
 
 Teaching Assistant (Undergraduate Courses)
 * Probability and Statistics (Fall 2024) [(Exercise Course Note)](https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024)
+
+
+Award
+======
+
+* 2025  Merit Student, University of Chinese Academy of Sciences
+* 2023  Excellent Graduates of the College, Wuhan University
+* 2023  Excellent Bachelar Dissertation Award, Wuhan University
+* 2022  Finalist (Top 2%), 2022 Mathematical Contest In Modeling
+* 2021  Second Prize, CUMCM (Contemporary Undergraduate Mathematical Contest in Modeling), 
