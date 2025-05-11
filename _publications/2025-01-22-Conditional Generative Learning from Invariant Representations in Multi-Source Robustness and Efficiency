@@ -8,5 +8,4 @@ date: 2025-01-22
 venue: 'AISTATS'
 slidesurl: 'https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_slides.pdf'
 paperurl: 'https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_manuscript.pdf'
-citation: '**Guojun Zhu**, Sanguo Zhang, Mingyang Ren. Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency[C]//Proceedings of The 28th International Conference on Artificial Intelligence and Statistics. PMLR, 2025:217-225.'
 ---
