@@ -10,5 +10,3 @@ slidesurl: 'https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/S
 paperurl: 'https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_manuscript.pdf'
 citation: 'see https://proceedings.mlr.press/v258/zhu25a.html'
 ---
-
-Multi-source generative models have gained significant attention due to their ability to capture complex data distributions across diverse domains. However, existing approaches often struggle with limitations such as negative transfer and an over-reliance on large pre-trained models. To address these challenges, we propose a novel method that effectively handles scenarios with outlier source domains, while making weaker assumptions about the data, thus ensuring broader applicability. Our approach enhances robustness and efficiency, supported by rigorous theoretical analysis, including non-asymptotic error bounds and asymptotic guarantees. In the experiments, we validate our methods through numerical simulations and realworld data experiments, showcasing their practical effectiveness and adaptability.
