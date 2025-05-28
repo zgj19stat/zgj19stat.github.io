@@ -1,8 +1,0 @@
----
-title: "STSA: Federated Class-Incremental Learning via Spatial-Temporal Statistics Aggregation"
-collection: publications
-category: submitted
-permalink: /publication/2025-05-17-STSA Federated Class-Incremental Learning via Spatial-Temporal Statistics Aggregation
-date: 2025-05-17
-venue: 'NIPS'
----
