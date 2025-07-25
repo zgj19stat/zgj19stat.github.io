@@ -11,7 +11,7 @@ locale                   : "cn-China"
 title                    : "Guojun Zhu/Personal Homepage"
 title_separator          : "-"
 name                     : &name "Guojun Zhu"
-description              : &description "a second-year doctoral student from University of Chinese Academic Sciences"
+description              : &description "a third-year Ph.D. student from University of Chinese Academic Sciences"
 url                      : "https://zgj19stat.github.io/"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "zgj19stat/zgj19stat.github.io"
@@ -71,7 +71,7 @@ author:
   # wikipedia        : # Username
   # xing             : # Username
   # youtube          : # Username
-  zhihu            : "https://www.zhihu.com/people/zgjkt"
+  zhihu            : "zhihu.com/people/zgjkt"
 
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
