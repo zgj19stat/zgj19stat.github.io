@@ -22,7 +22,7 @@ Education
 Teaching Experiences
 ======
 Teaching Assistant (Postgraduate Courses), University of Chinese Academy of Sciences
-* Advanced Mathematical Statistics (Fall 2024)
+* Advanced Mathematical Statistics (Fall 2024, Fall 2025)
 * Stochastic Process (Spring 2025)
 
 
