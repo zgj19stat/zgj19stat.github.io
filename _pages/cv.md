@@ -33,6 +33,7 @@ Teaching Assistant (Undergraduate Courses), University of Chinese Academy of Sci
 Award
 ======
 
+* 2025  Outstanding Paper Award (Top 10), 11th National Forum for Postgraduate Students in Statistics.
 * 2025  Merit Student, University of Chinese Academy of Sciences
 * 2023  Excellent Graduates of the College, Wuhan University
 * 2023  Excellent Bachelar Dissertation Award, Wuhan University
