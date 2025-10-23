@@ -15,7 +15,7 @@ Education
   
   [School of Mathematics and Statistics](https://maths.whu.edu.cn/), [Wuhan University](https://www.whu.edu.cn/)
 
-* Sep. 2023 – , Ph.D. in Statistics 
+* Sep. 2023 – Present, Ph.D. in Statistics 
   
   [School of Mathematical Sciences](https://math.ucas.ac.cn/), [University of Chinese Academy of Sciences](https://www.ucas.ac.cn/)
 
@@ -35,6 +35,8 @@ Award
 
 * 2025  Outstanding Paper Award (Top 10), 11th National Forum for Postgraduate Students in Statistics.
 * 2025  Merit Student, University of Chinese Academy of Sciences
+* 2025  Poster Presentation Award, Annual Meeting of the Young Statisticians Association & 3rd International Conference on Statistical Theory and Applications.
+* 2024  Third Prize, Graduate Student Research Forum, University of Chinese Academy of Sciences.
 * 2023  Excellent Graduates of the College, Wuhan University
 * 2023  Excellent Bachelar Dissertation Award, Wuhan University
 * 2022  Finalist (Top 2%), 2022 Mathematical Contest In Modeling
