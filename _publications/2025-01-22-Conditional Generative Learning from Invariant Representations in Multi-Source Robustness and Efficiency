@@ -4,7 +4,7 @@ collection: publications
 category: conferences
 excerpt: 'This is my first work, joint working with Mingyang Ren and Sanguo Zhang.'
 date: 2025-01-22
-venue: 'AISTATS'
+venue: '38-th Annual Conference on Artificial Intelligence and Statistics'
 slidesurl: 'https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_slides.pdf'
 paperurl: 'https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_manuscript.pdf'
 citation: 'see https://proceedings.mlr.press/v258/zhu25a.html'
