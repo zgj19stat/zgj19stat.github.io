@@ -24,9 +24,3 @@ LiaoNing, China, Sep 24, 2023.
 - Latent Space Modeling for Human Disease Network with Temporal Variations: Analysis of Medicare Data<br>
 青年统计学家协会2025年年会暨第三届统计理论及其应用国际研讨会<br>
 Jinan, China, Apr 19, 2025.
-
-- Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency<br>
-38-th Annual Conference on Artificial Intelligence and Statistics (AISTATS)<br>
-Phuket Island, Thailand, May 3, 2025.
-
-
