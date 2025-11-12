@@ -7,7 +7,7 @@ author_profile: true
 
 ## Talks
 
-- Model- and similarity-free transfer learning for classification under label noise with application to medical image analysis<br>
+- Model- and similarity-free transfer learning for classification under label noise<br>
 第十一届全国高校研究生统计论坛<br>
 Taiyuan, China, Oct 26, 2025.
 
