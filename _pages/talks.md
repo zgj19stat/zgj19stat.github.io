@@ -9,7 +9,8 @@ author_profile: true
 
 - Model- and similarity-free transfer learning for classification under label noise<br>
 第十一届全国高校研究生统计论坛<br>
-Taiyuan, China, Oct 26, 2025.
+Taiyuan, China, Oct 26, 2025.<br>
+I am greatly honored to be invited to receive an Outstanding Paper Award (Top 10) and to present at the Forum's plenary session.
 
 - Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency<br>
 中国科学院大学2024年研究生学术论坛-人工智能分论坛<br>
