@@ -11,15 +11,9 @@ I'm a third-year Ph.D. student from [School of Mathematical Sciences](https://ma
 
 I am actively seeking and welcoming research collaborations. My interests cover many of the current focal points in the machine learning and deep learning community, with a particular emphasis on:
 
-- Contrastive Learning
+- Domain Generalization, Test-Time Adaptation, In-context Learning
 
-- Federated Learning
-
-- Continual Learning
-
-- In-Context Learning
-
-- Generative Models
+- Federated Learning, Continual Learning
 
 - ...
 
