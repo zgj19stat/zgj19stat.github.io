@@ -7,8 +7,8 @@ author_profile: true
 
 ## Manuscripts
 
-- Functional Latent Space Model for Time-varying Networks: Application to THIRD<br>
-**Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Shuangge Ma, Guanzhong Qiao, Hao Mei<br>
+- A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
+**Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Shuangge Ma, Hao Mei<br>
 Last revised on Nov 2025.
 
 - Model- and Similarity-Free Transfer Learning for Classification with Label Noise<br>
