@@ -7,6 +7,10 @@ author_profile: true
 
 ## Manuscripts
 
+- Precision-Free Hub Detection: A Geometric Subspace Consensus Approach for Distributed Data<br>
+Rongzhuo Nie, **Guojun Zhu**, Sanguo Zhang, Sheng Fu<br>
+Last revised on Dec 2025.
+
 - A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
 Last revised on Dec 2025.
