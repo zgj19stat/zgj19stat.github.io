@@ -13,7 +13,7 @@ Last revised on Dec 2025.
 
 - A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
-Last revised on Dec 2025.
+Under review, Dec 2025.
 
 - Model- and Similarity-Free Transfer Learning for Classification with Label Noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
