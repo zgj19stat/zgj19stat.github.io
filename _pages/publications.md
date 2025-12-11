@@ -8,7 +8,7 @@ author_profile: true
 ## Manuscripts
 
 - Chaos is a Ladder: Domain Generalization Beyond Invariance via Source-Specific Disentanglement<br>
-Yuhang Jiang, Sanguo Zhang, **Guojun Zhu**<br>
+Yuhang Jiang, **Guojun Zhu**, Sanguo Zhang<br>
 Last revised on Dec 2025.
 
 - Precision-Free Hub Detection: A Geometric Subspace Consensus Approach for Distributed Data<br>
