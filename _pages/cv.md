@@ -33,6 +33,7 @@ Teaching Assistant (Undergraduate Courses), University of Chinese Academy of Sci
 Award
 ======
 
+* 2025  Young Elite Scientists Sponsorship Program by CAST (Doctoral Student Special Track)
 * 2025  Outstanding Paper Award (Top 10), 11th National Forum for Postgraduate Students in Statistics.
 * 2025  Merit Student, University of Chinese Academy of Sciences
 * 2025  Poster Presentation Award, Annual Meeting of the Young Statisticians Association & 3rd International Conference on Statistical Theory and Applications.
