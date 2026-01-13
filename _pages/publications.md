@@ -25,7 +25,7 @@ Under review, Oct 2025.
 
 ## Publications
 
-- Enhancing Federated Class-IncrementaLearning via Spatial-Temporal StatisticsAggregation
+- Enhancing Federated Class-IncrementaLearning via Spatial-Temporal StatisticsAggregation<br>
 Zenghao Guan, **Guojun Zhu**, Yucan Zhou, Wu Liu, Weiping Wang, Jiebo Luo, Xiaoyan Gu<br>
 *International World Wide Web Conference (WWW)*, Jan 2026. [[arXiv](https://arxiv.org/abs/2506.01327)]
 
