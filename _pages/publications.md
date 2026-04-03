@@ -8,7 +8,7 @@ author_profile: true
 ## Manuscripts
 
 - Chaos is a Ladder: Domain Generalization Beyond Invariance via Source-Specific Disentanglement<br>
-Yuhang Jiang, **Guojun Zhu**, Sanguo Zhang<br>
+Yuhang Jiang, Sanguo Zhang, **Guojun Zhu**<br>
 Last revised on Dec 2025.
 
 - Precision-Free Hub Detection: A Geometric Subspace Consensus Approach for Distributed Data<br>
@@ -17,7 +17,7 @@ Last revised on Dec 2025.
 
 - A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
-Under review (Major revision), Dec 2025.
+Under review (Major revision by Biometrics), Dec 2025.
 
 - Model- and Similarity-Free Transfer Learning for Classification with Label Noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
