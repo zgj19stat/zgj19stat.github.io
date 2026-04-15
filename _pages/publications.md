@@ -5,15 +5,25 @@ permalink: /publications/
 author_profile: true
 ---
 
+(* Corresponding Author; # Co-first Author; † Authors listed in alphabetical order)
+
 ## Manuscripts
 
+- Precision-Free Hub Detection: A Geometric Subspace Consensus Approach for Distributed Data<br>
+Rongzhuo Nie, Sanguo Zhang, **Guojun Zhu***<br>
+Last revised on April 2026.
+
+- Directed Hypergraph: Tensor Representation, Embedding Modeling, and Community Detection<br>
+**Guojun Zhu**, Mingyang Ren<br>
+Last revised on April 2026.
+
 - Chaos is a Ladder: Domain Generalization Beyond Invariance via Source-Specific Disentanglement<br>
-Yuhang Jiang, Sanguo Zhang, **Guojun Zhu**<br>
+Yuhang Jiang, Sanguo Zhang, **Guojun Zhu***<br>
 Last revised on Dec 2025.
 
-- Precision-Free Hub Detection: A Geometric Subspace Consensus Approach for Distributed Data<br>
-Rongzhuo Nie, **Guojun Zhu**, Sanguo Zhang, Sheng Fu<br>
-Last revised on Dec 2025.
+- Beyond Imputation: Multimodal Learning with Overlapping-free Missing Patterns<br>
+Dian Jin, Junhan Yu, Kejian Zhang, Doudou Zhou, **Guojun Zhu†** <br>
+Last revised on April 2026.
 
 - A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
