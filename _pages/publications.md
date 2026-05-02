@@ -13,7 +13,7 @@ author_profile: true
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
 Under review (Major revision by Biometrics), Apr 2026.
 
-- Model-agnostic information transfer and fusion for classification with label noisee<br>
+- Model-agnostic information transfer and fusion for classification with label noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
 Under review, Apr 2026. [[arXiv](https://arxiv.org/abs/2506.01327)]
 
