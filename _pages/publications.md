@@ -11,7 +11,7 @@ author_profile: true
 
 - A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
-Under review (Major revision by Biometrics), Apr 2026.
+Under review (Major revision and revised by Biometrics), Apr 2026.
 
 - Model-agnostic information transfer and fusion for classification with label noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
