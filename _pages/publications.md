@@ -5,7 +5,7 @@ permalink: /publications/
 author_profile: true
 ---
 
-(* Corresponding Author; # Co-first Author; † Authors listed in alphabetical order)
+(<sup>*</sup> Corresponding Author; <sup>#</sup> Co-first Author; <sup>†</sup> Authors listed in alphabetical order)
 
 ## Manuscripts
 
@@ -16,6 +16,10 @@ Under review (Major revision and revised by Biometrics), Apr 2026.
 - Model-agnostic information transfer and fusion for classification with label noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
 Under review, Apr 2026. [[arXiv](https://arxiv.org/abs/2506.01327)]
+
+- Distributed Hub Detection in Heterogeneous Graphical Models<br>
+Rongzhuo Nie, Sanguo Zhang, Lili Zha<sup>*</sup>, **Guojun Zhu**<sup>*</sup><br>
+Under review, Mar 2026.
 
 ## Publications
 
