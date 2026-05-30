@@ -18,7 +18,7 @@ Under review (Major revision and revised by Biometrics), Apr 2026.
 Under review, Apr 2026. [[arXiv](https://arxiv.org/abs/2506.01327)]
 
 - Distributed Hub Detection in Heterogeneous Graphical Models<br>
-Rongzhuo Nie, Sanguo Zhang, Lili Zhao, **Guojun Zhu**</sup>*</sup><br>
+Rongzhuo Nie, Sanguo Zhang, Lili Zhao, **Guojun Zhu**<sup>*</sup><br>
 Under review, Mar 2026.
 
 ## Publications
