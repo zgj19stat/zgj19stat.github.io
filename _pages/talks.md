@@ -18,7 +18,7 @@ Beijing, China, Nov 30, 2024.
 
 - Contrastive Learning-Based Algorithm for Label Noise Learning<br>
 2023年中国现场统计研究会资源与环境统计分会第16届学术年会<br>
-LiaoNing, China, Sep 24, 2023.
+Liaoning, China, Sep 24, 2023.
 
 ## Posters
 
