@@ -15,7 +15,7 @@ Under review (Major revision and revised by Biometrics), Apr 2026.
 
 - Pattern-Calibrated Multimodal Prediction under Blockwise Missingness<br>
 Junhan Yu, Kejian Zhang, Doudou Zhou, **Guojun Zhu**<sup>† </sup><br>
-Under review, July 2026.
+Under review, Jul 2026.
 
 - Model-agnostic information transfer and fusion for classification with label noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
