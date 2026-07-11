@@ -13,17 +13,21 @@ author_profile: true
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
 Under review (Major revision and revised by Biometrics), Apr 2026.
 
+- Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting<br>
+Yuhang Jiang, Sanguo Zhang, **Guojun Zhu**<sup>*</sup><br>
+Under review, Jul 2026.
+
 - Pattern-Calibrated Multimodal Prediction under Blockwise Missingness<br>
 Junhan Yu, Kejian Zhang, Doudou Zhou, **Guojun Zhu**<sup>† </sup><br>
 Under review, Jul 2026.
 
+- Distributed Hub Detection in Heterogeneous Graphical Models<br>
+Rongzhuo Nie, Sanguo Zhang, Lili Zhao, **Guojun Zhu**<sup>*</sup><br>
+Under review, May 2026.
+
 - Model-agnostic information transfer and fusion for classification with label noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
 Under review, Apr 2026. [[arXiv](https://arxiv.org/abs/2506.01327)]
-
-- Distributed Hub Detection in Heterogeneous Graphical Models<br>
-Rongzhuo Nie, Sanguo Zhang, Lili Zhao, **Guojun Zhu**<sup>*</sup><br>
-Under review, Mar 2026.
 
 ## Publications
 
