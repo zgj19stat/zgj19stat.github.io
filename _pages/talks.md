@@ -7,6 +7,10 @@ author_profile: true
 
 ## Talks
 
+- A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
+The 4th Joint Conference on Statistics and Data Science<br>
+Guiyang, China, Jul 13, 2026.<br>
+
 - Model- and similarity-free transfer learning for classification under label noise<br>
 第十一届全国高校研究生统计论坛<br>
 Taiyuan, China, Oct 26, 2025.<br>
