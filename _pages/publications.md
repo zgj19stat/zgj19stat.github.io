@@ -15,11 +15,11 @@ Under review (Major revision and revised by Biometrics), Apr 2026.
 
 - Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting<br>
 Yuhang Jiang, Sanguo Zhang, **Guojun Zhu**<sup>*</sup><br>
-Under review, Jul 2026.
+Under review, Jul 2026. [[arXiv](https://arxiv.org/abs/2607.26458)]
 
 - Pattern-Calibrated Multimodal Prediction under Blockwise Missingness<br>
 Junhan Yu, Kejian Zhang, Doudou Zhou, **Guojun Zhu**<sup>† </sup><br>
-Under review, Jul 2026.
+Under review, Jul 2026. [[arXiv](https://arxiv.org/abs/2607.01821)]
 
 - Distributed Hub Detection in Heterogeneous Graphical Models<br>
 Rongzhuo Nie, Sanguo Zhang, Lili Zhao, **Guojun Zhu**<sup>*</sup><br>
