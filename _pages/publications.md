@@ -27,7 +27,7 @@ Under review, May 2026.
 
 - Model-agnostic information transfer and fusion for classification with label noise<br>
 **Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
-Under review, Apr 2026. [[arXiv](https://arxiv.org/abs/2506.01327)]
+Under review, Apr 2026. [[arXiv](https://arxiv.org/abs/2604.25845)]
 
 ## Publications
 
