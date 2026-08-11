@@ -14,7 +14,7 @@ author_profile: true
 Under review (Major revision and revised by Biometrics), Apr 2026.
 
 - Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting<br>
-Yuhang Jiang, Sanguo Zhang, **Guojun Zhu**<sup>*</sup><br>
+Yuhang Jiang, Fengchuan Zhang, Sanguo Zhang, **Guojun Zhu**<sup>*</sup><br>
 Under review, Jul 2026. [[arXiv](https://arxiv.org/abs/2607.26458)]
 
 - Pattern-Calibrated Multimodal Prediction under Blockwise Missingness<br>
