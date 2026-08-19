@@ -10,7 +10,7 @@ author_profile: true
 ## Manuscripts
 
 - A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
-**Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<br>
+**Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup>*</sup><br>
 Under review (Major revision and revised by Biometrics), Apr 2026.
 
 - Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting<br>
@@ -18,7 +18,7 @@ Yuhang Jiang, Fengchuan Zhang, Sanguo Zhang, **Guojun Zhu**<sup>*</sup><br>
 Under review, Jul 2026. [[arXiv](https://arxiv.org/abs/2607.26458)]
 
 - Pattern-Calibrated Multimodal Prediction under Blockwise Missingness<br>
-Junhan Yu, Kejian Zhang, Doudou Zhou, **Guojun Zhu**<sup>† </sup><br>
+Junhan Yu, Kejian Zhang, Doudou Zhou, **Guojun Zhu**<sup>†</sup><br>
 Under review, Jul 2026. [[arXiv](https://arxiv.org/abs/2607.01821)]
 
 - Distributed Hub Detection in Heterogeneous Graphical Models<br>
@@ -26,17 +26,17 @@ Rongzhuo Nie, Sanguo Zhang, Lili Zhao, **Guojun Zhu**<sup>*</sup><br>
 Under review, May 2026.
 
 - Model-agnostic information transfer and fusion for classification with label noise<br>
-**Guojun Zhu**, Sanguo Zhang, Mingyang Ren<br>
+**Guojun Zhu**, Sanguo Zhang, Mingyang Ren<sup>*</sup><br>
 Under review, Apr 2026. [[arXiv](https://arxiv.org/abs/2604.25845)]
 
 ## Publications
 
 - Latent Space Modeling for Human Disease Network With Temporal Variations: Analysis of Medicare Data<br>
-**Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Shuangge Ma, Guanzhong Qiao, Hao Mei<br>
+**Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Shuangge Ma, Guanzhong Qiao, Hao Mei<sup>*</sup><br>
 *Annals of Applied Statistics (AOAS)*, March 2026. [[Slides](https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/MTFLSM_slides.pdf)]
 
 - Enhancing Federated Class-Incremental Learning via Spatial-Temporal Statistics Aggregation<br>
-Zenghao Guan, **Guojun Zhu**, Yucan Zhou, Wu Liu, Weiping Wang, Jiebo Luo, Xiaoyan Gu<br>
+Zenghao Guan, **Guojun Zhu**, Yucan Zhou, Wu Liu, Weiping Wang, Jiebo Luo, Xiaoyan Gu<sup>*</sup><br>
 *International World Wide Web Conference (WWW)*, Jan 2026. [[arXiv](https://arxiv.org/abs/2506.01327)]
 
 - Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency<br>
