@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I'm a fourth-year Ph.D. student at [School of Mathematical Sciences](https://math.ucas.edu.cn/), [University of Chinese Academy of Science](https://www.ucas.ac.cn/), advised by [Professor Sanguo Zhang](https://people.ucas.edu.cn/~sgzhang?language=en). I will visit the [Department of Statistics and Data Science](https://www.stat.nus.edu.sg/), [National University of Singapore](https://www.nus.edu.sg/), as a visiting Ph.D. student from September 1, 2026 to August 31, 2027, hosted by [Doudou Zhou](https://doudouzhou.github.io/).
+I'm a fourth-year Ph.D. student at [School of Mathematical Sciences](https://math.ucas.edu.cn/), [University of Chinese Academy of Science](https://www.ucas.ac.cn/), advised by [Sanguo Zhang](https://people.ucas.edu.cn/~sgzhang?language=en). I will visit the [Department of Statistics and Data Science](https://www.stat.nus.edu.sg/), [National University of Singapore](https://www.nus.edu.sg/), as a visiting Ph.D. student from September 1, 2026 to August 31, 2027, hosted by [Doudou Zhou](https://doudouzhou.github.io/).
 
 I am actively seeking and welcoming research collaborations. My interests cover many of the current focal points in **the agentic era**, with a particular emphasis on:
 
