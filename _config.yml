@@ -51,7 +51,7 @@ defaults:
       layout: single
       author_profile: true
 
-# Markdown and Sass
+# Markdown
 markdown: kramdown
 highlighter: rouge
 encoding: "utf-8"
@@ -65,19 +65,9 @@ kramdown:
   toc_levels: 1..6
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
-sass:
-  sass_dir: _sass
-  style: compressed
-
 timezone: Asia/Shanghai
 
 plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-redirect-from
-
-# HTML compression used by _layouts/default.html.
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
