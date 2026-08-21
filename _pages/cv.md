@@ -21,6 +21,8 @@ Education
 
   [School of Mathematical Sciences](https://math.ucas.ac.cn/), [University of Chinese Academy of Sciences](https://www.ucas.ac.cn/)
 
+  Supervisor: [Sanguo Zhang](https://people.ucas.ac.cn/~sgzhang?language=en)
+
 * Sep. 2019 – Jun. 2023, B.S. in Mathematics
   
   [School of Mathematics and Statistics](https://maths.whu.edu.cn/), [Wuhan University](https://www.whu.edu.cn/)
