@@ -3,29 +3,14 @@ layout: archive
 title: "CV"
 permalink: /cv/
 author_profile: true
+academic_path: true
 redirect_from:
   - /resume
 ---
 
 {% include base_path %}
 
-Education
-======
-* Sep. 2026 – Aug. 2027, Incoming Visiting Ph.D. Student in Statistics
-
-  [Department of Statistics and Data Science](https://www.stat.nus.edu.sg/), [National University of Singapore](https://www.nus.edu.sg/)
-
-  Host: [Doudou Zhou](https://doudouzhou.github.io/)
-
-* Sep. 2023 – Present, Ph.D. in Statistics
-
-  [School of Mathematical Sciences](https://math.ucas.ac.cn/), [University of Chinese Academy of Sciences](https://www.ucas.ac.cn/)
-
-  Supervisor: [Sanguo Zhang](https://people.ucas.ac.cn/~sgzhang?language=en)
-
-* Sep. 2019 – Jun. 2023, B.S. in Mathematics
-  
-  [School of Mathematics and Statistics](https://maths.whu.edu.cn/), [Wuhan University](https://www.whu.edu.cn/)
+{% include academic-path.html %}
 
 Teaching Experiences
 ======

@@ -56,6 +56,9 @@ class PublicationPageParser(HTMLParser):
         self.hyperedges: dict[str, set[str]] = {}
         self.assets: set[str] = set()
         self.map_canvas: dict[str, str] = {}
+        self.map_root: dict[str, str] = {}
+        self.view_buttons: dict[str, dict[str, str]] = {}
+        self.timeline_stems: set[str] = set()
         self.paper_hit_targets: list[dict[str, str]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
@@ -68,6 +71,15 @@ class PublicationPageParser(HTMLParser):
         if tag == "g" and "research-hypergraph__paper" in classes:
             work_id = attributes.get("data-work-id", "")
             self.paper_nodes[work_id] = attributes
+
+        if tag == "section" and "research-hypergraph" in classes:
+            self.map_root = attributes
+
+        if attributes.get("data-map-view-button"):
+            self.view_buttons[attributes["data-map-view-button"]] = attributes
+
+        if attributes.get("data-timeline-stem"):
+            self.timeline_stems.add(attributes["data-timeline-stem"])
 
         if "data-research-map-canvas" in attributes:
             self.map_canvas = attributes
@@ -115,6 +127,11 @@ def main() -> int:
     map_labels = {work_id: attributes.get("data-map-label", "") for work_id, attributes in parser.paper_nodes.items()}
     require(map_labels == EXPECTED_MAP_LABELS, f"unexpected map labels: {map_labels}")
     require(parser.map_canvas.get("data-hit-radius") == "18", "the map must declare its contour hit radius")
+    require(parser.map_root.get("data-map-view") == "themes", "the map must default to the themes view")
+    require(set(parser.view_buttons) == {"themes", "timeline"}, "the map must expose Themes and Timeline controls")
+    require(parser.view_buttons["themes"].get("aria-pressed") == "true", "Themes must be selected by default")
+    require(parser.view_buttons["timeline"].get("aria-pressed") == "false", "Timeline must be unselected by default")
+    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the nine expected works")
     require(
         len(parser.paper_hit_targets) == 9 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
         "each paper node must have a stable enlarged hit target",
@@ -126,6 +143,9 @@ def main() -> int:
         require(attributes.get("role") == "link", f"map node {work_id} must expose a link role")
         require(attributes.get("tabindex") == "0", f"map node {work_id} must be keyboard-focusable")
         require(attributes.get("aria-label"), f"map node {work_id} has no accessible label")
+        require(attributes.get("data-timeline-date"), f"map node {work_id} has no timeline date")
+        require(attributes.get("data-timeline-x", "").isdigit(), f"map node {work_id} has an invalid timeline x-coordinate")
+        require(attributes.get("data-timeline-y", "").isdigit(), f"map node {work_id} has an invalid timeline y-coordinate")
 
     duplicate_ids = sorted(identifier for identifier, count in Counter(parser.ids).items() if count > 1)
     require(not duplicate_ids, f"duplicate HTML ids: {duplicate_ids}")

@@ -1,0 +1,21 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "zgj19stat-visitor-counter",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-08-21",
+  "workers_dev": true,
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "ALLOWED_ORIGINS": "https://zgj19stat.github.io,http://127.0.0.1:4000,http://localhost:4000",
+    "SINCE_LABEL": "Aug 2026"
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "zgj19stat-visitors",
+      "database_id": "ea488f02-173b-460b-823c-4f25cd795f85"
+    }
+  ]
+}

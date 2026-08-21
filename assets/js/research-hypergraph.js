@@ -12,8 +12,11 @@
   var svg = canvas ? canvas.querySelector("svg") : null;
   var svgViewBox = parseViewBox(svg);
   var panel = root.querySelector("[data-research-map-panel]");
-  var defaultPanel = panel ? panel.innerHTML : "";
+  var description = root.querySelector("[data-map-description]");
+  var hint = root.querySelector("[data-map-hint]");
+  var viewButtons = Array.from(root.querySelectorAll("[data-map-view-button]"));
   var templates = new Map();
+  var defaultPanels = new Map();
   var shapesByEdge = new Map();
   var membersByEdge = new Map();
   var paperById = new Map();
@@ -21,6 +24,7 @@
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   var hitRadius = Number(canvas && canvas.getAttribute("data-hit-radius")) || 18;
   var hitHysteresis = 5;
+  var currentView = "themes";
   var pinnedState = null;
   var transientState = null;
   var proximityEdgeId = null;
@@ -28,6 +32,11 @@
   var highlightTimer = null;
   var pointerFrame = null;
   var canvasBounds = null;
+
+  defaultPanels.set("themes", panel ? panel.innerHTML : "");
+  root.querySelectorAll("[data-map-default-template]").forEach(function (template) {
+    defaultPanels.set(template.getAttribute("data-map-default-template"), template.innerHTML);
+  });
 
   root.querySelectorAll("[data-map-template]").forEach(function (template) {
     templates.set(template.getAttribute("data-map-template"), template.innerHTML);
@@ -169,19 +178,17 @@
 
   function distanceToSamples(point, samples) {
     var minimumSquaredDistance = Infinity;
-
     samples.forEach(function (sample) {
       var deltaX = point.x - sample.x;
       var deltaY = point.y - sample.y;
       var squaredDistance = deltaX * deltaX + deltaY * deltaY;
       if (squaredDistance < minimumSquaredDistance) minimumSquaredDistance = squaredDistance;
     });
-
     return Math.sqrt(minimumSquaredDistance);
   }
 
   function nearestEdge(point) {
-    if (!point) return null;
+    if (!point || currentView !== "themes") return null;
 
     var closestId = null;
     var closestDistance = Infinity;
@@ -208,7 +215,7 @@
     return Boolean(
       target &&
       typeof target.closest === "function" &&
-      target.closest("[data-work-id], [data-hyperedge-label]")
+      target.closest("[data-work-id], [data-hyperedge-label], [data-map-view-button]")
     );
   }
 
@@ -216,14 +223,17 @@
     return transientState || pinnedState;
   }
 
+  function clearProximity() {
+    proximityEdgeId = null;
+    if (!canvas) return;
+    canvas.classList.remove("has-edge-nearby");
+    canvas.removeAttribute("data-nearest-edge");
+  }
+
   function scheduleTransientClear() {
     window.clearTimeout(clearTimer);
     clearTimer = window.setTimeout(function () {
-      proximityEdgeId = null;
-      if (canvas) {
-        canvas.classList.remove("has-edge-nearby");
-        canvas.removeAttribute("data-nearest-edge");
-      }
+      clearProximity();
       transientState = null;
       renderState();
     }, 120);
@@ -240,11 +250,7 @@
   }
 
   function setDirectTransient(type, id) {
-    proximityEdgeId = null;
-    if (canvas) {
-      canvas.classList.remove("has-edge-nearby");
-      canvas.removeAttribute("data-nearest-edge");
-    }
+    clearProximity();
     setTransient(type, id, "direct");
   }
 
@@ -255,11 +261,8 @@
     proximityEdgeId = edgeId;
     if (canvas) {
       canvas.classList.toggle("has-edge-nearby", Boolean(edgeId));
-      if (edgeId) {
-        canvas.setAttribute("data-nearest-edge", edgeId);
-      } else {
-        canvas.removeAttribute("data-nearest-edge");
-      }
+      if (edgeId) canvas.setAttribute("data-nearest-edge", edgeId);
+      else canvas.removeAttribute("data-nearest-edge");
     }
 
     if (edgeId) {
@@ -278,6 +281,43 @@
       pinnedState = { type: "hyperedge", id: id };
     }
     renderState();
+  }
+
+  function updateViewCopy() {
+    if (description) {
+      description.textContent = currentView === "timeline"
+        ? "The same works arranged along a fixed research chronology."
+        : "An interactive hypergraph of research themes and their shared works.";
+    }
+    if (hint) {
+      hint.textContent = currentView === "timeline"
+        ? "Hover or focus to inspect · Select a work to view its entry"
+        : "Hover or focus to explore · Select a work to view its entry";
+    }
+  }
+
+  function updateViewUrl(view) {
+    if (!window.history || typeof window.history.replaceState !== "function") return;
+    var url = new URL(window.location.href);
+    if (view === "timeline") url.searchParams.set("view", "timeline");
+    else url.searchParams.delete("view");
+    window.history.replaceState(null, "", url.pathname + url.search + url.hash);
+  }
+
+  function setMapView(view, updateUrl) {
+    currentView = view === "timeline" ? "timeline" : "themes";
+    pinnedState = null;
+    transientState = null;
+    clearProximity();
+    root.setAttribute("data-map-view", currentView);
+
+    viewButtons.forEach(function (button) {
+      button.setAttribute("aria-pressed", button.getAttribute("data-map-view-button") === currentView ? "true" : "false");
+    });
+
+    updateViewCopy();
+    renderState();
+    if (updateUrl) updateViewUrl(currentView);
   }
 
   function renderState() {
@@ -328,16 +368,29 @@
     });
 
     root.setAttribute("data-active-map-edges", Array.from(activeEdges).join(" "));
-    if (selectedWork) {
-      root.setAttribute("data-active-map-work", selectedWork);
-    } else {
-      root.removeAttribute("data-active-map-work");
-    }
+    if (selectedWork) root.setAttribute("data-active-map-work", selectedWork);
+    else root.removeAttribute("data-active-map-work");
 
     if (!panel) return;
     var templateKey = state ? state.type + ":" + state.id : null;
-    panel.innerHTML = templateKey && templates.has(templateKey) ? templates.get(templateKey) : defaultPanel;
+    panel.innerHTML = templateKey && templates.has(templateKey)
+      ? templates.get(templateKey)
+      : (defaultPanels.get(currentView) || defaultPanels.get("themes") || "");
   }
+
+  viewButtons.forEach(function (button, index) {
+    button.addEventListener("click", function () {
+      setMapView(button.getAttribute("data-map-view-button"), true);
+    });
+    button.addEventListener("keydown", function (event) {
+      if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
+      event.preventDefault();
+      var offset = event.key === "ArrowRight" ? 1 : -1;
+      var target = viewButtons[(index + offset + viewButtons.length) % viewButtons.length];
+      setMapView(target.getAttribute("data-map-view-button"), true);
+      target.focus();
+    });
+  });
 
   root.querySelectorAll("[data-hyperedge-label]").forEach(function (label) {
     var id = label.getAttribute("data-hyperedge-label");
@@ -373,9 +426,7 @@
       navigateToEntry(event, paper);
     });
     paper.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        navigateToEntry(event, paper);
-      }
+      if (event.key === "Enter" || event.key === " ") navigateToEntry(event, paper);
     });
   });
 
@@ -388,7 +439,6 @@
     if (event.defaultPrevented) return;
     var link = event.target.closest('a[href^="#"]');
     if (!link) return;
-
     navigateToEntry(event, link);
   });
 
@@ -400,9 +450,7 @@
     if (!target) return;
 
     event.preventDefault();
-    if (window.location.hash !== hash) {
-      window.history.pushState(null, "", hash);
-    }
+    if (window.location.hash !== hash) window.history.pushState(null, "", hash);
 
     target.scrollIntoView({ behavior: reducedMotion.matches ? "auto" : "smooth", block: "start" });
     target.focus({ preventScroll: true });
@@ -417,6 +465,7 @@
     if (event.key !== "Escape" || (!pinnedState && !transientState)) return;
     pinnedState = null;
     transientState = null;
+    clearProximity();
     renderState();
   });
 
@@ -440,22 +489,20 @@
           canvas.style.setProperty("--map-pointer-y", Math.max(0, Math.min(100, y)) + "%");
         }
 
-        if (!interactiveTarget) updateProximity(clientX, clientY);
+        if (currentView === "themes" && !interactiveTarget) updateProximity(clientX, clientY);
       });
     });
 
     canvas.addEventListener("pointerleave", function () {
-      proximityEdgeId = null;
+      clearProximity();
       transientState = null;
-      canvas.classList.remove("has-edge-nearby");
-      canvas.removeAttribute("data-nearest-edge");
       canvas.style.setProperty("--map-pointer-x", "50%");
       canvas.style.setProperty("--map-pointer-y", "-20%");
       renderState();
     });
 
     canvas.addEventListener("click", function (event) {
-      if (isInteractiveMapTarget(event.target) || !proximityEdgeId) return;
+      if (currentView !== "themes" || isInteractiveMapTarget(event.target) || !proximityEdgeId) return;
       togglePinnedEdge(proximityEdgeId);
     });
 
@@ -463,4 +510,12 @@
       canvasBounds = null;
     }, { passive: true });
   }
+
+  window.addEventListener("popstate", function () {
+    var requested = new URL(window.location.href).searchParams.get("view");
+    setMapView(requested === "timeline" ? "timeline" : "themes", false);
+  });
+
+  var requestedView = new URL(window.location.href).searchParams.get("view");
+  setMapView(requestedView === "timeline" ? "timeline" : "themes", false);
 })();

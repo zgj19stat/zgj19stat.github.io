@@ -1,0 +1,111 @@
+.visitor-counter {
+  --counter-accent: #0072b2;
+  --counter-ink: #374151;
+  --counter-muted: #68737f;
+  display: grid;
+  grid-template-columns: auto auto minmax(3.5rem, auto) auto;
+  align-items: center;
+  justify-content: start;
+  gap: 0.45rem;
+  width: fit-content;
+  max-width: 100%;
+  margin: 2.75rem 0 0;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #dbe2e8;
+  border-radius: 999px;
+  background: linear-gradient(145deg, #fff 0%, #f8fafc 100%);
+  color: var(--counter-ink);
+  box-shadow: 0 7px 20px rgba(31, 41, 55, 0.045);
+  font-size: 0.69rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.visitor-counter__signal {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #a6b0ba;
+  box-shadow: 0 0 0 3px rgba(166, 176, 186, 0.12);
+}
+
+.visitor-counter[data-counter-state="ready"] .visitor-counter__signal {
+  background: var(--counter-accent);
+  box-shadow: 0 0 0 3px rgba(0, 114, 178, 0.12);
+}
+
+.visitor-counter[data-counter-state="updated"] .visitor-counter__signal {
+  animation: visitor-counter-pulse 900ms ease-out;
+}
+
+.visitor-counter__label,
+.visitor-counter__since {
+  color: var(--counter-muted);
+  font-weight: 700;
+  letter-spacing: 0.075em;
+}
+
+.visitor-counter__value {
+  min-width: 3.5rem;
+  color: var(--counter-accent);
+  font-size: 0.92rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.025em;
+  text-align: center;
+}
+
+.visitor-counter__since {
+  padding-left: 0.45rem;
+  border-left: 1px solid #dbe2e8;
+}
+
+.visitor-counter__definition {
+  position: absolute;
+  overflow: hidden;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.visitor-counter[data-counter-state="unavailable"] {
+  display: none;
+}
+
+@keyframes visitor-counter-pulse {
+  0% {
+    box-shadow: 0 0 0 3px rgba(0, 114, 178, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 0 10px rgba(0, 114, 178, 0);
+  }
+}
+
+@media (max-width: 520px) {
+  .visitor-counter {
+    grid-template-columns: auto auto minmax(3rem, auto);
+    gap: 0.4rem;
+    border-radius: 12px;
+  }
+
+  .visitor-counter__since {
+    grid-column: 2 / -1;
+    padding: 0;
+    border: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .visitor-counter__signal {
+    animation: none !important;
+  }
+}
+
+@media print {
+  .visitor-counter {
+    display: none;
+  }
+}
