@@ -20,6 +20,8 @@ I also have an established research background in these areas through my previou
 
 - Latent Space Models, Community/Hub Detection, and Network Analysis
 
-I am passionate about exploring these areas from both theoretical and applied perspectives. If you share these interests or have an idea for a potential project, please feel free to contact me via email to begin a discussion.
+I am passionate about exploring these areas from both theoretical and applied perspectives. If you share these interests or have an idea for a potential project, please feel free to contact me via email zhuguojun23[at]mails[dot]ucas[dot]ac[dot]cn to begin a discussion.
+
+
 
 {% include visitor-counter.html %}
