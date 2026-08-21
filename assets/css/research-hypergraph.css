@@ -1,0 +1,477 @@
+.research-hypergraph {
+  --map-ink: #374151;
+  --map-muted: #6b7280;
+  --map-border: #dbe2e8;
+  --map-surface: #f8fafc;
+  --map-transfer: #0072b2;
+  --map-latent: #008b68;
+  --map-hub: #b45a98;
+  --map-multisource: #d48600;
+  margin: 2.25rem 0 2.75rem;
+}
+
+.research-hypergraph__heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.research-hypergraph__heading h2 {
+  margin: 0 0 0.2rem;
+  padding: 0;
+  border-bottom: 0;
+  font-size: 1.35rem;
+}
+
+.research-hypergraph__heading p {
+  margin: 0;
+  color: var(--map-muted);
+  font-size: 0.88rem;
+}
+
+.research-hypergraph__hint {
+  flex: 0 0 auto;
+  text-align: right;
+}
+
+.research-hypergraph__shell {
+  display: grid;
+  grid-template-columns: minmax(0, 2.15fr) minmax(230px, 0.9fr);
+  overflow: hidden;
+  border: 1px solid var(--map-border);
+  border-radius: 14px;
+  background: #fff;
+  box-shadow: 0 10px 28px rgba(31, 41, 55, 0.06);
+}
+
+.research-hypergraph__canvas {
+  --map-pointer-x: 50%;
+  --map-pointer-y: -20%;
+  position: relative;
+  min-width: 0;
+  background:
+    radial-gradient(circle at var(--map-pointer-x) var(--map-pointer-y), rgba(0, 114, 178, 0.1), rgba(0, 114, 178, 0) 24%),
+    linear-gradient(145deg, #fff 0%, var(--map-surface) 100%);
+  contain: layout paint;
+}
+
+.research-hypergraph__canvas svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.research-hypergraph__area-headings text {
+  fill: #7b8794;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.075em;
+  text-transform: uppercase;
+}
+
+.research-hypergraph__edge,
+.research-hypergraph__edge-line,
+.research-hypergraph__paper,
+.research-hypergraph__edge-label {
+  transition: opacity 180ms ease, fill-opacity 180ms ease, stroke-opacity 180ms ease, stroke-width 180ms ease, transform 180ms ease;
+}
+
+.research-hypergraph__edge {
+  stroke: none;
+  fill-opacity: 0.055;
+}
+
+.research-hypergraph__edge-line {
+  fill: none;
+  stroke-width: 1.8;
+  stroke-opacity: 0.62;
+  vector-effect: non-scaling-stroke;
+}
+
+.research-hypergraph__edge--transfer-learning {
+  fill: var(--map-transfer);
+}
+
+.research-hypergraph__edge--latent-space-model {
+  fill: var(--map-latent);
+}
+
+.research-hypergraph__edge--hub-community-detection {
+  fill: var(--map-hub);
+}
+
+.research-hypergraph__edge--multi-source-data {
+  fill: var(--map-multisource);
+}
+
+.research-hypergraph__edge-line--transfer-learning {
+  stroke: var(--map-transfer);
+}
+
+.research-hypergraph__edge-line--latent-space-model {
+  stroke: var(--map-latent);
+}
+
+.research-hypergraph__edge-line--hub-community-detection {
+  stroke: var(--map-hub);
+}
+
+.research-hypergraph__edge-line--multi-source-data {
+  stroke: var(--map-multisource);
+}
+
+.research-hypergraph__edge-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 24;
+  pointer-events: stroke;
+  cursor: pointer;
+  vector-effect: non-scaling-stroke;
+}
+
+.research-hypergraph__edge.is-active {
+  fill-opacity: 0.14;
+}
+
+.research-hypergraph__edge-line.is-active {
+  stroke-width: 3.2;
+  stroke-opacity: 1;
+}
+
+.research-hypergraph__edge.is-muted,
+.research-hypergraph__edge-line.is-muted,
+.research-hypergraph__edge-label.is-muted {
+  opacity: 0.16;
+}
+
+.research-hypergraph__paper {
+  color: var(--map-ink);
+  cursor: pointer;
+  opacity: 1;
+  outline: none;
+}
+
+.research-hypergraph__paper circle {
+  stroke: var(--map-ink);
+  stroke-width: 2;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 160ms ease, filter 160ms ease, stroke-width 160ms ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.research-hypergraph__paper--manuscript circle {
+  fill: #fff;
+}
+
+.research-hypergraph__paper--publication circle {
+  fill: var(--map-ink);
+}
+
+.research-hypergraph__paper text {
+  fill: var(--map-ink);
+  stroke: rgba(255, 255, 255, 0.96);
+  stroke-width: 4px;
+  paint-order: stroke fill;
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  pointer-events: none;
+}
+
+.research-hypergraph__paper.is-active circle {
+  transform: scale(1.14);
+  filter: drop-shadow(0 1px 2px rgba(31, 41, 55, 0.2));
+}
+
+.research-hypergraph__paper:hover circle,
+.research-hypergraph__paper:focus-visible circle,
+.research-hypergraph__paper.is-selected circle {
+  transform: scale(1.32);
+  filter: drop-shadow(0 2px 3px rgba(31, 41, 55, 0.28));
+  stroke-width: 2.4;
+}
+
+.research-hypergraph__paper:focus-visible circle {
+  stroke: #111827;
+  stroke-width: 3.4;
+}
+
+.research-hypergraph__paper.is-muted {
+  opacity: 0.24;
+}
+
+.research-hypergraph__edge-label {
+  stroke: rgba(255, 255, 255, 0.96);
+  stroke-width: 6px;
+  paint-order: stroke fill;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.015em;
+  cursor: pointer;
+  outline: none;
+}
+
+.research-hypergraph__edge-label--transfer-learning {
+  fill: var(--map-transfer);
+}
+
+.research-hypergraph__edge-label--latent-space-model {
+  fill: var(--map-latent);
+}
+
+.research-hypergraph__edge-label--hub-community-detection {
+  fill: var(--map-hub);
+}
+
+.research-hypergraph__edge-label--multi-source-data {
+  fill: var(--map-multisource);
+}
+
+.research-hypergraph__edge-label:hover,
+.research-hypergraph__edge-label:focus-visible,
+.research-hypergraph__edge-label.is-active {
+  text-decoration: underline;
+  text-decoration-thickness: 1.5px;
+  text-underline-offset: 3px;
+}
+
+.research-hypergraph__panel {
+  min-width: 0;
+  min-height: 400px;
+  padding: 1.3rem 1.25rem;
+  border-left: 1px solid var(--map-border);
+  background: rgba(255, 255, 255, 0.96);
+}
+
+.research-hypergraph__panel > * {
+  animation: research-map-panel-in 180ms ease both;
+}
+
+.research-hypergraph__panel h3 {
+  margin: 0.25rem 0 0.7rem;
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.research-hypergraph__panel p {
+  margin: 0 0 0.8rem;
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.research-hypergraph__eyebrow {
+  color: var(--map-muted);
+  font-size: 0.69rem !important;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.research-hypergraph__count,
+.research-hypergraph__method-note {
+  color: var(--map-muted);
+}
+
+.research-hypergraph__method-note {
+  margin-top: 1.1rem !important;
+  padding-top: 0.9rem;
+  border-top: 1px solid #e5e7eb;
+  font-size: 0.74rem !important;
+}
+
+.research-hypergraph__legend {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 1.15rem;
+  font-size: 0.78rem;
+}
+
+.research-hypergraph__legend span,
+.research-hypergraph__work-list a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.research-hypergraph__legend-node {
+  display: inline-block;
+  flex: 0 0 auto;
+  width: 11px;
+  height: 11px;
+  border: 2px solid var(--map-ink);
+  border-radius: 50%;
+  background: #fff;
+}
+
+.research-hypergraph__legend-node--publication {
+  background: var(--map-ink);
+}
+
+.research-hypergraph__work-list {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.research-hypergraph__work-list li {
+  margin: 0;
+}
+
+.research-hypergraph__work-list a {
+  font-size: 0.79rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.research-hypergraph__work-list a:hover span,
+.research-hypergraph__work-list a:focus-visible span {
+  text-decoration: underline;
+}
+
+.research-hypergraph__work-list small {
+  display: block;
+  margin: 0.15rem 0 0 1.5rem;
+  color: var(--map-muted);
+  font-size: 0.68rem;
+}
+
+.research-hypergraph__theme-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.research-hypergraph__theme-chip {
+  display: inline-flex;
+  align-items: center;
+  min-height: 1.55rem;
+  padding: 0.22rem 0.48rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  background: #fff;
+  font-size: 0.64rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.research-hypergraph__theme-chip--transfer-learning {
+  color: var(--map-transfer);
+}
+
+.research-hypergraph__theme-chip--latent-space-model {
+  color: var(--map-latent);
+}
+
+.research-hypergraph__theme-chip--hub-community-detection {
+  color: var(--map-hub);
+}
+
+.research-hypergraph__theme-chip--multi-source-data {
+  color: var(--map-multisource);
+}
+
+.research-hypergraph__jump {
+  display: inline-flex;
+  gap: 0.35rem;
+  align-items: center;
+  margin-top: 0.25rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.publication-author-note {
+  margin: 0 0 2rem;
+  color: #5f6872;
+  font-size: 0.88rem;
+}
+
+.publication-area {
+  margin-top: 2.5rem;
+}
+
+.publication-area__description {
+  margin: -0.25rem 0 1.4rem;
+  color: #5f6872;
+  font-style: italic;
+}
+
+.publication-list .publication-item {
+  margin-bottom: 1.45rem;
+  scroll-margin-top: 6rem;
+  border-radius: 6px;
+  transition: background-color 220ms ease, box-shadow 220ms ease;
+}
+
+.publication-list .publication-item.is-map-target {
+  background: rgba(0, 114, 178, 0.08);
+  box-shadow: 0 0 0 0.35rem rgba(0, 114, 178, 0.08);
+}
+
+.publication-item__title {
+  font-weight: 500;
+}
+
+@keyframes research-map-panel-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1080px) and (min-width: 801px) {
+  .research-hypergraph__heading {
+    display: block;
+  }
+
+  .research-hypergraph__hint {
+    margin-top: 0.25rem !important;
+    text-align: left;
+  }
+
+  .research-hypergraph__shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .research-hypergraph__panel {
+    min-height: 0;
+    border-top: 1px solid var(--map-border);
+    border-left: 0;
+  }
+}
+
+@media (max-width: 800px), (hover: none) and (pointer: coarse) {
+  .research-hypergraph {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .research-hypergraph__canvas {
+    background: linear-gradient(145deg, #fff 0%, var(--map-surface) 100%);
+  }
+
+  .research-hypergraph *,
+  .publication-list .publication-item {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+
+@media print {
+  .research-hypergraph {
+    display: none;
+  }
+}
