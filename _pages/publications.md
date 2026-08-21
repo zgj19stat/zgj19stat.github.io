@@ -6,7 +6,7 @@ author_profile: true
 research_map: true
 ---
 
-My research foundation spans two complementary themes: **Statistical Machine Learning** and **Network and Graphical Models**. The map below highlights the thematic connections among individual works; select a node to jump to its entry.
+My research foundation spans two complementary themes: **Statistical Machine Learning** and **Network and Graphical Models**. The map below connects individual works by research theme and can also arrange them chronologically; select a node to jump to its entry.
 
 {% include scholar-map.html %}
 

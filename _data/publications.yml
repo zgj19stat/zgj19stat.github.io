@@ -69,6 +69,10 @@ works:
       label_x: 458
       label_y: 472
       label_anchor: "start"
+    timeline:
+      x: 630
+      y: 135
+      date: "Jul 2026"
 
   - id: pattern-calibrated-multimodal-prediction
     area: statistical-machine-learning
@@ -88,6 +92,10 @@ works:
       label_x: 514
       label_y: 109
       label_anchor: "start"
+    timeline:
+      x: 630
+      y: 405
+      date: "Jul 2026"
 
   - id: information-transfer
     area: statistical-machine-learning
@@ -107,6 +115,10 @@ works:
       label_x: 618
       label_y: 187
       label_anchor: "end"
+    timeline:
+      x: 540
+      y: 350
+      date: "Apr 2026"
 
   - id: federated-class-incremental-learning
     area: statistical-machine-learning
@@ -126,6 +138,10 @@ works:
       label_x: 532
       label_y: 343
       label_anchor: "start"
+    timeline:
+      x: 450
+      y: 405
+      date: "Jan 2026"
 
   - id: conditional-generative-multisource
     area: statistical-machine-learning
@@ -147,6 +163,10 @@ works:
       label_x: 626
       label_y: 409
       label_anchor: "end"
+    timeline:
+      x: 90
+      y: 170
+      date: "Jan 2025"
 
   - id: directed-hypergraphs
     area: network-and-graphical-models
@@ -163,6 +183,10 @@ works:
       label_x: 219
       label_y: 209
       label_anchor: "end"
+    timeline:
+      x: 660
+      y: 260
+      date: "Aug 2026"
 
   - id: distributed-hub-detection
     area: network-and-graphical-models
@@ -179,6 +203,10 @@ works:
       label_x: 361
       label_y: 283
       label_anchor: "start"
+    timeline:
+      x: 570
+      y: 210
+      date: "May 2026"
 
   - id: functional-latent-space-model
     area: network-and-graphical-models
@@ -195,6 +223,10 @@ works:
       label_x: 118
       label_y: 127
       label_anchor: "start"
+    timeline:
+      x: 540
+      y: 135
+      date: "Apr 2026"
 
   - id: disease-network
     area: network-and-graphical-models
@@ -214,3 +246,7 @@ works:
       label_x: 126
       label_y: 347
       label_anchor: "start"
+    timeline:
+      x: 510
+      y: 195
+      date: "Mar 2026"

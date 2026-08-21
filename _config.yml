@@ -8,6 +8,11 @@ url: "https://zgj19stat.github.io"
 baseurl: ""
 repository: "zgj19stat/zgj19stat.github.io"
 
+# Anonymous visit counter backed by a Cloudflare Worker and D1.
+visit_counter:
+  endpoint: "https://zgj19stat-visitor-counter.zgj19stat.workers.dev"
+  since: "Aug 2026"
+
 # Sidebar profile
 author:
   avatar: "profile.png"
@@ -36,6 +41,7 @@ exclude:
   - .github
   - .jekyll-assets-cache
   - .sass-cache
+  - cloudflare
   - Gemfile
   - Gemfile.lock
   - LICENSE

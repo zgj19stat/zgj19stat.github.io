@@ -27,3 +27,22 @@ jobs:
 
       - name: Validate research map and publication anchors
         run: python3 scripts/validate-scholar-map.py _site/publications/index.html
+
+      - name: Validate homepage counter and CV academic path
+        run: python3 scripts/validate-site-features.py _site
+
+      - name: Check interactive JavaScript
+        run: |
+          node --check assets/js/research-hypergraph.js
+          node --check assets/js/academic-path.js
+          node --check assets/js/visitor-counter.js
+
+      - name: Test visitor counter Worker
+        run: node --test cloudflare/visitor-counter/test/worker.test.mjs
+
+      - name: Upload rendered site preview
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-preview
+          path: _site
+          retention-days: 3

@@ -1,0 +1,48 @@
+<section class="academic-path" aria-labelledby="academic-path-title" data-academic-path data-time-zone="Asia/Shanghai">
+  <div class="academic-path__heading">
+    <div>
+      <h2 id="academic-path-title">Education</h2>
+      <p>Academic Path</p>
+    </div>
+    <p class="academic-path__hint">Wuhan <span aria-hidden="true">→</span> Beijing <span aria-hidden="true">→</span> Singapore</p>
+  </div>
+
+  <ol class="academic-path__timeline">
+    {% assign build_date = site.time | date: "%Y-%m-%d" %}
+    {% for stage in site.data.academic_path %}
+      {% if stage.end and stage.end < build_date %}
+        {% assign fallback_status = "completed" %}
+        {% assign fallback_label = "Completed" %}
+      {% elsif stage.start > build_date %}
+        {% assign fallback_status = "upcoming" %}
+        {% assign fallback_label = "Upcoming" %}
+      {% else %}
+        {% assign fallback_status = "current" %}
+        {% assign fallback_label = "Current" %}
+      {% endif %}
+
+      <li class="academic-path__stage academic-path__stage--{{ fallback_status }}"
+          data-academic-stage="{{ stage.id }}"
+          data-start-date="{{ stage.start }}"
+          {% if stage.end %}data-end-date="{{ stage.end }}"{% endif %}
+          data-status="{{ fallback_status }}">
+        <span class="academic-path__marker" aria-hidden="true"></span>
+        <article class="academic-path__card">
+          <div class="academic-path__meta">
+            <time datetime="{{ stage.start }}{% if stage.end %}/{{ stage.end }}{% endif %}">{{ stage.dates }}</time>
+            <span class="academic-path__status" data-academic-status>{{ fallback_label }}</span>
+          </div>
+          <h3>{{ stage.role }}</h3>
+          <p class="academic-path__institution">
+            <a href="{{ stage.unit_url }}">{{ stage.unit }}</a>,
+            <a href="{{ stage.institution_url }}">{{ stage.institution }}</a>
+          </p>
+          <p class="academic-path__location">{{ stage.location }}</p>
+          {% if stage.mentor %}
+            <p class="academic-path__mentor">{{ stage.mentor_label }}: <a href="{{ stage.mentor_url }}">{{ stage.mentor }}</a></p>
+          {% endif %}
+        </article>
+      </li>
+    {% endfor %}
+  </ol>
+</section>

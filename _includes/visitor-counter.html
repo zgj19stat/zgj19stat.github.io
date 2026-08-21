@@ -1,0 +1,14 @@
+{% assign counter_endpoint = site.visit_counter.endpoint | default: "" %}
+{% assign counter_since = site.visit_counter.since | default: "Aug 2026" %}
+<aside class="visitor-counter"
+       data-visitor-counter
+       data-counter-endpoint="{{ counter_endpoint }}"
+       data-counter-since="{{ counter_since }}"
+       data-counter-state="loading"
+       aria-label="Total site visits since {{ counter_since }}">
+  <span class="visitor-counter__signal" aria-hidden="true"></span>
+  <span class="visitor-counter__label">Total visits</span>
+  <strong class="visitor-counter__value" data-counter-value aria-live="polite" aria-atomic="true">—</strong>
+  <span class="visitor-counter__since">Since {{ counter_since }}</span>
+  <span class="visitor-counter__definition">Anonymous 8-hour visits; no IP address or user agent is stored.</span>
+</aside>
