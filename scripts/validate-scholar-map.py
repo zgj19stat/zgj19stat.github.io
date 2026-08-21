@@ -34,6 +34,18 @@ EXPECTED_HYPEREDGES = {
     },
 }
 
+EXPECTED_MAP_LABELS = {
+    "ladder": "LADDER",
+    "pattern-calibrated-multimodal-prediction": "MOSAIC",
+    "information-transfer": "Transfer-Label-Noise",
+    "federated-class-incremental-learning": "STSA",
+    "conditional-generative-multisource": "STWGAN",
+    "directed-hypergraphs": "FOLD",
+    "distributed-hub-detection": "Distributed Hub",
+    "functional-latent-space-model": "FLSM",
+    "disease-network": "MTFLSM",
+}
+
 
 class PublicationPageParser(HTMLParser):
     def __init__(self) -> None:
@@ -43,6 +55,8 @@ class PublicationPageParser(HTMLParser):
         self.publication_items: dict[str, dict[str, str]] = {}
         self.hyperedges: dict[str, set[str]] = {}
         self.assets: set[str] = set()
+        self.map_canvas: dict[str, str] = {}
+        self.paper_hit_targets: list[dict[str, str]] = []
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = {key: value or "" for key, value in attrs}
@@ -54,6 +68,12 @@ class PublicationPageParser(HTMLParser):
         if tag == "g" and "research-hypergraph__paper" in classes:
             work_id = attributes.get("data-work-id", "")
             self.paper_nodes[work_id] = attributes
+
+        if "data-research-map-canvas" in attributes:
+            self.map_canvas = attributes
+
+        if tag == "circle" and "research-hypergraph__paper-hit" in classes:
+            self.paper_hit_targets.append(attributes)
 
         if tag == "li" and "publication-item" in classes:
             work_id = attributes.get("id", "")
@@ -91,6 +111,15 @@ def main() -> int:
 
     stages = Counter(attributes.get("data-stage") for attributes in parser.paper_nodes.values())
     require(stages == {"manuscript": 6, "publication": 3}, f"unexpected map status counts: {stages}")
+
+    map_labels = {work_id: attributes.get("data-map-label", "") for work_id, attributes in parser.paper_nodes.items()}
+    require(map_labels == EXPECTED_MAP_LABELS, f"unexpected map labels: {map_labels}")
+    require(parser.map_canvas.get("data-hit-radius") == "18", "the map must declare its contour hit radius")
+    require(
+        len(parser.paper_hit_targets) == 9 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
+        "each paper node must have a stable enlarged hit target",
+    )
+    require("research-hypergraph__area-headings" not in html, "redundant research-area headings remain in the map")
 
     for work_id, attributes in parser.paper_nodes.items():
         require(attributes.get("data-href") == f"#{work_id}", f"map node {work_id} has an invalid target")
