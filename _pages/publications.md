@@ -13,6 +13,10 @@ author_profile: true
 **Guojun Zhu**, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup>*</sup><br>
 Under review (Major revision and revised by Biometrics), Apr 2026.
 
+- Directed hypergraphs: tensor representation, embedding modeling, and community detection<br>
+**Guojun Zhu**, Haofei Wang, Mingyang Ren<sup>*</sup><br>
+Manuscript, Aug 2026.
+
 - Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting<br>
 Yuhang Jiang, Fengchuan Zhang, Sanguo Zhang, **Guojun Zhu**<sup>*</sup><br>
 Under review, Jul 2026. [[arXiv](https://arxiv.org/abs/2607.26458)]
