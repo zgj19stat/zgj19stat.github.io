@@ -7,12 +7,12 @@
 # server process.
 
 # Basic Site Settings
-locale                   : "cn-China"
-title                    : "Guojun Zhu/Personal Homepage"
+locale                   : "en-US"
+title                    : "Guojun Zhu | Personal Homepage"
 title_separator          : "-"
 name                     : &name "Guojun Zhu"
-description              : &description "a Ph.D. student from University of Chinese Academic Sciences"
-url                      : "https://zgj19stat.github.io/"
+description              : &description "Ph.D. student in Statistics at the University of Chinese Academy of Sciences"
+url                      : "https://zgj19stat.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "zgj19stat/zgj19stat.github.io"
 
@@ -24,7 +24,7 @@ author:
   avatar           : "profile.png"
   name             : "Guojun Zhu (祝国隽)"
   pronouns         : "he/him"
-  bio              : "a Ph.D. student from University of Chinese Academic Sciences"
+  bio              : "Ph.D. student in Statistics at the University of Chinese Academy of Sciences"
   location         : "China, Beijing"
   employer         : "UCAS"
   uri              : "https://zgj19stat.github.io/"
@@ -90,7 +90,6 @@ breadcrumbs              : false # true, false (default)
 words_per_minute         : 160
 future                   : true
 read_more                : "disabled" # if enabled, adds "Read more" links to excerpts
-talkmap_link             : false #change to true to add link to talkmap on talks page
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "google-plus", "staticman", "custom"
   disqus:
@@ -118,7 +117,7 @@ staticman:
       options:
         format           : "iso8601" # "iso8601" (default), "timestamp-seconds", "timestamp-milliseconds"
 atom_feed:
-  hide                   : false     # change to true to hide the RSS feed in the footer
+  hide                   : true      # no blog feed is shown on this academic profile
   path                   : # blank (default) uses feed.xml
 
 
@@ -147,7 +146,7 @@ social:
 
 # Analytics
 analytics:
-  provider               :  "false" # false (default), "google", "google-universal", "google-analytics-4", "custom"
+  provider               : false # false (default), "google", "google-universal", "google-analytics-4", "custom"
   google:
     tracking_id          :
 
@@ -211,13 +210,7 @@ kramdown:
 
 # These settings control the types of collections used by the template
 collections:
-  teaching:
-    output: true
-    permalink: /:collection/:path/
   publications:
-    output: true
-    permalink: /:collection/:path/
-  portfolio:
     output: true
     permalink: /:collection/:path/
   talks:
@@ -245,15 +238,6 @@ defaults:
     values:
       layout: single
       author_profile: true
-  # _teaching
-  - scope:
-      path: ""
-      type: teaching
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comments: true
   # _publications
   - scope:
       path: ""
@@ -263,15 +247,6 @@ defaults:
       author_profile: true
       share: true
       comments: true
-  # _portfolio
-  - scope:
-      path: ""
-      type: portfolio
-    values:
-      layout: single
-      author_profile: true
-      share: true
-      comment: true
   # _talks
   - scope:
       path: ""
@@ -292,7 +267,7 @@ sass:
 permalink: /:categories/:title/
 # paginate: 5 # amount of posts to show
 # paginate_path: /page:num/
-timezone: America/Los_Angeles # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
+timezone: Asia/Shanghai # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
 
 
 # Plugins
