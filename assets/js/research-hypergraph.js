@@ -171,6 +171,14 @@
       setTransient("work", id);
     });
     paper.addEventListener("blur", scheduleTransientClear);
+    paper.addEventListener("click", function (event) {
+      navigateToEntry(event, paper);
+    });
+    paper.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        navigateToEntry(event, paper);
+      }
+    });
   });
 
   if (panel) {
@@ -179,10 +187,17 @@
   }
 
   root.addEventListener("click", function (event) {
+    if (event.defaultPrevented) return;
     var link = event.target.closest('a[href^="#"]');
     if (!link) return;
 
-    var hash = link.getAttribute("href");
+    navigateToEntry(event, link);
+  });
+
+  function navigateToEntry(event, link) {
+    if (!link) return;
+
+    var hash = link.getAttribute("data-href") || link.getAttribute("href");
     var target = hash && document.getElementById(hash.slice(1));
     if (!target) return;
 
@@ -197,8 +212,8 @@
     window.clearTimeout(highlightTimer);
     highlightTimer = window.setTimeout(function () {
       target.classList.remove("is-map-target");
-    }, 1700);
-  });
+    }, 4000);
+  }
 
   document.addEventListener("keydown", function (event) {
     if (event.key !== "Escape" || (!pinnedState && !transientState)) return;

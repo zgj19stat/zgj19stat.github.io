@@ -48,8 +48,10 @@
         <g class="research-hypergraph__nodes">
           {% for work in publication_data.works %}
             {% capture memberships %}{% for edge in publication_data.hyperedges %}{% if edge.members contains work.id %}{{ edge.id }} {% endif %}{% endfor %}{% endcapture %}
-            <a class="research-hypergraph__paper research-hypergraph__paper--{{ work.stage }}"
-               href="#{{ work.id }}"
+            <g class="research-hypergraph__paper research-hypergraph__paper--{{ work.stage }}"
+               role="link"
+               tabindex="0"
+               data-href="#{{ work.id }}"
                data-work-id="{{ work.id }}"
                data-stage="{{ work.stage }}"
                data-hyperedges="{{ memberships | strip }}"
@@ -59,7 +61,7 @@
                     y="{{ work.map.label_y }}"
                     text-anchor="{{ work.map.label_anchor }}">{{ work.map_label }}</text>
               <title>{{ work.title }} — {{ work.map_meta }}</title>
-            </a>
+            </g>
           {% endfor %}
         </g>
 

@@ -51,7 +51,7 @@ class PublicationPageParser(HTMLParser):
         if attributes.get("id"):
             self.ids.append(attributes["id"])
 
-        if tag == "a" and "research-hypergraph__paper" in classes:
+        if tag == "g" and "research-hypergraph__paper" in classes:
             work_id = attributes.get("data-work-id", "")
             self.paper_nodes[work_id] = attributes
 
@@ -93,7 +93,9 @@ def main() -> int:
     require(stages == {"manuscript": 6, "publication": 3}, f"unexpected map status counts: {stages}")
 
     for work_id, attributes in parser.paper_nodes.items():
-        require(attributes.get("href") == f"#{work_id}", f"map node {work_id} has an invalid target")
+        require(attributes.get("data-href") == f"#{work_id}", f"map node {work_id} has an invalid target")
+        require(attributes.get("role") == "link", f"map node {work_id} must expose a link role")
+        require(attributes.get("tabindex") == "0", f"map node {work_id} must be keyboard-focusable")
         require(attributes.get("aria-label"), f"map node {work_id} has no accessible label")
 
     duplicate_ids = sorted(identifier for identifier, count in Counter(parser.ids).items() if count > 1)
