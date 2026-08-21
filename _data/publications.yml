@@ -10,9 +10,9 @@ areas:
 hyperedges:
   - id: transfer-learning
     title: "Transfer Learning"
-    path: "M 332 244 C 363 165, 432 83, 500 68 C 578 49, 673 91, 704 161 C 731 225, 694 293, 711 348 C 729 405, 687 445, 627 438 C 570 431, 532 395, 477 401 C 416 408, 347 365, 334 316 C 325 286, 324 264, 332 244 Z"
-    label_x: 497
-    label_y: 55
+    path: "M 330 244 C 356 204, 405 187, 426 142 C 447 96, 458 62, 503 52 C 564 38, 638 72, 674 121 C 704 164, 696 220, 670 261 C 648 296, 685 340, 674 381 C 663 423, 610 445, 566 421 C 526 400, 500 373, 458 366 C 412 358, 360 333, 337 301 C 322 280, 318 260, 330 244 Z"
+    label_x: 486
+    label_y: 38
     members:
       - pattern-calibrated-multimodal-prediction
       - distributed-hub-detection
@@ -22,9 +22,9 @@ hyperedges:
 
   - id: latent-space-model
     title: "Latent Space Model"
-    path: "M 43 91 C 82 51, 168 54, 221 102 C 276 143, 315 190, 302 250 C 289 307, 235 366, 163 393 C 82 421, 34 352, 40 275 C 45 219, 13 145, 43 91 Z"
-    label_x: 46
-    label_y: 68
+    path: "M 52 72 C 93 46, 149 55, 194 88 C 238 120, 274 165, 279 211 C 285 258, 252 307, 208 344 C 168 378, 109 397, 72 369 C 38 344, 43 298, 42 259 C 41 220, 20 166, 31 119 C 36 97, 42 81, 52 72 Z"
+    label_x: 52
+    label_y: 54
     members:
       - functional-latent-space-model
       - directed-hypergraphs
@@ -32,18 +32,18 @@ hyperedges:
 
   - id: hub-community-detection
     title: "Hub / Community Detection"
-    path: "M 215 187 C 265 158, 337 197, 399 239 C 435 264, 431 321, 393 345 C 344 339, 303 293, 254 282 C 211 273, 183 219, 215 187 Z"
-    label_x: 218
-    label_y: 174
+    path: "M 193 184 C 219 169, 249 175, 278 197 C 309 220, 331 242, 365 246 C 398 250, 423 270, 424 295 C 425 321, 399 339, 367 334 C 337 329, 317 304, 288 292 C 257 279, 217 276, 197 251 C 176 226, 172 196, 193 184 Z"
+    label_x: 198
+    label_y: 168
     members:
       - directed-hypergraphs
       - distributed-hub-detection
 
   - id: multi-source-data
     title: "Multi-source Data"
-    path: "M 329 275 C 385 241, 440 295, 486 315 C 547 341, 635 318, 688 365 C 726 401, 684 471, 615 482 C 557 492, 518 536, 447 531 C 379 527, 319 472, 325 410 C 330 360, 290 313, 329 275 Z"
-    label_x: 449
-    label_y: 550
+    path: "M 313 256 C 340 231, 380 246, 418 278 C 454 309, 481 315, 523 309 C 569 303, 632 324, 669 361 C 699 391, 683 438, 639 456 C 602 472, 568 500, 517 514 C 469 528, 409 511, 382 475 C 354 439, 363 400, 346 367 C 330 337, 287 282, 313 256 Z"
+    label_x: 454
+    label_y: 536
     members:
       - ladder
       - distributed-hub-detection
@@ -64,17 +64,17 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2607.26458"
     map:
-      x: 448
-      y: 471
-      label_x: 462
-      label_y: 476
+      x: 444
+      y: 467
+      label_x: 458
+      label_y: 472
       label_anchor: "start"
 
   - id: pattern-calibrated-multimodal-prediction
     area: statistical-machine-learning
     stage: manuscript
     title: "Pattern-Calibrated Multimodal Prediction under Blockwise Missingness"
-    map_label: "Blockwise Missingness"
+    map_label: "MOSAIC"
     map_meta: "Manuscript · Jul 2026"
     authors_html: >-
       Junhan Yu, Kejian Zhang, Doudou Zhou, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Authors listed in alphabetical order">&dagger;</sup>
@@ -83,17 +83,17 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2607.01821"
     map:
-      x: 510
-      y: 117
-      label_x: 524
-      label_y: 122
+      x: 500
+      y: 104
+      label_x: 514
+      label_y: 109
       label_anchor: "start"
 
   - id: information-transfer
     area: statistical-machine-learning
     stage: manuscript
     title: "Model-agnostic information transfer and fusion for classification with label noise"
-    map_label: "Information Transfer"
+    map_label: "Transfer-Label-Noise"
     map_meta: "Manuscript · Apr 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Sanguo Zhang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
@@ -102,17 +102,17 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2604.25845"
     map:
-      x: 629
-      y: 215
-      label_x: 615
-      label_y: 202
+      x: 632
+      y: 200
+      label_x: 618
+      label_y: 187
       label_anchor: "end"
 
   - id: federated-class-incremental-learning
     area: statistical-machine-learning
     stage: publication
     title: "Enhancing Federated Class-Incremental Learning via Spatial-Temporal Statistics Aggregation"
-    map_label: "Federated CIL"
+    map_label: "STSA"
     map_meta: "Publication · WWW · 2026"
     authors_html: >-
       Zenghao Guan, <strong>Guojun Zhu</strong>, Yucan Zhou, Wu Liu, Weiping Wang, Jiebo Luo, Xiaoyan Gu<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
@@ -121,17 +121,17 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2506.01327"
     map:
-      x: 522
-      y: 354
-      label_x: 536
-      label_y: 359
+      x: 518
+      y: 338
+      label_x: 532
+      label_y: 343
       label_anchor: "start"
 
   - id: conditional-generative-multisource
     area: statistical-machine-learning
     stage: publication
     title: "Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency"
-    map_label: "Invariant Multi-source"
+    map_label: "STWGAN"
     map_meta: "Publication · AISTATS · 2025"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Sanguo Zhang, Mingyang Ren
@@ -142,26 +142,26 @@ works:
       - label: "Slides"
         url: "https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_slides.pdf"
     map:
-      x: 638
-      y: 390
-      label_x: 624
-      label_y: 413
+      x: 640
+      y: 386
+      label_x: 626
+      label_y: 409
       label_anchor: "end"
 
   - id: directed-hypergraphs
     area: network-and-graphical-models
     stage: manuscript
     title: "Directed hypergraphs: tensor representation, embedding modeling, and community detection"
-    map_label: "Directed Hypergraphs"
+    map_label: "FOLD"
     map_meta: "Manuscript · Aug 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Haofei Wang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Manuscript, Aug 2026."
     map:
-      x: 248
-      y: 232
-      label_x: 233
-      label_y: 219
+      x: 234
+      y: 222
+      label_x: 219
+      label_y: 209
       label_anchor: "end"
 
   - id: distributed-hub-detection
@@ -174,33 +174,33 @@ works:
       Rongzhuo Nie, Sanguo Zhang, Lili Zhao, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Under review, May 2026."
     map:
-      x: 360
-      y: 290
-      label_x: 374
-      label_y: 295
+      x: 347
+      y: 278
+      label_x: 361
+      label_y: 283
       label_anchor: "start"
 
   - id: functional-latent-space-model
     area: network-and-graphical-models
     stage: manuscript
     title: "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data"
-    map_label: "Functional LSM"
+    map_label: "FLSM"
     map_meta: "Manuscript · Apr 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Under review (Major revision and revised by Biometrics), Apr 2026."
     map:
-      x: 100
-      y: 137
-      label_x: 114
-      label_y: 142
+      x: 104
+      y: 122
+      label_x: 118
+      label_y: 127
       label_anchor: "start"
 
   - id: disease-network
     area: network-and-graphical-models
     stage: publication
     title: "Latent Space Modeling for Human Disease Network With Temporal Variations: Analysis of Medicare Data"
-    map_label: "Disease Network"
+    map_label: "MTFLSM"
     map_meta: "Publication · AOAS · 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Ruiyue Wang, Rong Li, Sanguo Zhang, Shuangge Ma, Guanzhong Qiao, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
@@ -209,8 +209,8 @@ works:
       - label: "Slides"
         url: "https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/MTFLSM_slides.pdf"
     map:
-      x: 116
-      y: 340
-      label_x: 130
-      label_y: 345
+      x: 112
+      y: 342
+      label_x: 126
+      label_y: 347
       label_anchor: "start"

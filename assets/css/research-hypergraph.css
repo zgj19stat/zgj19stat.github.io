@@ -63,14 +63,6 @@
   height: auto;
 }
 
-.research-hypergraph__area-headings text {
-  fill: #7b8794;
-  font-size: 10.5px;
-  font-weight: 700;
-  letter-spacing: 0.075em;
-  text-transform: uppercase;
-}
-
 .research-hypergraph__edge,
 .research-hypergraph__edge-line,
 .research-hypergraph__paper,
@@ -80,13 +72,18 @@
 
 .research-hypergraph__edge {
   stroke: none;
-  fill-opacity: 0.055;
+  fill-opacity: 0.045;
+  pointer-events: none;
 }
 
 .research-hypergraph__edge-line {
   fill: none;
-  stroke-width: 1.8;
-  stroke-opacity: 0.62;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-opacity: 0.72;
+  pointer-events: none;
+  shape-rendering: geometricPrecision;
   vector-effect: non-scaling-stroke;
 }
 
@@ -124,19 +121,21 @@
 
 .research-hypergraph__edge-hit {
   fill: none;
-  stroke: transparent;
-  stroke-width: 24;
-  pointer-events: stroke;
-  cursor: pointer;
+  stroke: none;
+  pointer-events: none;
   vector-effect: non-scaling-stroke;
 }
 
+.research-hypergraph__canvas.has-edge-nearby {
+  cursor: pointer;
+}
+
 .research-hypergraph__edge.is-active {
-  fill-opacity: 0.14;
+  fill-opacity: 0.115;
 }
 
 .research-hypergraph__edge-line.is-active {
-  stroke-width: 3.2;
+  stroke-width: 2.7;
   stroke-opacity: 1;
 }
 
@@ -154,7 +153,13 @@
   text-decoration: none;
 }
 
-.research-hypergraph__paper circle {
+.research-hypergraph__paper-hit {
+  fill: transparent;
+  stroke: none;
+  pointer-events: all;
+}
+
+.research-hypergraph__paper-node {
   stroke: var(--map-ink);
   stroke-width: 2;
   transform-box: fill-box;
@@ -163,11 +168,11 @@
   vector-effect: non-scaling-stroke;
 }
 
-.research-hypergraph__paper--manuscript circle {
+.research-hypergraph__paper--manuscript .research-hypergraph__paper-node {
   fill: #fff;
 }
 
-.research-hypergraph__paper--publication circle {
+.research-hypergraph__paper--publication .research-hypergraph__paper-node {
   fill: var(--map-ink);
 }
 
@@ -176,26 +181,26 @@
   stroke: rgba(255, 255, 255, 0.96);
   stroke-width: 4px;
   paint-order: stroke fill;
-  font-size: 11.5px;
-  font-weight: 600;
-  letter-spacing: -0.01em;
-  pointer-events: none;
+  font-size: 11.25px;
+  font-weight: 650;
+  letter-spacing: 0.005em;
+  pointer-events: visiblePainted;
 }
 
-.research-hypergraph__paper.is-active circle {
+.research-hypergraph__paper.is-active .research-hypergraph__paper-node {
   transform: scale(1.14);
   filter: drop-shadow(0 1px 2px rgba(31, 41, 55, 0.2));
 }
 
-.research-hypergraph__paper:hover circle,
-.research-hypergraph__paper:focus-visible circle,
-.research-hypergraph__paper.is-selected circle {
+.research-hypergraph__paper:hover .research-hypergraph__paper-node,
+.research-hypergraph__paper:focus-visible .research-hypergraph__paper-node,
+.research-hypergraph__paper.is-selected .research-hypergraph__paper-node {
   transform: scale(1.32);
   filter: drop-shadow(0 2px 3px rgba(31, 41, 55, 0.28));
   stroke-width: 2.4;
 }
 
-.research-hypergraph__paper:focus-visible circle {
+.research-hypergraph__paper:focus-visible .research-hypergraph__paper-node {
   stroke: #111827;
   stroke-width: 3.4;
 }

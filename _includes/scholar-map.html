@@ -10,15 +10,10 @@
   </div>
 
   <div class="research-hypergraph__shell">
-    <div class="research-hypergraph__canvas" data-research-map-canvas>
-      <svg viewBox="0 0 750 570" role="img" aria-labelledby="research-map-svg-title research-map-svg-desc">
+    <div class="research-hypergraph__canvas" data-research-map-canvas data-hit-radius="18">
+      <svg viewBox="0 0 750 550" role="img" aria-labelledby="research-map-svg-title research-map-svg-desc">
         <title id="research-map-svg-title">Interactive research hypergraph</title>
         <desc id="research-map-svg-desc">Nine works are represented as nodes. Four overlapping contours represent Transfer Learning, Latent Space Model, Hub or Community Detection, and Multi-source Data. Manuscripts are hollow and publications are filled.</desc>
-
-        <g class="research-hypergraph__area-headings" aria-hidden="true">
-          <text x="164" y="24" text-anchor="middle">Network and Graphical Models</text>
-          <text x="551" y="24" text-anchor="middle">Statistical Machine Learning</text>
-        </g>
 
         <g class="research-hypergraph__edge-fills" aria-hidden="true">
           {% for edge in publication_data.hyperedges %}
@@ -53,10 +48,18 @@
                tabindex="0"
                data-href="#{{ work.id }}"
                data-work-id="{{ work.id }}"
+               data-map-label="{{ work.map_label }}"
                data-stage="{{ work.stage }}"
                data-hyperedges="{{ memberships | strip }}"
                aria-label="{{ work.title }}. {{ work.map_meta }}">
-              <circle cx="{{ work.map.x }}" cy="{{ work.map.y }}" r="8"></circle>
+              <circle class="research-hypergraph__paper-hit"
+                      cx="{{ work.map.x }}"
+                      cy="{{ work.map.y }}"
+                      r="16"></circle>
+              <circle class="research-hypergraph__paper-node"
+                      cx="{{ work.map.x }}"
+                      cy="{{ work.map.y }}"
+                      r="8"></circle>
               <text x="{{ work.map.label_x }}"
                     y="{{ work.map.label_y }}"
                     text-anchor="{{ work.map.label_anchor }}">{{ work.map_label }}</text>
