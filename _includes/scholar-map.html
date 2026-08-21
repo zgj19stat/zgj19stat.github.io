@@ -1,0 +1,133 @@
+{% assign publication_data = site.data.publications %}
+
+<section class="research-hypergraph" aria-labelledby="research-map-title">
+  <div class="research-hypergraph__heading">
+    <div>
+      <h2 id="research-map-title">Research Navigation Map</h2>
+      <p>An interactive hypergraph of research themes and their shared works.</p>
+    </div>
+    <p class="research-hypergraph__hint">Hover or focus to explore · Select a work to view its entry</p>
+  </div>
+
+  <div class="research-hypergraph__shell">
+    <div class="research-hypergraph__canvas" data-research-map-canvas>
+      <svg viewBox="0 0 750 570" role="img" aria-labelledby="research-map-svg-title research-map-svg-desc">
+        <title id="research-map-svg-title">Interactive research hypergraph</title>
+        <desc id="research-map-svg-desc">Nine works are represented as nodes. Four overlapping contours represent Transfer Learning, Latent Space Model, Hub or Community Detection, and Multi-source Data. Manuscripts are hollow and publications are filled.</desc>
+
+        <g class="research-hypergraph__area-headings" aria-hidden="true">
+          <text x="164" y="24" text-anchor="middle">Network and Graphical Models</text>
+          <text x="551" y="24" text-anchor="middle">Statistical Machine Learning</text>
+        </g>
+
+        <g class="research-hypergraph__edge-fills" aria-hidden="true">
+          {% for edge in publication_data.hyperedges %}
+            <path class="research-hypergraph__edge research-hypergraph__edge--{{ edge.id }}"
+                  data-hyperedge-shape="{{ edge.id }}"
+                  d="{{ edge.path }}"></path>
+          {% endfor %}
+        </g>
+
+        <g class="research-hypergraph__edge-strokes" aria-hidden="true">
+          {% for edge in publication_data.hyperedges %}
+            <path class="research-hypergraph__edge-line research-hypergraph__edge-line--{{ edge.id }}"
+                  data-hyperedge-shape="{{ edge.id }}"
+                  d="{{ edge.path }}"></path>
+          {% endfor %}
+        </g>
+
+        <g class="research-hypergraph__edge-targets" aria-hidden="true">
+          {% for edge in publication_data.hyperedges %}
+            <path class="research-hypergraph__edge-hit"
+                  data-hyperedge-target="{{ edge.id }}"
+                  data-members="{{ edge.members | join: ' ' }}"
+                  d="{{ edge.path }}"></path>
+          {% endfor %}
+        </g>
+
+        <g class="research-hypergraph__nodes">
+          {% for work in publication_data.works %}
+            {% capture memberships %}{% for edge in publication_data.hyperedges %}{% if edge.members contains work.id %}{{ edge.id }} {% endif %}{% endfor %}{% endcapture %}
+            <g class="research-hypergraph__paper research-hypergraph__paper--{{ work.stage }}"
+               role="link"
+               tabindex="0"
+               data-href="#{{ work.id }}"
+               data-work-id="{{ work.id }}"
+               data-stage="{{ work.stage }}"
+               data-hyperedges="{{ memberships | strip }}"
+               aria-label="{{ work.title }}. {{ work.map_meta }}">
+              <circle cx="{{ work.map.x }}" cy="{{ work.map.y }}" r="8"></circle>
+              <text x="{{ work.map.label_x }}"
+                    y="{{ work.map.label_y }}"
+                    text-anchor="{{ work.map.label_anchor }}">{{ work.map_label }}</text>
+              <title>{{ work.title }} — {{ work.map_meta }}</title>
+            </g>
+          {% endfor %}
+        </g>
+
+        <g class="research-hypergraph__edge-labels">
+          {% for edge in publication_data.hyperedges %}
+            <text class="research-hypergraph__edge-label research-hypergraph__edge-label--{{ edge.id }}"
+                  x="{{ edge.label_x }}"
+                  y="{{ edge.label_y }}"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Explore {{ edge.title }}, {{ edge.members.size }} works"
+                  aria-pressed="false"
+                  data-hyperedge-label="{{ edge.id }}">{{ edge.title }}</text>
+          {% endfor %}
+        </g>
+      </svg>
+    </div>
+
+    <aside class="research-hypergraph__panel" data-research-map-panel aria-live="polite" aria-atomic="true">
+      <div class="research-hypergraph__panel-default">
+        <p class="research-hypergraph__eyebrow">Explore the map</p>
+        <h3>Research themes as hyperedges</h3>
+        <p>Move near a colored contour to see the works it connects. Select a contour to keep it highlighted, or select a paper to jump to its full entry.</p>
+        <div class="research-hypergraph__legend" aria-label="Map legend">
+          <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--manuscript" aria-hidden="true"></i>Manuscript</span>
+          <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--publication" aria-hidden="true"></i>Publication</span>
+        </div>
+        <p class="research-hypergraph__method-note">Contours show curated thematic membership, not citation relationships.</p>
+      </div>
+    </aside>
+  </div>
+
+  <div class="research-hypergraph__templates" hidden>
+    {% for edge in publication_data.hyperedges %}
+      <section data-map-template="hyperedge:{{ edge.id }}">
+        <p class="research-hypergraph__eyebrow">Research theme</p>
+        <h3>{{ edge.title }}</h3>
+        <p class="research-hypergraph__count">{{ edge.members.size }} works in this hyperedge</p>
+        <ul class="research-hypergraph__work-list">
+          {% for member_id in edge.members %}
+            {% assign member = publication_data.works | where: "id", member_id | first %}
+            <li>
+              <a href="#{{ member.id }}">
+                <i class="research-hypergraph__legend-node research-hypergraph__legend-node--{{ member.stage }}" aria-hidden="true"></i>
+                <span>{{ member.map_label }}</span>
+              </a>
+              <small>{{ member.map_meta }}</small>
+            </li>
+          {% endfor %}
+        </ul>
+      </section>
+    {% endfor %}
+
+    {% for work in publication_data.works %}
+      <section data-map-template="work:{{ work.id }}">
+        <p class="research-hypergraph__eyebrow">{{ work.map_meta }}</p>
+        <h3>{{ work.title }}</h3>
+        <div class="research-hypergraph__theme-chips" aria-label="Research themes">
+          {% for edge in publication_data.hyperedges %}
+            {% if edge.members contains work.id %}
+              <span class="research-hypergraph__theme-chip research-hypergraph__theme-chip--{{ edge.id }}">{{ edge.title }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <a class="research-hypergraph__jump" href="#{{ work.id }}">View publication entry <span aria-hidden="true">↓</span></a>
+      </section>
+    {% endfor %}
+  </div>
+</section>

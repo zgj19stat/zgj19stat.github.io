@@ -1,0 +1,216 @@
+areas:
+  - id: statistical-machine-learning
+    title: "Statistical Machine Learning"
+    description: "Domain generalization, transfer and multi-source learning, multimodal prediction, and federated learning."
+
+  - id: network-and-graphical-models
+    title: "Network and Graphical Models"
+    description: "Latent space modeling, hypergraph representation, and community or hub detection in complex networks."
+
+hyperedges:
+  - id: transfer-learning
+    title: "Transfer Learning"
+    path: "M 332 244 C 363 165, 432 83, 500 68 C 578 49, 673 91, 704 161 C 731 225, 694 293, 711 348 C 729 405, 687 445, 627 438 C 570 431, 532 395, 477 401 C 416 408, 347 365, 334 316 C 325 286, 324 264, 332 244 Z"
+    label_x: 497
+    label_y: 55
+    members:
+      - pattern-calibrated-multimodal-prediction
+      - distributed-hub-detection
+      - information-transfer
+      - federated-class-incremental-learning
+      - conditional-generative-multisource
+
+  - id: latent-space-model
+    title: "Latent Space Model"
+    path: "M 43 91 C 82 51, 168 54, 221 102 C 276 143, 315 190, 302 250 C 289 307, 235 366, 163 393 C 82 421, 34 352, 40 275 C 45 219, 13 145, 43 91 Z"
+    label_x: 46
+    label_y: 68
+    members:
+      - functional-latent-space-model
+      - directed-hypergraphs
+      - disease-network
+
+  - id: hub-community-detection
+    title: "Hub / Community Detection"
+    path: "M 215 187 C 265 158, 337 197, 399 239 C 435 264, 431 321, 393 345 C 344 339, 303 293, 254 282 C 211 273, 183 219, 215 187 Z"
+    label_x: 218
+    label_y: 174
+    members:
+      - directed-hypergraphs
+      - distributed-hub-detection
+
+  - id: multi-source-data
+    title: "Multi-source Data"
+    path: "M 329 275 C 385 241, 440 295, 486 315 C 547 341, 635 318, 688 365 C 726 401, 684 471, 615 482 C 557 492, 518 536, 447 531 C 379 527, 319 472, 325 410 C 330 360, 290 313, 329 275 Z"
+    label_x: 449
+    label_y: 550
+    members:
+      - ladder
+      - distributed-hub-detection
+      - federated-class-incremental-learning
+      - conditional-generative-multisource
+
+works:
+  - id: ladder
+    area: statistical-machine-learning
+    stage: manuscript
+    title: "Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting"
+    map_label: "LADDER"
+    map_meta: "Manuscript · Jul 2026"
+    authors_html: >-
+      Yuhang Jiang, Fengchuan Zhang, Sanguo Zhang, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Under review, Jul 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2607.26458"
+    map:
+      x: 448
+      y: 471
+      label_x: 462
+      label_y: 476
+      label_anchor: "start"
+
+  - id: pattern-calibrated-multimodal-prediction
+    area: statistical-machine-learning
+    stage: manuscript
+    title: "Pattern-Calibrated Multimodal Prediction under Blockwise Missingness"
+    map_label: "Blockwise Missingness"
+    map_meta: "Manuscript · Jul 2026"
+    authors_html: >-
+      Junhan Yu, Kejian Zhang, Doudou Zhou, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Authors listed in alphabetical order">&dagger;</sup>
+    details_html: "Under review, Jul 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2607.01821"
+    map:
+      x: 510
+      y: 117
+      label_x: 524
+      label_y: 122
+      label_anchor: "start"
+
+  - id: information-transfer
+    area: statistical-machine-learning
+    stage: manuscript
+    title: "Model-agnostic information transfer and fusion for classification with label noise"
+    map_label: "Information Transfer"
+    map_meta: "Manuscript · Apr 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Sanguo Zhang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Under review, Apr 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2604.25845"
+    map:
+      x: 629
+      y: 215
+      label_x: 615
+      label_y: 202
+      label_anchor: "end"
+
+  - id: federated-class-incremental-learning
+    area: statistical-machine-learning
+    stage: publication
+    title: "Enhancing Federated Class-Incremental Learning via Spatial-Temporal Statistics Aggregation"
+    map_label: "Federated CIL"
+    map_meta: "Publication · WWW · 2026"
+    authors_html: >-
+      Zenghao Guan, <strong>Guojun Zhu</strong>, Yucan Zhou, Wu Liu, Weiping Wang, Jiebo Luo, Xiaoyan Gu<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "<em>International World Wide Web Conference (WWW)</em>, Jan 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2506.01327"
+    map:
+      x: 522
+      y: 354
+      label_x: 536
+      label_y: 359
+      label_anchor: "start"
+
+  - id: conditional-generative-multisource
+    area: statistical-machine-learning
+    stage: publication
+    title: "Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency"
+    map_label: "Invariant Multi-source"
+    map_meta: "Publication · AISTATS · 2025"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Sanguo Zhang, Mingyang Ren
+    details_html: "<em>38-th Annual Conference on Artificial Intelligence and Statistics (AISTATS)</em>, Jan 2025."
+    links:
+      - label: "Article"
+        url: "https://proceedings.mlr.press/v258/zhu25a.html"
+      - label: "Slides"
+        url: "https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_slides.pdf"
+    map:
+      x: 638
+      y: 390
+      label_x: 624
+      label_y: 413
+      label_anchor: "end"
+
+  - id: directed-hypergraphs
+    area: network-and-graphical-models
+    stage: manuscript
+    title: "Directed hypergraphs: tensor representation, embedding modeling, and community detection"
+    map_label: "Directed Hypergraphs"
+    map_meta: "Manuscript · Aug 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Haofei Wang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Manuscript, Aug 2026."
+    map:
+      x: 248
+      y: 232
+      label_x: 233
+      label_y: 219
+      label_anchor: "end"
+
+  - id: distributed-hub-detection
+    area: network-and-graphical-models
+    stage: manuscript
+    title: "Distributed Hub Detection in Heterogeneous Graphical Models"
+    map_label: "Distributed Hub"
+    map_meta: "Manuscript · May 2026"
+    authors_html: >-
+      Rongzhuo Nie, Sanguo Zhang, Lili Zhao, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Under review, May 2026."
+    map:
+      x: 360
+      y: 290
+      label_x: 374
+      label_y: 295
+      label_anchor: "start"
+
+  - id: functional-latent-space-model
+    area: network-and-graphical-models
+    stage: manuscript
+    title: "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data"
+    map_label: "Functional LSM"
+    map_meta: "Manuscript · Apr 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Under review (Major revision and revised by Biometrics), Apr 2026."
+    map:
+      x: 100
+      y: 137
+      label_x: 114
+      label_y: 142
+      label_anchor: "start"
+
+  - id: disease-network
+    area: network-and-graphical-models
+    stage: publication
+    title: "Latent Space Modeling for Human Disease Network With Temporal Variations: Analysis of Medicare Data"
+    map_label: "Disease Network"
+    map_meta: "Publication · AOAS · 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Ruiyue Wang, Rong Li, Sanguo Zhang, Shuangge Ma, Guanzhong Qiao, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "<em>Annals of Applied Statistics (AOAS)</em>, March 2026."
+    links:
+      - label: "Slides"
+        url: "https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/MTFLSM_slides.pdf"
+    map:
+      x: 116
+      y: 340
+      label_x: 130
+      label_y: 345
+      label_anchor: "start"
