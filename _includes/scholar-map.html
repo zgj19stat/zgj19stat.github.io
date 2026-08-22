@@ -19,7 +19,7 @@
     <div class="research-hypergraph__canvas" data-research-map-canvas data-hit-radius="18">
       <svg viewBox="0 0 750 550" role="img" aria-labelledby="research-map-svg-title research-map-svg-desc">
         <title id="research-map-svg-title">Interactive research map with theme and timeline views</title>
-        <desc id="research-map-svg-desc">Nine works can be explored as four overlapping research-theme contours or along a fixed chronology from January 2025 to August 2026. Manuscripts are hollow and publications are filled.</desc>
+        <desc id="research-map-svg-desc">Ten works can be explored as four overlapping research-theme contours or along a fixed chronology from January 2025 to September 2026. Manuscripts are hollow and publications are filled.</desc>
 
         <g class="research-hypergraph__theme-layer research-hypergraph__edge-fills" aria-hidden="true">
           {% for edge in publication_data.hyperedges %}
@@ -47,13 +47,13 @@
         </g>
 
         <g class="research-hypergraph__timeline-layer" data-map-timeline aria-hidden="true">
-          <rect class="research-hypergraph__timeline-band" x="435" y="72" width="245" height="386" rx="18"></rect>
+          <rect class="research-hypergraph__timeline-band" x="435" y="72" width="275" height="386" rx="18"></rect>
           <text class="research-hypergraph__timeline-year" x="270" y="88" text-anchor="middle">2025</text>
-          <text class="research-hypergraph__timeline-year" x="555" y="88" text-anchor="middle">2026</text>
-          <path class="research-hypergraph__timeline-axis" d="M 70 275 H 680"></path>
+          <text class="research-hypergraph__timeline-year" x="570" y="88" text-anchor="middle">2026</text>
+          <path class="research-hypergraph__timeline-axis" d="M 70 275 H 710"></path>
           <line class="research-hypergraph__timeline-divider" x1="435" y1="94" x2="435" y2="445"></line>
 
-          {% assign timeline_ticks = "90:Jan ’25,450:Jan,510:Mar,540:Apr,570:May,630:Jul,660:Aug" | split: "," %}
+          {% assign timeline_ticks = "90:Jan ’25,450:Jan,510:Mar,540:Apr,570:May,630:Jul,660:Aug,690:Sep" | split: "," %}
           {% for tick in timeline_ticks %}
             {% assign tick_parts = tick | split: ":" %}
             <line class="research-hypergraph__timeline-tick" x1="{{ tick_parts[0] }}" y1="268" x2="{{ tick_parts[0] }}" y2="282"></line>
@@ -133,8 +133,8 @@
   <div class="research-hypergraph__templates" hidden>
     <section data-map-default-template="timeline">
       <p class="research-hypergraph__eyebrow">Chronological view</p>
-      <h3>From Jan 2025 to Aug 2026</h3>
-      <p>The same nine works are positioned by manuscript or publication date. Select any node to open its full entry.</p>
+      <h3>From Jan 2025 to Sep 2026</h3>
+      <p>The same ten works are positioned by manuscript or publication date. Select any node to open its full entry.</p>
       <div class="research-hypergraph__legend" aria-label="Timeline legend">
         <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--manuscript" aria-hidden="true"></i>Manuscript</span>
         <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--publication" aria-hidden="true"></i>Publication</span>

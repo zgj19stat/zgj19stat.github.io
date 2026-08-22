@@ -29,15 +29,17 @@ hyperedges:
       - functional-latent-space-model
       - directed-hypergraphs
       - disease-network
+      - joint-disease-interconnections
 
   - id: hub-community-detection
     title: "Hub / Community Detection"
-    path: "M 193 184 C 219 169, 249 175, 278 197 C 309 220, 331 242, 365 246 C 398 250, 423 270, 424 295 C 425 321, 399 339, 367 334 C 337 329, 317 304, 288 292 C 257 279, 217 276, 197 251 C 176 226, 172 196, 193 184 Z"
+    path: "M 190 174 C 218 158, 250 169, 281 194 C 312 220, 334 240, 368 245 C 404 250, 429 272, 430 299 C 431 329, 402 348, 365 341 C 331 335, 307 318, 278 309 C 245 299, 207 308, 182 280 C 156 251, 160 204, 190 174 Z"
     label_x: 198
     label_y: 168
     members:
       - directed-hypergraphs
       - distributed-hub-detection
+      - joint-disease-interconnections
 
   - id: multi-source-data
     title: "Multi-source Data"
@@ -167,6 +169,26 @@ works:
       x: 90
       y: 170
       date: "Jan 2025"
+
+  - id: joint-disease-interconnections
+    area: network-and-graphical-models
+    stage: manuscript
+    title: "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Temporal Trends: Analysis of the Taiwan Health Insurance Research Database"
+    map_label: "LUMEN"
+    map_meta: "Manuscript · Sep 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Manuscript, Sep. 2026."
+    map:
+      x: 240
+      y: 270
+      label_x: 225
+      label_y: 290
+      label_anchor: "end"
+    timeline:
+      x: 690
+      y: 345
+      date: "Sep 2026"
 
   - id: directed-hypergraphs
     area: network-and-graphical-models
