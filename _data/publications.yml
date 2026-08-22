@@ -29,6 +29,7 @@ hyperedges:
       - functional-latent-space-model
       - directed-hypergraphs
       - disease-network
+      - joint-disease-interconnections
 
   - id: hub-community-detection
     title: "Hub / Community Detection"
@@ -38,6 +39,7 @@ hyperedges:
     members:
       - directed-hypergraphs
       - distributed-hub-detection
+      - joint-disease-interconnections
 
   - id: multi-source-data
     title: "Multi-source Data"
@@ -167,6 +169,26 @@ works:
       x: 90
       y: 170
       date: "Jan 2025"
+
+  - id: joint-disease-interconnections
+    area: network-and-graphical-models
+    stage: manuscript
+    title: "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Temporal Trends: Analysis of the Taiwan Health Insurance Research Database"
+    map_label: "LUMEN"
+    map_meta: "Manuscript · Sep 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Manuscript, Sep. 2026."
+    map:
+      x: 240
+      y: 270
+      label_x: 225
+      label_y: 290
+      label_anchor: "end"
+    timeline:
+      x: 690
+      y: 345
+      date: "Sep 2026"
 
   - id: directed-hypergraphs
     area: network-and-graphical-models

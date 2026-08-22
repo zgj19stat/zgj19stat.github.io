@@ -21,10 +21,12 @@ EXPECTED_HYPEREDGES = {
         "functional-latent-space-model",
         "directed-hypergraphs",
         "disease-network",
+        "joint-disease-interconnections",
     },
     "hub-community-detection": {
         "directed-hypergraphs",
         "distributed-hub-detection",
+        "joint-disease-interconnections",
     },
     "multi-source-data": {
         "ladder",
@@ -44,6 +46,7 @@ EXPECTED_MAP_LABELS = {
     "distributed-hub-detection": "Distributed Hub",
     "functional-latent-space-model": "FLSM",
     "disease-network": "MTFLSM",
+    "joint-disease-interconnections": "LUMEN",
 }
 
 
@@ -115,14 +118,14 @@ def main() -> int:
     parser.feed(html)
 
     expected_work_ids = set().union(*EXPECTED_HYPEREDGES.values())
-    require(len(expected_work_ids) == 9, "the expected hypergraph must contain nine unique works")
-    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the nine expected works")
+    require(len(expected_work_ids) == 10, "the expected hypergraph must contain ten unique works")
+    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the ten expected works")
     require(set(parser.publication_items) == expected_work_ids, "publication entries do not match map nodes")
     require(parser.hyperedges == EXPECTED_HYPEREDGES, "generated hyperedge memberships are incorrect")
-    require(sum(len(members) for members in parser.hyperedges.values()) == 14, "expected fourteen node-hyperedge incidences")
+    require(sum(len(members) for members in parser.hyperedges.values()) == 16, "expected sixteen node-hyperedge incidences")
 
     stages = Counter(attributes.get("data-stage") for attributes in parser.paper_nodes.values())
-    require(stages == {"manuscript": 6, "publication": 3}, f"unexpected map status counts: {stages}")
+    require(stages == {"manuscript": 7, "publication": 3}, f"unexpected map status counts: {stages}")
 
     map_labels = {work_id: attributes.get("data-map-label", "") for work_id, attributes in parser.paper_nodes.items()}
     require(map_labels == EXPECTED_MAP_LABELS, f"unexpected map labels: {map_labels}")
@@ -131,9 +134,9 @@ def main() -> int:
     require(set(parser.view_buttons) == {"themes", "timeline"}, "the map must expose Themes and Timeline controls")
     require(parser.view_buttons["themes"].get("aria-pressed") == "true", "Themes must be selected by default")
     require(parser.view_buttons["timeline"].get("aria-pressed") == "false", "Timeline must be unselected by default")
-    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the nine expected works")
+    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the ten expected works")
     require(
-        len(parser.paper_hit_targets) == 9 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
+        len(parser.paper_hit_targets) == 10 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
         "each paper node must have a stable enlarged hit target",
     )
     require("research-hypergraph__area-headings" not in html, "redundant research-area headings remain in the map")
@@ -152,7 +155,13 @@ def main() -> int:
 
     require("&lt;/sup&gt;" not in html, "escaped closing sup tag is visible in generated HTML")
     require("<sup><em>" not in html, "author mark was incorrectly parsed as emphasis")
-    require(html.count('aria-label="Corresponding author"') == 8, "unexpected number of corresponding-author marks")
+    require(
+        "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Temporal Trends: "
+        "Analysis of the Taiwan Health Insurance Research Database" in html,
+        "the LUMEN manuscript title is missing",
+    )
+    require("Manuscript, Sep. 2026." in html, "the LUMEN manuscript date is missing")
+    require(html.count('aria-label="Corresponding author"') == 9, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
 
