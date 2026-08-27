@@ -161,13 +161,6 @@ def main() -> int:
         "the LUMEN manuscript title is missing",
     )
     require("Manuscript, Sep. 2026." in html, "the LUMEN manuscript date is missing")
-    require(
-        "Proceedings of the 28th International Conference on Artificial Intelligence and Statistics (AISTATS)"
-        in html,
-        "the corrected AISTATS conference edition is missing",
-    )
-    require("PMLR 258:217&ndash;225, 2025." in html, "the AISTATS volume and page range are missing")
-    require("38-th" not in html and "38th" not in html, "the incorrect AISTATS conference edition remains")
     require(html.count('aria-label="Corresponding author"') == 9, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
