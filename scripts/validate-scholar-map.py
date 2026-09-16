@@ -34,6 +34,10 @@ EXPECTED_HYPEREDGES = {
         "federated-class-incremental-learning",
         "conditional-generative-multisource",
     },
+    "generalization": {
+        "bad-genius-harness-evolution",
+        "ladder",
+    },
 }
 
 EXPECTED_MAP_LABELS = {
@@ -47,6 +51,7 @@ EXPECTED_MAP_LABELS = {
     "functional-latent-space-model": "FLSM",
     "disease-network": "MTFLSM",
     "joint-disease-interconnections": "LUMEN",
+    "bad-genius-harness-evolution": "CHASE",
 }
 
 
@@ -118,14 +123,14 @@ def main() -> int:
     parser.feed(html)
 
     expected_work_ids = set().union(*EXPECTED_HYPEREDGES.values())
-    require(len(expected_work_ids) == 10, "the expected hypergraph must contain ten unique works")
-    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the ten expected works")
+    require(len(expected_work_ids) == 11, "the expected hypergraph must contain eleven unique works")
+    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the eleven expected works")
     require(set(parser.publication_items) == expected_work_ids, "publication entries do not match map nodes")
     require(parser.hyperedges == EXPECTED_HYPEREDGES, "generated hyperedge memberships are incorrect")
-    require(sum(len(members) for members in parser.hyperedges.values()) == 16, "expected sixteen node-hyperedge incidences")
+    require(sum(len(members) for members in parser.hyperedges.values()) == 18, "expected eighteen node-hyperedge incidences")
 
     stages = Counter(attributes.get("data-stage") for attributes in parser.paper_nodes.values())
-    require(stages == {"manuscript": 7, "publication": 3}, f"unexpected map status counts: {stages}")
+    require(stages == {"manuscript": 8, "publication": 3}, f"unexpected map status counts: {stages}")
 
     map_labels = {work_id: attributes.get("data-map-label", "") for work_id, attributes in parser.paper_nodes.items()}
     require(map_labels == EXPECTED_MAP_LABELS, f"unexpected map labels: {map_labels}")
@@ -134,9 +139,9 @@ def main() -> int:
     require(set(parser.view_buttons) == {"themes", "timeline"}, "the map must expose Themes and Timeline controls")
     require(parser.view_buttons["themes"].get("aria-pressed") == "true", "Themes must be selected by default")
     require(parser.view_buttons["timeline"].get("aria-pressed") == "false", "Timeline must be unselected by default")
-    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the ten expected works")
+    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the eleven expected works")
     require(
-        len(parser.paper_hit_targets) == 10 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
+        len(parser.paper_hit_targets) == 11 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
         "each paper node must have a stable enlarged hit target",
     )
     require("research-hypergraph__area-headings" not in html, "redundant research-area headings remain in the map")
@@ -161,7 +166,22 @@ def main() -> int:
         "the LUMEN manuscript title is missing",
     )
     require("Manuscript, Sep. 2026." in html, "the LUMEN manuscript date is missing")
-    require(html.count('aria-label="Corresponding author"') == 9, "unexpected number of corresponding-author marks")
+    require(
+        "Bad Genius: Counterfactual-Guided Harness Evolution Beyond Task-Specific Shortcuts" in html,
+        "the CHASE manuscript title is missing",
+    )
+    require('<h2 id="agent-research">Agent Research</h2>' in html, "the Agent Research area is missing")
+    require(
+        "Agent evaluation, Harness evolution, LLM-as-Judge." in html,
+        "the Agent Research subtitle is missing",
+    )
+    chase_start = html.index('<li id="bad-genius-harness-evolution"')
+    chase_end = html.index("</li>", chase_start)
+    chase_entry = html[chase_start:chase_end]
+    require("Manuscript, Sep. 2026." in chase_entry, "the CHASE manuscript date is missing")
+    require("ICLR" not in chase_entry, "the CHASE entry must not expose its submission venue")
+    require("href=" not in chase_entry, "the CHASE entry must not expose a publication link yet")
+    require(html.count('aria-label="Corresponding author"') == 10, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
 
