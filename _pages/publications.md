@@ -6,7 +6,7 @@ author_profile: true
 research_map: true
 ---
 
-My research foundation spans two complementary themes: **Statistical Machine Learning** and **Network and Graphical Models**. The map below connects individual works by research theme and can also arrange them chronologically; select a node to jump to its entry.
+My research spans three complementary areas: **Statistical Machine Learning**, **Network and Graphical Models**, and **Agent Research**. The map below connects individual works by research theme and can also arrange them chronologically; select a node to jump to its entry.
 
 {% include scholar-map.html %}
 
@@ -20,25 +20,28 @@ My research foundation spans two complementary themes: **Statistical Machine Lea
     <h2 id="{{ area.id }}">{{ area.title }}</h2>
     <p class="publication-area__description">{{ area.description }}</p>
 
-    {% for stage in stages %}
-      {% if stage == "manuscript" %}
-        {% assign stage_heading = "Manuscripts" %}
-      {% else %}
-        {% assign stage_heading = "Publications" %}
-      {% endif %}
+    {% assign area_works = publication_data.works | where: "area", area.id %}
 
-      <h3>{{ stage_heading }}</h3>
-      <ul class="publication-list">
-        {% for work in publication_data.works %}
-          {% if work.area == area.id and work.stage == stage %}
+    {% for stage in stages %}
+      {% assign stage_works = area_works | where: "stage", stage %}
+      {% if stage_works.size > 0 %}
+        {% if stage == "manuscript" %}
+          {% assign stage_heading = "Manuscripts" %}
+        {% else %}
+          {% assign stage_heading = "Publications" %}
+        {% endif %}
+
+        <h3>{{ stage_heading }}</h3>
+        <ul class="publication-list">
+          {% for work in stage_works %}
             <li id="{{ work.id }}" class="publication-item" data-stage="{{ work.stage }}" tabindex="-1">
               <span class="publication-item__title">{{ work.title }}</span><br>
               <span class="publication-item__authors">{{ work.authors_html }}</span><br>
               <span class="publication-item__details">{{ work.details_html }}</span>{% for link in work.links %} [<a href="{{ link.url }}">{{ link.label }}</a>]{% endfor %}
             </li>
-          {% endif %}
-        {% endfor %}
-      </ul>
+          {% endfor %}
+        </ul>
+      {% endif %}
     {% endfor %}
   </section>
 {% endfor %}
