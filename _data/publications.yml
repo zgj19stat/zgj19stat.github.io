@@ -7,6 +7,10 @@ areas:
     title: "Network and Graphical Models"
     description: "Latent space modeling, hypergraph representation, and community or hub detection in complex networks."
 
+  - id: agent-research
+    title: "Agent Research"
+    description: "Agent evaluation, Harness evolution, LLM-as-Judge."
+
 hyperedges:
   - id: transfer-learning
     title: "Transfer Learning"
@@ -51,6 +55,15 @@ hyperedges:
       - distributed-hub-detection
       - federated-class-incremental-learning
       - conditional-generative-multisource
+
+  - id: generalization
+    title: "Generalization"
+    path: "M 300 430 C 320 409, 351 410, 374 425 C 393 437, 410 438, 447 431 C 477 426, 501 445, 499 471 C 496 500, 468 516, 434 509 C 404 503, 382 500, 352 508 C 319 516, 291 498, 287 471 C 283 453, 288 440, 300 430 Z"
+    label_x: 300
+    label_y: 421
+    members:
+      - bad-genius-harness-evolution
+      - ladder
 
 works:
   - id: ladder
@@ -272,3 +285,23 @@ works:
       x: 510
       y: 195
       date: "Mar 2026"
+
+  - id: bad-genius-harness-evolution
+    area: agent-research
+    stage: manuscript
+    title: "Bad Genius: Counterfactual-Guided Harness Evolution Beyond Task-Specific Shortcuts"
+    map_label: "CHASE"
+    map_meta: "Manuscript · Sep 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Xunheng Huang, Peng Yin, Jiahui Xie, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Manuscript, Sep. 2026."
+    map:
+      x: 335
+      y: 465
+      label_x: 321
+      label_y: 470
+      label_anchor: "end"
+    timeline:
+      x: 690
+      y: 425
+      date: "Sep 2026"
