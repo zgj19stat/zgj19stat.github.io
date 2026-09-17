@@ -180,7 +180,11 @@ def main() -> int:
     chase_entry = html[chase_start:chase_end]
     require("Manuscript, Sep. 2026." in chase_entry, "the CHASE manuscript date is missing")
     require("ICLR" not in chase_entry, "the CHASE entry must not expose its submission venue")
-    require("href=" not in chase_entry, "the CHASE entry must not expose a publication link yet")
+    require(
+        chase_entry.count('href="https://arxiv.org/abs/2609.18366"') == 1,
+        "the CHASE entry must expose exactly one official arXiv link",
+    )
+    require(">arXiv</a>" in chase_entry, "the CHASE arXiv link label is missing")
     require(html.count('aria-label="Corresponding author"') == 10, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
