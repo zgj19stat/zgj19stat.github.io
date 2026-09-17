@@ -295,6 +295,9 @@ works:
     authors_html: >-
       <strong>Guojun Zhu</strong>, Xunheng Huang, Peng Yin, Jiahui Xie, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Manuscript, Sep. 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2609.18366"
     map:
       x: 335
       y: 465
