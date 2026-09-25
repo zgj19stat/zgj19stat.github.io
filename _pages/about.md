@@ -12,7 +12,7 @@ I'm a fourth-year Ph.D. student at [School of Mathematical Sciences](https://mat
 
 I am actively seeking and welcoming research collaborations. My interests cover many of the current focal points in **the agentic era**, with a particular emphasis on:
 
-- Agent Evaluation, Agent Inference
+- Agent Evaluation, Agent Inference, Multi-Agent Organization
 
 I also have an established research background in these areas through my previous work and collaborations with [Shuangge Ma](https://ysph.yale.edu/profile/shuangge-ma/), [Hao Mei](https://www.hswebsite.org/EN/DepartmentFaulty/Department_of_Biostatistics_and_Epidemiology/63f32e5c2a944b699e83f28e6751a275.htm), and [Mingyang Ren](https://ren-mingyang.github.io/). Although these are not the main focus of my current research agenda, I remain interested in collaborations:
 
