@@ -9,7 +9,7 @@ areas:
 
   - id: agent-research
     title: "Agent Research"
-    description: "Agent evaluation, Harness evolution, LLM-as-Judge."
+    description: "Agent evaluation, Harness evolution, Multi-Agent System."
 
 hyperedges:
   - id: transfer-learning
@@ -186,12 +186,12 @@ works:
   - id: joint-disease-interconnections
     area: network-and-graphical-models
     stage: manuscript
-    title: "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Temporal Trends: Analysis of the Taiwan Health Insurance Research Database"
+    title: "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Trends: Analysis of the Taiwan Health Insurance Research Database"
     map_label: "LUMEN"
-    map_meta: "Manuscript · Sep 2026"
+    map_meta: "Working Paper · Sep 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Sanguo Zhang, Ben-Chang Shia, Wei-Shan Chang, Kai-Yuan Hsiao, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Manuscript, Sep. 2026."
+    details_html: "Working Paper, Sep. 2026."
     map:
       x: 240
       y: 270
