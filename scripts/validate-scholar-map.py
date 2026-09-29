@@ -161,18 +161,23 @@ def main() -> int:
     require("&lt;/sup&gt;" not in html, "escaped closing sup tag is visible in generated HTML")
     require("<sup><em>" not in html, "author mark was incorrectly parsed as emphasis")
     require(
-        "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Temporal Trends: "
+        "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Trends: "
         "Analysis of the Taiwan Health Insurance Research Database" in html,
-        "the LUMEN manuscript title is missing",
+        "the LUMEN working-paper title is missing",
     )
-    require("Manuscript, Sep. 2026." in html, "the LUMEN manuscript date is missing")
+    lumen_start = html.index('<li id="joint-disease-interconnections"')
+    lumen_end = html.index("</li>", lumen_start)
+    lumen_entry = html[lumen_start:lumen_end]
+    require("Working Paper, Sep. 2026." in lumen_entry, "the LUMEN working-paper status or date is missing")
+    require("Manuscript, Sep. 2026." not in lumen_entry, "the old LUMEN manuscript label remains")
+    require("Working Paper · Sep 2026" in html, "the LUMEN map metadata is not updated")
     require(
         "Bad Genius: Counterfactual-Guided Harness Evolution Beyond Task-Specific Shortcuts" in html,
         "the CHASE manuscript title is missing",
     )
     require('<h2 id="agent-research">Agent Research</h2>' in html, "the Agent Research area is missing")
     require(
-        "Agent evaluation, Harness evolution, LLM-as-Judge." in html,
+        "Agent evaluation, Harness evolution, Multi-Agent System." in html,
         "the Agent Research subtitle is missing",
     )
     chase_start = html.index('<li id="bad-genius-harness-evolution"')
