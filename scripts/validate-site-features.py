@@ -95,7 +95,7 @@ def validate_cv(path: Path) -> None:
     require("Advanced Mathematical Statistics (Fall 2024, Fall 2025)" in html, "teaching content changed")
     require("China Scholarship Council (CSC) Scholarship" in html, "award content changed")
     require(
-        "National Scholarship for Doctoral Students, Awarded by the Ministry of Education of the People's Republic of China"
+        "National Scholarship for Doctoral Students, Awarded by the Ministry of Education of the People&#39;s Republic of China"
         in html,
         "the doctoral national scholarship is missing",
     )
