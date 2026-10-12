@@ -8,6 +8,7 @@
   --map-hub: #b45a98;
   --map-multisource: #d48600;
   --map-generalization: #6f5ac7;
+  --map-agent: #c44e52;
   margin: 2.25rem 0 2.75rem;
 }
 
@@ -223,6 +224,10 @@
   fill: var(--map-generalization);
 }
 
+.research-hypergraph__edge--agent {
+  fill: var(--map-agent);
+}
+
 .research-hypergraph__edge-line--transfer-learning {
   stroke: var(--map-transfer);
 }
@@ -241,6 +246,10 @@
 
 .research-hypergraph__edge-line--generalization {
   stroke: var(--map-generalization);
+}
+
+.research-hypergraph__edge-line--agent {
+  stroke: var(--map-agent);
 }
 
 .research-hypergraph__edge-hit {
@@ -371,6 +380,10 @@
 
 .research-hypergraph__edge-label--generalization {
   fill: var(--map-generalization);
+}
+
+.research-hypergraph__edge-label--agent {
+  fill: var(--map-agent);
 }
 
 .research-hypergraph__edge-label:hover,
@@ -522,6 +535,10 @@
 
 .research-hypergraph__theme-chip--generalization {
   color: var(--map-generalization);
+}
+
+.research-hypergraph__theme-chip--agent {
+  color: var(--map-agent);
 }
 
 .research-hypergraph__jump {
