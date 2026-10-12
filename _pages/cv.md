@@ -26,6 +26,7 @@ Teaching Assistant (Undergraduate Courses), University of Chinese Academy of Sci
 Award
 ======
 
+* 2026  National Scholarship for Doctoral Students, Awarded by the Ministry of Education of the People's Republic of China
 * 2026  China Scholarship Council (CSC) Scholarship, National Construction High-Level University Public Graduate Program, CSC
 * 2026  Merit Student, University of Chinese Academy of Sciences
 * 2025  Doctoral Student Program of the Young S&T Talents Cultivation Project, CAST
