@@ -63,6 +63,12 @@ def validate_home(path: Path) -> None:
     require("visitor-counter.css" in " ".join(parser.assets), "visitor counter stylesheet is missing")
     require("visitor-counter.js" in " ".join(parser.assets), "visitor counter script is missing")
     require("Total visits" in html and "Since Aug 2026" in html, "visitor counter labels are missing")
+    require(
+        "I am currently visiting the <a href=\"https://www.stat.nus.edu.sg/\">Department of Statistics and Data Science</a>"
+        in html,
+        "the homepage does not describe the NUS visit in the present tense",
+    )
+    require("I will visit the" not in html, "the old future-tense NUS description remains")
 
 
 def validate_cv(path: Path) -> None:
@@ -88,6 +94,11 @@ def validate_cv(path: Path) -> None:
             "the NUS host is missing")
     require("Advanced Mathematical Statistics (Fall 2024, Fall 2025)" in html, "teaching content changed")
     require("China Scholarship Council (CSC) Scholarship" in html, "award content changed")
+    require(
+        "National Scholarship for Doctoral Students, Awarded by the Ministry of Education of the People" in html
+        and "s Republic of China" in html,
+        "the doctoral national scholarship is missing",
+    )
 
 
 def main() -> int:

@@ -22,6 +22,7 @@ EXPECTED_HYPEREDGES = {
         "directed-hypergraphs",
         "disease-network",
         "joint-disease-interconnections",
+        "agent-cue",
     },
     "hub-community-detection": {
         "directed-hypergraphs",
@@ -38,6 +39,10 @@ EXPECTED_HYPEREDGES = {
         "bad-genius-harness-evolution",
         "ladder",
     },
+    "agent": {
+        "agent-cue",
+        "bad-genius-harness-evolution",
+    },
 }
 
 EXPECTED_MAP_LABELS = {
@@ -52,6 +57,7 @@ EXPECTED_MAP_LABELS = {
     "disease-network": "MTFLSM",
     "joint-disease-interconnections": "LUMEN",
     "bad-genius-harness-evolution": "CHASE",
+    "agent-cue": "AgenCue",
 }
 
 
@@ -123,14 +129,14 @@ def main() -> int:
     parser.feed(html)
 
     expected_work_ids = set().union(*EXPECTED_HYPEREDGES.values())
-    require(len(expected_work_ids) == 11, "the expected hypergraph must contain eleven unique works")
-    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the eleven expected works")
+    require(len(expected_work_ids) == 12, "the expected hypergraph must contain twelve unique works")
+    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the twelve expected works")
     require(set(parser.publication_items) == expected_work_ids, "publication entries do not match map nodes")
     require(parser.hyperedges == EXPECTED_HYPEREDGES, "generated hyperedge memberships are incorrect")
-    require(sum(len(members) for members in parser.hyperedges.values()) == 18, "expected eighteen node-hyperedge incidences")
+    require(sum(len(members) for members in parser.hyperedges.values()) == 21, "expected twenty-one node-hyperedge incidences")
 
     stages = Counter(attributes.get("data-stage") for attributes in parser.paper_nodes.values())
-    require(stages == {"manuscript": 8, "publication": 3}, f"unexpected map status counts: {stages}")
+    require(stages == {"manuscript": 9, "publication": 3}, f"unexpected map status counts: {stages}")
 
     map_labels = {work_id: attributes.get("data-map-label", "") for work_id, attributes in parser.paper_nodes.items()}
     require(map_labels == EXPECTED_MAP_LABELS, f"unexpected map labels: {map_labels}")
@@ -139,9 +145,9 @@ def main() -> int:
     require(set(parser.view_buttons) == {"themes", "timeline"}, "the map must expose Themes and Timeline controls")
     require(parser.view_buttons["themes"].get("aria-pressed") == "true", "Themes must be selected by default")
     require(parser.view_buttons["timeline"].get("aria-pressed") == "false", "Timeline must be unselected by default")
-    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the eleven expected works")
+    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the twelve expected works")
     require(
-        len(parser.paper_hit_targets) == 11 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
+        len(parser.paper_hit_targets) == 12 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
         "each paper node must have a stable enlarged hit target",
     )
     require("research-hypergraph__area-headings" not in html, "redundant research-area headings remain in the map")
@@ -168,12 +174,20 @@ def main() -> int:
     lumen_start = html.index('<li id="joint-disease-interconnections"')
     lumen_end = html.index("</li>", lumen_start)
     lumen_entry = html[lumen_start:lumen_end]
-    require("Working Paper, Sep. 2026." in lumen_entry, "the LUMEN working-paper status or date is missing")
-    require("Manuscript, Sep. 2026." not in lumen_entry, "the old LUMEN manuscript label remains")
-    require("Working Paper · Sep 2026" in html, "the LUMEN map metadata is not updated")
+    require("Manuscript, Oct. 2026." in lumen_entry, "the LUMEN manuscript status or date is missing")
+    require("Working Paper" not in lumen_entry, "the old LUMEN working-paper label remains")
+    require("Manuscript · Oct 2026" in html, "the LUMEN map metadata is not updated")
+    require(
+        parser.paper_nodes["joint-disease-interconnections"].get("data-timeline-date") == "Oct 2026",
+        "the LUMEN timeline date is not updated",
+    )
     require(
         "Bad Genius: Counterfactual-Guided Harness Evolution Beyond Task-Specific Shortcuts" in html,
         "the CHASE manuscript title is missing",
+    )
+    require(
+        "AgenCue: Statistical Summaries for Guiding Decentralized Multi-Agent Self-Organization" in html,
+        "the AgenCue manuscript title is missing",
     )
     require('<h2 id="agent-research">Agent Research</h2>' in html, "the Agent Research area is missing")
     require(
@@ -183,14 +197,52 @@ def main() -> int:
     chase_start = html.index('<li id="bad-genius-harness-evolution"')
     chase_end = html.index("</li>", chase_start)
     chase_entry = html[chase_start:chase_end]
-    require("Manuscript, Sep. 2026." in chase_entry, "the CHASE manuscript date is missing")
+    require("Under review, Sep. 2026." in chase_entry, "the CHASE review status or date is missing")
+    require("Under review · Sep 2026" in html, "the CHASE map metadata is not updated")
     require("ICLR" not in chase_entry, "the CHASE entry must not expose its submission venue")
     require(
         chase_entry.count('href="https://arxiv.org/abs/2609.18366"') == 1,
         "the CHASE entry must expose exactly one official arXiv link",
     )
     require(">arXiv</a>" in chase_entry, "the CHASE arXiv link label is missing")
-    require(html.count('aria-label="Corresponding author"') == 10, "unexpected number of corresponding-author marks")
+
+    agent_cue_start = html.index('<li id="agent-cue"')
+    agent_cue_end = html.index("</li>", agent_cue_start)
+    agent_cue_entry = html[agent_cue_start:agent_cue_end]
+    require("Manuscript, Oct. 2026." in agent_cue_entry, "the AgenCue manuscript date is missing")
+    require("Manuscript · Oct 2026" in html, "the AgenCue map metadata is missing")
+    require(
+        parser.paper_nodes["agent-cue"].get("data-theme-x") == "125"
+        and parser.paper_nodes["agent-cue"].get("data-theme-y") == "450",
+        "AgenCue must remain in the lower-left map region",
+    )
+    require(
+        parser.paper_nodes["agent-cue"].get("data-timeline-date") == "Oct 2026",
+        "the AgenCue timeline date is incorrect",
+    )
+
+    fold_start = html.index('<li id="directed-hypergraphs"')
+    fold_end = html.index("</li>", fold_start)
+    fold_entry = html[fold_start:fold_end]
+    require("Under review, Aug. 2026." in fold_entry, "the FOLD review status or date is missing")
+    require("Under review · Aug 2026" in html, "the FOLD map metadata is not updated")
+
+    flsm_start = html.index('<li id="functional-latent-space-model"')
+    flsm_end = html.index("</li>", flsm_start)
+    flsm_entry = html[flsm_start:flsm_end]
+    require("Accepted by <em>Biometrics</em>, Oct. 2026." in flsm_entry, "the FLSM acceptance is missing")
+    require("Accepted by Biometrics · Oct 2026" in html, "the FLSM map metadata is not updated")
+    require(
+        parser.paper_nodes["functional-latent-space-model"].get("data-timeline-date") == "Oct 2026",
+        "the FLSM timeline date is not updated",
+    )
+
+    require(
+        "Twelve works can be explored as six overlapping research-theme contours" in html,
+        "the map description does not match its twelve works and six themes",
+    )
+    require("From Jan 2025 to Oct 2026" in html, "the timeline range is not updated")
+    require(html.count('aria-label="Corresponding author"') == 11, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
 

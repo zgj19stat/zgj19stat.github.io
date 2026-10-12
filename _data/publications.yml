@@ -26,7 +26,7 @@ hyperedges:
 
   - id: latent-space-model
     title: "Latent Space Model"
-    path: "M 52 72 C 93 46, 149 55, 194 88 C 238 120, 274 165, 279 211 C 285 258, 252 307, 208 344 C 168 378, 109 397, 72 369 C 38 344, 43 298, 42 259 C 41 220, 20 166, 31 119 C 36 97, 42 81, 52 72 Z"
+    path: "M 52 72 C 93 46, 149 55, 194 88 C 238 120, 274 165, 279 211 C 285 258, 252 307, 208 344 C 188 364, 181 394, 171 424 C 159 461, 128 486, 92 476 C 58 466, 48 429, 59 384 C 51 342, 43 298, 42 259 C 41 220, 20 166, 31 119 C 36 97, 42 81, 52 72 Z"
     label_x: 52
     label_y: 54
     members:
@@ -34,6 +34,7 @@ hyperedges:
       - directed-hypergraphs
       - disease-network
       - joint-disease-interconnections
+      - agent-cue
 
   - id: hub-community-detection
     title: "Hub / Community Detection"
@@ -64,6 +65,15 @@ hyperedges:
     members:
       - bad-genius-harness-evolution
       - ladder
+
+  - id: agent
+    title: "Agent"
+    path: "M 92 407 C 127 391, 177 397, 216 417 C 250 435, 276 426, 318 429 C 356 431, 384 448, 383 472 C 381 500, 347 515, 310 503 C 278 493, 253 487, 219 497 C 178 509, 119 505, 88 481 C 66 464, 68 424, 92 407 Z"
+    label_x: 96
+    label_y: 400
+    members:
+      - agent-cue
+      - bad-genius-harness-evolution
 
 works:
   - id: ladder
@@ -188,10 +198,10 @@ works:
     stage: manuscript
     title: "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Trends: Analysis of the Taiwan Health Insurance Research Database"
     map_label: "LUMEN"
-    map_meta: "Working Paper · Sep 2026"
+    map_meta: "Manuscript · Oct 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Sanguo Zhang, Ben-Chang Shia, Wei-Shan Chang, Kai-Yuan Hsiao, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Working Paper, Sep. 2026."
+    details_html: "Manuscript, Oct. 2026."
     map:
       x: 240
       y: 270
@@ -199,19 +209,19 @@ works:
       label_y: 290
       label_anchor: "end"
     timeline:
-      x: 690
+      x: 720
       y: 345
-      date: "Sep 2026"
+      date: "Oct 2026"
 
   - id: directed-hypergraphs
     area: network-and-graphical-models
     stage: manuscript
     title: "Directed hypergraphs: tensor representation, embedding modeling, and community detection"
     map_label: "FOLD"
-    map_meta: "Manuscript · Aug 2026"
+    map_meta: "Under review · Aug 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Haofei Wang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Manuscript, Aug 2026."
+    details_html: "Under review, Aug. 2026."
     map:
       x: 234
       y: 222
@@ -248,20 +258,20 @@ works:
     stage: manuscript
     title: "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data"
     map_label: "FLSM"
-    map_meta: "Manuscript · Apr 2026"
+    map_meta: "Accepted by Biometrics · Oct 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Under review (Major revision and revised by Biometrics), Apr 2026."
+    details_html: "Accepted by <em>Biometrics</em>, Oct. 2026."
     map:
       x: 104
       y: 122
-      label_x: 118
+      label_x: 89
       label_y: 127
-      label_anchor: "start"
+      label_anchor: "end"
     timeline:
-      x: 540
+      x: 720
       y: 135
-      date: "Apr 2026"
+      date: "Oct 2026"
 
   - id: disease-network
     area: network-and-graphical-models
@@ -286,15 +296,35 @@ works:
       y: 195
       date: "Mar 2026"
 
+  - id: agent-cue
+    area: agent-research
+    stage: manuscript
+    title: "AgenCue: Statistical Summaries for Guiding Decentralized Multi-Agent Self-Organization"
+    map_label: "AgenCue"
+    map_meta: "Manuscript · Oct 2026"
+    authors_html: >-
+      <strong>Guojun Zhu</strong>, Xinyou Chen, Kejian Zhang, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Manuscript, Oct. 2026."
+    map:
+      x: 125
+      y: 450
+      label_x: 110
+      label_y: 455
+      label_anchor: "end"
+    timeline:
+      x: 720
+      y: 405
+      date: "Oct 2026"
+
   - id: bad-genius-harness-evolution
     area: agent-research
     stage: manuscript
     title: "Bad Genius: Counterfactual-Guided Harness Evolution Beyond Task-Specific Shortcuts"
     map_label: "CHASE"
-    map_meta: "Manuscript · Sep 2026"
+    map_meta: "Under review · Sep 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Xunheng Huang, Peng Yin, Jiahui Xie, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Manuscript, Sep. 2026."
+    details_html: "Under review, Sep. 2026."
     links:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2609.18366"
