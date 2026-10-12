@@ -329,6 +329,26 @@
   pointer-events: visiblePainted;
 }
 
+.research-hypergraph__paper-label {
+  transition: opacity 140ms ease, visibility 0s linear 140ms;
+}
+
+.research-hypergraph__paper-label--timeline {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.research-hypergraph[data-map-view="timeline"] .research-hypergraph__paper-label--themes {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.research-hypergraph[data-map-view="timeline"] .research-hypergraph__paper-label--timeline {
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 180ms, 0s;
+}
+
 .research-hypergraph__paper.is-active .research-hypergraph__paper-node {
   transform: scale(1.14);
   filter: drop-shadow(0 1px 2px rgba(31, 41, 55, 0.2));

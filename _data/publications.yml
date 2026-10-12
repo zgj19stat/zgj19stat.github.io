@@ -14,7 +14,7 @@ areas:
 hyperedges:
   - id: transfer-learning
     title: "Transfer Learning"
-    path: "M 330 244 C 356 204, 405 187, 426 142 C 447 96, 458 62, 503 52 C 564 38, 638 72, 674 121 C 704 164, 696 220, 670 261 C 648 296, 685 340, 674 381 C 663 423, 610 445, 566 421 C 526 400, 500 373, 458 366 C 412 358, 360 333, 337 301 C 322 280, 318 260, 330 244 Z"
+    path: "M 438 54 C 493 31, 566 52, 625 96 C 685 141, 711 205, 690 262 C 675 303, 700 347, 686 393 C 670 444, 613 462, 565 432 C 514 400, 486 370, 441 358 C 391 344, 345 326, 320 292 C 295 257, 319 223, 350 197 C 386 167, 395 75, 438 54 Z"
     label_x: 486
     label_y: 38
     members:
@@ -26,7 +26,7 @@ hyperedges:
 
   - id: latent-space-model
     title: "Latent Space Model"
-    path: "M 52 72 C 93 46, 149 55, 194 88 C 238 120, 274 165, 279 211 C 285 258, 252 307, 208 344 C 188 364, 181 394, 171 424 C 159 461, 128 486, 92 476 C 58 466, 48 429, 59 384 C 51 342, 43 298, 42 259 C 41 220, 20 166, 31 119 C 36 97, 42 81, 52 72 Z"
+    path: "M 68 69 C 110 40, 174 53, 221 91 C 270 130, 296 191, 285 253 C 276 306, 236 342, 208 374 C 184 401, 187 447, 158 480 C 131 511, 84 506, 60 476 C 38 448, 46 406, 50 370 C 53 330, 39 292, 35 251 C 29 195, 26 98, 68 69 Z"
     label_x: 52
     label_y: 54
     members:
@@ -38,7 +38,7 @@ hyperedges:
 
   - id: hub-community-detection
     title: "Hub / Community Detection"
-    path: "M 190 174 C 218 158, 250 169, 281 194 C 312 220, 334 240, 368 245 C 404 250, 429 272, 430 299 C 431 329, 402 348, 365 341 C 331 335, 307 318, 278 309 C 245 299, 207 308, 182 280 C 156 251, 160 204, 190 174 Z"
+    path: "M 195 178 C 230 150, 279 168, 310 204 C 335 232, 374 235, 405 257 C 438 281, 436 320, 407 340 C 376 360, 337 344, 306 326 C 276 308, 238 319, 205 300 C 171 280, 164 235, 180 202 C 185 192, 185 186, 195 178 Z"
     label_x: 198
     label_y: 168
     members:
@@ -48,7 +48,7 @@ hyperedges:
 
   - id: multi-source-data
     title: "Multi-source Data"
-    path: "M 313 256 C 340 231, 380 246, 418 278 C 454 309, 481 315, 523 309 C 569 303, 632 324, 669 361 C 699 391, 683 438, 639 456 C 602 472, 568 500, 517 514 C 469 528, 409 511, 382 475 C 354 439, 363 400, 346 367 C 330 337, 287 282, 313 256 Z"
+    path: "M 316 245 C 348 220, 390 240, 423 272 C 454 302, 482 309, 526 303 C 578 296, 644 319, 681 359 C 714 396, 699 442, 654 464 C 611 485, 575 514, 519 529 C 466 543, 405 527, 374 489 C 345 453, 354 410, 338 373 C 324 340, 290 265, 316 245 Z"
     label_x: 454
     label_y: 536
     members:
@@ -59,7 +59,7 @@ hyperedges:
 
   - id: generalization
     title: "Generalization"
-    path: "M 300 430 C 320 409, 351 410, 374 425 C 393 437, 410 438, 447 431 C 477 426, 501 445, 499 471 C 496 500, 468 516, 434 509 C 404 503, 382 500, 352 508 C 319 516, 291 498, 287 471 C 283 453, 288 440, 300 430 Z"
+    path: "M 298 423 C 328 400, 370 413, 398 430 C 420 443, 453 426, 478 438 C 505 451, 510 482, 492 504 C 470 531, 430 526, 401 516 C 373 507, 342 526, 316 512 C 286 496, 278 438, 298 423 Z"
     label_x: 300
     label_y: 421
     members:
@@ -68,7 +68,7 @@ hyperedges:
 
   - id: agent
     title: "Agent"
-    path: "M 92 407 C 127 391, 177 397, 216 417 C 250 435, 276 426, 318 429 C 356 431, 384 448, 383 472 C 381 500, 347 515, 310 503 C 278 493, 253 487, 219 497 C 178 509, 119 505, 88 481 C 66 464, 68 424, 92 407 Z"
+    path: "M 93 405 C 128 383, 178 394, 218 417 C 249 435, 276 424, 316 426 C 358 428, 387 451, 381 479 C 374 510, 336 526, 301 511 C 269 498, 242 493, 206 506 C 166 520, 112 513, 84 486 C 60 462, 66 422, 93 405 Z"
     label_x: 96
     label_y: 400
     members:
@@ -96,7 +96,10 @@ works:
       label_anchor: "start"
     timeline:
       x: 630
-      y: 135
+      y: 105
+      label_x: 630
+      label_y: 87
+      label_anchor: "middle"
       date: "Jul 2026"
 
   - id: pattern-calibrated-multimodal-prediction
@@ -119,7 +122,10 @@ works:
       label_anchor: "start"
     timeline:
       x: 630
-      y: 405
+      y: 390
+      label_x: 630
+      label_y: 414
+      label_anchor: "middle"
       date: "Jul 2026"
 
   - id: information-transfer
@@ -143,6 +149,9 @@ works:
     timeline:
       x: 540
       y: 350
+      label_x: 540
+      label_y: 374
+      label_anchor: "middle"
       date: "Apr 2026"
 
   - id: federated-class-incremental-learning
@@ -165,7 +174,10 @@ works:
       label_anchor: "start"
     timeline:
       x: 450
-      y: 405
+      y: 390
+      label_x: 450
+      label_y: 414
+      label_anchor: "middle"
       date: "Jan 2026"
 
   - id: conditional-generative-multisource
@@ -191,6 +203,9 @@ works:
     timeline:
       x: 90
       y: 170
+      label_x: 90
+      label_y: 153
+      label_anchor: "middle"
       date: "Jan 2025"
 
   - id: joint-disease-interconnections
@@ -210,7 +225,10 @@ works:
       label_anchor: "end"
     timeline:
       x: 720
-      y: 345
+      y: 320
+      label_x: 705
+      label_y: 344
+      label_anchor: "end"
       date: "Oct 2026"
 
   - id: directed-hypergraphs
@@ -230,7 +248,10 @@ works:
       label_anchor: "end"
     timeline:
       x: 660
-      y: 260
+      y: 230
+      label_x: 660
+      label_y: 213
+      label_anchor: "middle"
       date: "Aug 2026"
 
   - id: distributed-hub-detection
@@ -250,7 +271,10 @@ works:
       label_anchor: "start"
     timeline:
       x: 570
-      y: 210
+      y: 230
+      label_x: 570
+      label_y: 213
+      label_anchor: "middle"
       date: "May 2026"
 
   - id: functional-latent-space-model
@@ -270,7 +294,10 @@ works:
       label_anchor: "end"
     timeline:
       x: 720
-      y: 135
+      y: 150
+      label_x: 705
+      label_y: 133
+      label_anchor: "end"
       date: "Oct 2026"
 
   - id: disease-network
@@ -293,7 +320,10 @@ works:
       label_anchor: "start"
     timeline:
       x: 510
-      y: 195
+      y: 170
+      label_x: 510
+      label_y: 153
+      label_anchor: "middle"
       date: "Mar 2026"
 
   - id: agent-cue
@@ -313,7 +343,10 @@ works:
       label_anchor: "end"
     timeline:
       x: 720
-      y: 405
+      y: 480
+      label_x: 705
+      label_y: 504
+      label_anchor: "end"
       date: "Oct 2026"
 
   - id: bad-genius-harness-evolution
@@ -337,4 +370,7 @@ works:
     timeline:
       x: 690
       y: 425
+      label_x: 675
+      label_y: 449
+      label_anchor: "end"
       date: "Sep 2026"

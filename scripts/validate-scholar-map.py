@@ -60,6 +60,21 @@ EXPECTED_MAP_LABELS = {
     "agent-cue": "AgenCue",
 }
 
+EXPECTED_TIMELINE_LABELS = {
+    "ladder": ("630", "87", "middle"),
+    "pattern-calibrated-multimodal-prediction": ("630", "414", "middle"),
+    "information-transfer": ("540", "374", "middle"),
+    "federated-class-incremental-learning": ("450", "414", "middle"),
+    "conditional-generative-multisource": ("90", "153", "middle"),
+    "joint-disease-interconnections": ("705", "344", "end"),
+    "directed-hypergraphs": ("660", "213", "middle"),
+    "distributed-hub-detection": ("570", "213", "middle"),
+    "functional-latent-space-model": ("705", "133", "end"),
+    "disease-network": ("510", "153", "middle"),
+    "agent-cue": ("705", "504", "end"),
+    "bad-genius-harness-evolution": ("675", "449", "end"),
+}
+
 
 class PublicationPageParser(HTMLParser):
     def __init__(self) -> None:
@@ -74,6 +89,12 @@ class PublicationPageParser(HTMLParser):
         self.view_buttons: dict[str, dict[str, str]] = {}
         self.timeline_stems: set[str] = set()
         self.paper_hit_targets: list[dict[str, str]] = []
+        self.paper_labels: dict[str, dict[str, dict[str, str]]] = {
+            "themes": {},
+            "timeline": {},
+        }
+        self.timeline_band: dict[str, str] = {}
+        self.timeline_divider: dict[str, str] = {}
 
     def handle_starttag(self, tag: str, attrs: list[tuple[str, str | None]]) -> None:
         attributes = {key: value or "" for key, value in attrs}
@@ -100,6 +121,18 @@ class PublicationPageParser(HTMLParser):
 
         if tag == "circle" and "research-hypergraph__paper-hit" in classes:
             self.paper_hit_targets.append(attributes)
+
+        if tag == "text" and "research-hypergraph__paper-label" in classes:
+            view = attributes.get("data-label-view", "")
+            work_id = attributes.get("data-label-work-id", "")
+            if view in self.paper_labels:
+                self.paper_labels[view][work_id] = attributes
+
+        if tag == "rect" and "research-hypergraph__timeline-band" in classes:
+            self.timeline_band = attributes
+
+        if tag == "line" and "research-hypergraph__timeline-divider" in classes:
+            self.timeline_divider = attributes
 
         if tag == "li" and "publication-item" in classes:
             work_id = attributes.get("id", "")
@@ -146,6 +179,31 @@ def main() -> int:
     require(parser.view_buttons["themes"].get("aria-pressed") == "true", "Themes must be selected by default")
     require(parser.view_buttons["timeline"].get("aria-pressed") == "false", "Timeline must be unselected by default")
     require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the twelve expected works")
+    require(
+        set(parser.paper_labels["themes"]) == expected_work_ids,
+        "theme-view labels do not match the twelve expected works",
+    )
+    require(
+        set(parser.paper_labels["timeline"]) == expected_work_ids,
+        "timeline-view labels do not match the twelve expected works",
+    )
+    actual_timeline_labels = {
+        work_id: (
+            attributes.get("data-label-x", ""),
+            attributes.get("data-label-y", ""),
+            attributes.get("data-label-anchor", ""),
+        )
+        for work_id, attributes in parser.paper_labels["timeline"].items()
+    }
+    require(
+        actual_timeline_labels == EXPECTED_TIMELINE_LABELS,
+        f"timeline label layout changed unexpectedly: {actual_timeline_labels}",
+    )
+    require(
+        parser.timeline_band.get("height") == "448"
+        and parser.timeline_divider.get("y2") == "507",
+        "the expanded timeline envelope is missing",
+    )
     require(
         len(parser.paper_hit_targets) == 12 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
         "each paper node must have a stable enlarged hit target",
