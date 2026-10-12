@@ -47,11 +47,11 @@
         </g>
 
         <g class="research-hypergraph__timeline-layer" data-map-timeline aria-hidden="true">
-          <rect class="research-hypergraph__timeline-band" x="435" y="72" width="300" height="386" rx="18"></rect>
+          <rect class="research-hypergraph__timeline-band" x="435" y="72" width="300" height="448" rx="18"></rect>
           <text class="research-hypergraph__timeline-year" x="270" y="88" text-anchor="middle">2025</text>
           <text class="research-hypergraph__timeline-year" x="570" y="88" text-anchor="middle">2026</text>
           <path class="research-hypergraph__timeline-axis" d="M 70 275 H 735"></path>
-          <line class="research-hypergraph__timeline-divider" x1="435" y1="94" x2="435" y2="445"></line>
+          <line class="research-hypergraph__timeline-divider" x1="435" y1="94" x2="435" y2="507"></line>
 
           {% assign timeline_ticks = "90:Jan ’25,450:Jan,510:Mar,540:Apr,570:May,630:Jul,660:Aug,690:Sep,720:Oct" | split: "," %}
           {% for tick in timeline_ticks %}
@@ -73,8 +73,10 @@
         <g class="research-hypergraph__nodes">
           {% for work in publication_data.works %}
             {% capture memberships %}{% for edge in publication_data.hyperedges %}{% if edge.members contains work.id %}{{ edge.id }} {% endif %}{% endfor %}{% endcapture %}
-            {% assign label_dx = work.map.label_x | minus: work.map.x %}
-            {% assign label_dy = work.map.label_y | minus: work.map.y %}
+            {% assign theme_label_dx = work.map.label_x | minus: work.map.x %}
+            {% assign theme_label_dy = work.map.label_y | minus: work.map.y %}
+            {% assign timeline_label_dx = work.timeline.label_x | minus: work.timeline.x %}
+            {% assign timeline_label_dy = work.timeline.label_y | minus: work.timeline.y %}
             <g class="research-hypergraph__paper research-hypergraph__paper--{{ work.stage }}"
                role="link"
                tabindex="0"
@@ -93,9 +95,24 @@
                aria-label="{{ work.title }}. {{ work.map_meta }}">
               <circle class="research-hypergraph__paper-hit" cx="0" cy="0" r="16"></circle>
               <circle class="research-hypergraph__paper-node" cx="0" cy="0" r="8"></circle>
-              <text x="{{ label_dx }}"
-                    y="{{ label_dy }}"
-                    text-anchor="{{ work.map.label_anchor }}">{{ work.map_label }}</text>
+              <text class="research-hypergraph__paper-label research-hypergraph__paper-label--themes"
+                    x="{{ theme_label_dx }}"
+                    y="{{ theme_label_dy }}"
+                    text-anchor="{{ work.map.label_anchor }}"
+                    data-label-work-id="{{ work.id }}"
+                    data-label-view="themes"
+                    data-label-x="{{ work.map.label_x }}"
+                    data-label-y="{{ work.map.label_y }}"
+                    data-label-anchor="{{ work.map.label_anchor }}">{{ work.map_label }}</text>
+              <text class="research-hypergraph__paper-label research-hypergraph__paper-label--timeline"
+                    x="{{ timeline_label_dx }}"
+                    y="{{ timeline_label_dy }}"
+                    text-anchor="{{ work.timeline.label_anchor }}"
+                    data-label-work-id="{{ work.id }}"
+                    data-label-view="timeline"
+                    data-label-x="{{ work.timeline.label_x }}"
+                    data-label-y="{{ work.timeline.label_y }}"
+                    data-label-anchor="{{ work.timeline.label_anchor }}">{{ work.map_label }}</text>
               <title>{{ work.title }} — {{ work.map_meta }}</title>
             </g>
           {% endfor %}
