@@ -4,6 +4,8 @@
 from __future__ import annotations
 
 import sys
+import math
+import re
 from collections import Counter
 from html.parser import HTMLParser
 from pathlib import Path
@@ -83,6 +85,7 @@ class PublicationPageParser(HTMLParser):
         self.paper_nodes: dict[str, dict[str, str]] = {}
         self.publication_items: dict[str, dict[str, str]] = {}
         self.hyperedges: dict[str, set[str]] = {}
+        self.hyperedge_paths: dict[str, list[str]] = {}
         self.assets: set[str] = set()
         self.map_canvas: dict[str, str] = {}
         self.map_root: dict[str, str] = {}
@@ -142,6 +145,10 @@ class PublicationPageParser(HTMLParser):
             edge_id = attributes["data-hyperedge-target"]
             self.hyperedges[edge_id] = set(attributes.get("data-members", "").split())
 
+        edge_id = attributes.get("data-hyperedge-shape") or attributes.get("data-hyperedge-target")
+        if edge_id:
+            self.hyperedge_paths.setdefault(edge_id, []).append(attributes.get("d", ""))
+
         if tag == "link" and attributes.get("href"):
             self.assets.add(attributes["href"])
         if tag == "script" and attributes.get("src"):
@@ -151,6 +158,65 @@ class PublicationPageParser(HTMLParser):
 def require(condition: bool, message: str) -> None:
     if not condition:
         raise AssertionError(message)
+
+
+def validate_contours(parser: PublicationPageParser) -> None:
+    """Check the rendered geometry, not just the declared theme memberships."""
+    for edge_id, paths in parser.hyperedge_paths.items():
+        require(len(paths) == 3 and len(set(paths)) == 1, f"{edge_id}: fill, line, and hover paths differ")
+        tokens = re.findall(r"[A-Za-z]|-?(?:\d+\.?\d*|\.\d+)", paths[0])
+        require(tokens[0] == "M" and tokens[-1] == "Z", f"{edge_id}: contour must be closed")
+        require((len(tokens) - 4) % 7 == 0, f"{edge_id}: expected cubic contour segments")
+        cursor = (float(tokens[1]), float(tokens[2]))
+        segments = []
+        for i in range(3, len(tokens) - 1, 7):
+            require(tokens[i] == "C", f"{edge_id}: only absolute cubic segments are supported")
+            segment = [cursor] + [(float(tokens[j]), float(tokens[j + 1])) for j in (i + 1, i + 3, i + 5)]
+            segments.append(segment)
+            cursor = segment[-1]
+        require(len(segments) >= 4, f"{edge_id}: incomplete contour")
+
+        # Periodic cubic splines match position, tangent, and second derivative,
+        # including at the closing seam. Tolerances allow 3-decimal serialization.
+        for a, b in zip(segments, segments[1:] + segments[:1]):
+            require(math.dist(a[3], b[0]) < 0.002, f"{edge_id}: open contour seam")
+            out_tangent = tuple(3 * (a[3][d] - a[2][d]) for d in (0, 1))
+            in_tangent = tuple(3 * (b[1][d] - b[0][d]) for d in (0, 1))
+            require(math.dist(out_tangent, in_tangent) < 0.02, f"{edge_id}: sharp tangent join")
+            out_accel = tuple(6 * (a[3][d] - 2 * a[2][d] + a[1][d]) for d in (0, 1))
+            in_accel = tuple(6 * (b[2][d] - 2 * b[1][d] + b[0][d]) for d in (0, 1))
+            require(math.dist(out_accel, in_accel) < 0.06, f"{edge_id}: abrupt curvature join")
+
+        points = []
+        for a, b, c, d in segments:
+            for step in range(60):
+                t = step / 60
+                s = 1 - t
+                points.append(tuple(s**3*a[k] + 3*s*s*t*b[k] + 3*s*t*t*c[k] + t**3*d[k] for k in (0, 1)))
+        require(all(8 < x < 742 and 8 < y < 542 for x, y in points), f"{edge_id}: clipped contour")
+        lines = list(zip(points, points[1:] + points[:1]))
+
+        def turn(a, b, c):
+            return (b[0]-a[0])*(c[1]-a[1]) - (b[1]-a[1])*(c[0]-a[0])
+
+        for i, (a, b) in enumerate(lines):
+            for c, d in lines[i + 2:]:
+                require(not (turn(a, b, c)*turn(a, b, d) < -1e-9 and turn(c, d, a)*turn(c, d, b) < -1e-9),
+                        f"{edge_id}: self-intersecting contour")
+
+        for work_id, attrs in parser.paper_nodes.items():
+            x, y = float(attrs["data-theme-x"]), float(attrs["data-theme-y"])
+            inside = False
+            clearance = float("inf")
+            for (ax, ay), (bx, by) in lines:
+                if (ay > y) != (by > y) and x < (bx-ax)*(y-ay)/(by-ay)+ax:
+                    inside = not inside
+                dx, dy = bx-ax, by-ay
+                norm = dx*dx + dy*dy
+                t = max(0, min(1, ((x-ax)*dx + (y-ay)*dy) / norm)) if norm else 0
+                clearance = min(clearance, math.hypot(x-ax-t*dx, y-ay-t*dy))
+            require(inside == (work_id in parser.hyperedges[edge_id]), f"{edge_id}: incorrect enclosure of {work_id}")
+            require(clearance > 18, f"{edge_id}: contour too close to {work_id}")
 
 
 def main() -> int:
@@ -167,6 +233,7 @@ def main() -> int:
     require(set(parser.publication_items) == expected_work_ids, "publication entries do not match map nodes")
     require(parser.hyperedges == EXPECTED_HYPEREDGES, "generated hyperedge memberships are incorrect")
     require(sum(len(members) for members in parser.hyperedges.values()) == 21, "expected twenty-one node-hyperedge incidences")
+    validate_contours(parser)
 
     stages = Counter(attributes.get("data-stage") for attributes in parser.paper_nodes.values())
     require(stages == {"manuscript": 9, "publication": 3}, f"unexpected map status counts: {stages}")
@@ -270,8 +337,8 @@ def main() -> int:
     require("Manuscript, Oct. 2026." in agent_cue_entry, "the AgentCue manuscript date is missing")
     require("Manuscript · Oct 2026" in html, "the AgentCue map metadata is missing")
     require(
-        parser.paper_nodes["agent-cue"].get("data-theme-x") == "125"
-        and parser.paper_nodes["agent-cue"].get("data-theme-y") == "450",
+        parser.paper_nodes["agent-cue"].get("data-theme-x") == "148"
+        and parser.paper_nodes["agent-cue"].get("data-theme-y") == "422",
         "AgentCue must remain in the lower-left map region",
     )
     require(

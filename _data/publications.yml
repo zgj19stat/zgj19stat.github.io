@@ -14,10 +14,10 @@ areas:
 hyperedges:
   - id: transfer-learning
     title: "Transfer Learning"
-    # Convex ellipse: center (525, 255), radii (214, 195), rotation 23.000 degrees.
-    path: "M 721.988 338.616 C 679.908 437.751, 557.601 480.679, 448.807 434.498 C 340.014 388.318, 285.932 270.518, 328.012 171.384 C 370.092 72.249, 492.399 29.321, 601.193 75.502 C 709.986 121.682, 764.068 239.482, 721.988 338.616 Z"
-    label_x: 486
-    label_y: 38
+    # Periodic cubic B-spline; controls: [[320,235],[392,89],[485,52],[648,83],[711,190],[702,342],[564,356],[428,325],[311,292]].
+    path: "M 395.5 107.167 C 423.0 76.667, 454.0 64.333, 496.667 63.333 C 539.333 62.333, 593.667 72.667, 631.333 95.667 C 669.0 118.667, 690.0 154.333, 699.0 197.5 C 708.0 240.667, 705.0 291.333, 680.5 319.0 C 656.0 346.667, 610.0 351.333, 564.333 348.5 C 518.667 345.667, 473.333 335.333, 431.167 324.667 C 389.0 314.0, 350.0 303.0, 332.0 288.0 C 314.0 273.0, 317.0 254.0, 330.5 220.167 C 344.0 186.333, 368.0 137.667, 395.5 107.167 Z"
+    label_x: 493
+    label_y: 64
     members:
       - pattern-calibrated-multimodal-prediction
       - distributed-hub-detection
@@ -27,10 +27,10 @@ hyperedges:
 
   - id: latent-space-model
     title: "Latent Space Model"
-    # Convex ellipse: center (155, 275), radii (123, 228), rotation 0.000 degrees.
-    path: "M 278 275 C 278 400.921, 222.931 503, 155 503 C 87.069 503, 32 400.921, 32 275 C 32 149.079, 87.069 47, 155 47 C 222.931 47, 278 149.079, 278 275 Z"
-    label_x: 52
-    label_y: 54
+    # Periodic cubic B-spline; controls: [[55,103],[147,62],[253,151],[285,264],[236,356],[191,466],[104,454],[70,343]].
+    path: "M 149.333 83.667 C 182.333 91.667, 217.667 121.333, 240.667 155.0 C 263.667 188.667, 274.333 226.333, 271.5 260.5 C 268.667 294.667, 252.333 325.333, 236.667 359.0 C 221.0 392.667, 206.0 429.333, 184.0 445.667 C 162.0 462.0, 133.0 458.0, 112.833 437.5 C 92.667 417.0, 81.333 380.0, 73.167 321.5 C 65.0 263.0, 60.0 183.0, 72.833 136.167 C 85.667 89.333, 116.333 75.667, 149.333 83.667 Z"
+    label_x: 64
+    label_y: 71
     members:
       - functional-latent-space-model
       - directed-hypergraphs
@@ -40,10 +40,10 @@ hyperedges:
 
   - id: hub-community-detection
     title: "Hub / Community Detection"
-    # Convex ellipse: center (285, 252), radii (113, 59), rotation 22.000 degrees.
-    path: "M 389.772 294.331 C 377.565 324.543, 320.762 330.082, 262.898 306.704 C 205.034 283.325, 168.022 239.882, 180.228 209.669 C 192.435 179.457, 249.238 173.918, 307.102 197.296 C 364.966 220.675, 401.978 264.118, 389.772 294.331 Z"
-    label_x: 198
-    label_y: 168
+    # Periodic cubic B-spline; controls: [[193,154],[270,144],[453,222],[442,300],[300,323],[195,310]].
+    path: "M 287.667 158.667 C 331.0 170.0, 392.0 196.0, 420.667 222.0 C 449.333 248.0, 445.667 274.0, 420.167 290.833 C 394.667 307.667, 347.333 315.333, 306.167 317.0 C 265.0 318.667, 230.0 314.333, 212.167 286.167 C 194.333 258.0, 193.667 206.0, 206.167 178.333 C 218.667 150.667, 244.333 147.333, 287.667 158.667 Z"
+    label_x: 207
+    label_y: 145
     members:
       - directed-hypergraphs
       - distributed-hub-detection
@@ -51,10 +51,10 @@ hyperedges:
 
   - id: multi-source-data
     title: "Multi-source Data"
-    # Convex ellipse: center (500, 379), radii (225, 122), rotation 29.000 degrees.
-    path: "M 696.789 488.082 C 664.124 547.013, 549.537 545.948, 440.853 485.704 C 332.169 425.459, 270.545 328.849, 303.211 269.918 C 335.876 210.987, 450.463 212.052, 559.147 272.296 C 667.831 332.541, 729.455 429.151, 696.789 488.082 Z"
-    label_x: 454
-    label_y: 536
+    # Periodic cubic B-spline; controls: [[312,240],[441,233],[612,263],[705,306],[634,408],[527,493],[437,462],[368,367]].
+    path: "M 448.0 239.167 C 498.0 243.0, 555.0 253.0, 599.0 265.167 C 643.0 277.333, 674.0 291.667, 677.667 315.833 C 681.333 340.0, 657.667 374.0, 628.0 405.167 C 598.333 436.333, 562.667 464.667, 529.833 473.667 C 497.0 482.667, 467.0 472.333, 440.5 451.333 C 414.0 430.333, 391.0 398.667, 370.167 361.667 C 349.333 324.667, 330.667 282.333, 342.833 260.0 C 355.0 237.667, 398.0 235.333, 448.0 239.167 Z"
+    label_x: 536
+    label_y: 488
     members:
       - ladder
       - distributed-hub-detection
@@ -63,20 +63,20 @@ hyperedges:
 
   - id: generalization
     title: "Generalization"
-    # Convex ellipse: center (389.5, 466), radii (99, 44), rotation 1.051 degrees.
-    path: "M 488.483 467.816 C 488.038 492.113, 443.36 510.996, 388.693 509.993 C 334.026 508.99, 290.071 488.48, 290.517 464.184 C 290.962 439.887, 335.64 421.004, 390.307 422.007 C 444.974 423.01, 488.929 443.52, 488.483 467.816 Z"
-    label_x: 323
-    label_y: 411
+    # Periodic cubic B-spline; controls: [[290,422],[377,407],[517,401],[544,465],[466,498],[318,500],[290,462]].
+    path: "M 385.833 408.5 C 423.667 405.0, 470.333 403.0, 498.167 412.667 C 526.0 422.333, 535.0 443.667, 526.5 459.833 C 518.0 476.0, 492.0 487.0, 454.333 492.833 C 416.667 498.667, 367.333 499.333, 338.0 493.333 C 308.667 487.333, 299.333 474.667, 294.667 461.667 C 290.0 448.667, 290.0 435.333, 304.5 426.167 C 319.0 417.0, 348.0 412.0, 385.833 408.5 Z"
+    label_x: 393
+    label_y: 514
     members:
       - bad-genius-harness-evolution
       - ladder
 
   - id: agent
     title: "Agent"
-    # Convex ellipse: center (230, 457.5), radii (148, 48.5), rotation 4.086 degrees.
-    path: "M 377.624 468.045 C 375.715 494.762, 308.075 511.7, 226.545 505.877 C 145.014 500.053, 80.468 473.673, 82.376 446.955 C 84.285 420.238, 151.925 403.3, 233.455 409.123 C 314.986 414.947, 379.532 441.327, 377.624 468.045 Z"
-    label_x: 135
-    label_y: 406
+    # Periodic cubic B-spline; controls: [[97,386],[180,373],[278,405],[383,431],[381,493],[298,501],[184,473],[100,455]].
+    path: "M 182.5 380.5 C 212.667 383.667, 245.333 394.333, 279.167 404.0 C 313.0 413.667, 348.0 422.333, 365.167 437.0 C 382.333 451.667, 381.667 472.333, 367.5 484.0 C 353.333 495.667, 325.667 498.333, 292.833 495.0 C 260.0 491.667, 222.0 482.333, 189.0 474.667 C 156.0 467.0, 128.0 461.0, 113.5 446.5 C 99.0 432.0, 98.0 409.0, 111.333 395.333 C 124.667 381.667, 152.333 377.333, 182.5 380.5 Z"
+    label_x: 159
+    label_y: 368
     members:
       - agent-cue
       - bad-genius-harness-evolution
@@ -95,11 +95,11 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2607.26458"
     map:
-      x: 444
-      y: 467
-      label_x: 458
-      label_y: 472
-      label_anchor: "start"
+      x: 486
+      y: 449
+      label_x: 486
+      label_y: 429
+      label_anchor: "middle"
     timeline:
       x: 630
       y: 105
@@ -121,10 +121,10 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2607.01821"
     map:
-      x: 500
-      y: 104
-      label_x: 514
-      label_y: 109
+      x: 474
+      y: 116
+      label_x: 493
+      label_y: 120
       label_anchor: "start"
     timeline:
       x: 630
@@ -147,10 +147,10 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2604.25845"
     map:
-      x: 632
-      y: 200
-      label_x: 618
-      label_y: 187
+      x: 642
+      y: 166
+      label_x: 623
+      label_y: 170
       label_anchor: "end"
     timeline:
       x: 540
@@ -173,11 +173,11 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2506.01327"
     map:
-      x: 518
-      y: 338
-      label_x: 532
-      label_y: 343
-      label_anchor: "start"
+      x: 504
+      y: 289
+      label_x: 504
+      label_y: 318
+      label_anchor: "middle"
     timeline:
       x: 450
       y: 390
@@ -201,11 +201,11 @@ works:
       - label: "Slides"
         url: "https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/STWGAN_slides.pdf"
     map:
-      x: 640
-      y: 386
-      label_x: 626
-      label_y: 409
-      label_anchor: "end"
+      x: 636
+      y: 304
+      label_x: 636
+      label_y: 333
+      label_anchor: "middle"
     timeline:
       x: 90
       y: 170
@@ -224,11 +224,11 @@ works:
       <strong>Guojun Zhu</strong>, Sanguo Zhang, Ben-Chang Shia, Wei-Shan Chang, Kai-Yuan Hsiao, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Manuscript, Oct. 2026."
     map:
-      x: 240
-      y: 270
-      label_x: 225
-      label_y: 290
-      label_anchor: "end"
+      x: 230
+      y: 271
+      label_x: 230
+      label_y: 299
+      label_anchor: "middle"
     timeline:
       x: 720
       y: 320
@@ -247,11 +247,11 @@ works:
       <strong>Guojun Zhu</strong>, Haofei Wang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Under review, Aug. 2026."
     map:
-      x: 234
-      y: 222
-      label_x: 219
-      label_y: 209
-      label_anchor: "end"
+      x: 230
+      y: 207
+      label_x: 230
+      label_y: 189
+      label_anchor: "middle"
     timeline:
       x: 660
       y: 230
@@ -270,11 +270,11 @@ works:
       Rongzhuo Nie, Sanguo Zhang, Lili Zhao, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Under review, May 2026."
     map:
-      x: 347
-      y: 278
-      label_x: 361
-      label_y: 283
-      label_anchor: "start"
+      x: 380
+      y: 285
+      label_x: 383
+      label_y: 261
+      label_anchor: "middle"
     timeline:
       x: 570
       y: 230
@@ -293,11 +293,11 @@ works:
       <strong>Guojun Zhu</strong>, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Accepted by <em>Biometrics</em>, Oct. 2026."
     map:
-      x: 104
-      y: 122
-      label_x: 89
-      label_y: 127
-      label_anchor: "end"
+      x: 115
+      y: 133
+      label_x: 134
+      label_y: 137
+      label_anchor: "start"
     timeline:
       x: 720
       y: 150
@@ -319,10 +319,10 @@ works:
       - label: "Slides"
         url: "https://github.com/zgj19stat/zgj19stat.github.io/blob/master/files/MTFLSM_slides.pdf"
     map:
-      x: 112
-      y: 342
-      label_x: 126
-      label_y: 347
+      x: 114
+      y: 290
+      label_x: 133
+      label_y: 294
       label_anchor: "start"
     timeline:
       x: 510
@@ -342,11 +342,11 @@ works:
       <strong>Guojun Zhu</strong>, Xinyou Chen, Kejian Zhang, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Manuscript, Oct. 2026."
     map:
-      x: 125
-      y: 450
-      label_x: 110
-      label_y: 455
-      label_anchor: "end"
+      x: 148
+      y: 422
+      label_x: 148
+      label_y: 403
+      label_anchor: "middle"
     timeline:
       x: 720
       y: 480
@@ -368,11 +368,11 @@ works:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2609.18366"
     map:
-      x: 335
-      y: 465
-      label_x: 321
-      label_y: 470
-      label_anchor: "end"
+      x: 339
+      y: 454
+      label_x: 339
+      label_y: 482
+      label_anchor: "middle"
     timeline:
       x: 690
       y: 425
