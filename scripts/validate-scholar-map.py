@@ -57,7 +57,7 @@ EXPECTED_MAP_LABELS = {
     "disease-network": "MTFLSM",
     "joint-disease-interconnections": "LUMEN",
     "bad-genius-harness-evolution": "CHASE",
-    "agent-cue": "AgenCue",
+    "agent-cue": "AgentCue",
 }
 
 EXPECTED_TIMELINE_LABELS = {
@@ -244,8 +244,8 @@ def main() -> int:
         "the CHASE manuscript title is missing",
     )
     require(
-        "AgenCue: Statistical Summaries for Guiding Decentralized Multi-Agent Self-Organization" in html,
-        "the AgenCue manuscript title is missing",
+        "AgentCue: Statistical Summaries for Guiding Decentralized Multi-Agent Self-Organization" in html,
+        "the AgentCue manuscript title is missing",
     )
     require('<h2 id="agent-research">Agent Research</h2>' in html, "the Agent Research area is missing")
     require(
@@ -267,16 +267,16 @@ def main() -> int:
     agent_cue_start = html.index('<li id="agent-cue"')
     agent_cue_end = html.index("</li>", agent_cue_start)
     agent_cue_entry = html[agent_cue_start:agent_cue_end]
-    require("Manuscript, Oct. 2026." in agent_cue_entry, "the AgenCue manuscript date is missing")
-    require("Manuscript · Oct 2026" in html, "the AgenCue map metadata is missing")
+    require("Manuscript, Oct. 2026." in agent_cue_entry, "the AgentCue manuscript date is missing")
+    require("Manuscript · Oct 2026" in html, "the AgentCue map metadata is missing")
     require(
         parser.paper_nodes["agent-cue"].get("data-theme-x") == "125"
         and parser.paper_nodes["agent-cue"].get("data-theme-y") == "450",
-        "AgenCue must remain in the lower-left map region",
+        "AgentCue must remain in the lower-left map region",
     )
     require(
         parser.paper_nodes["agent-cue"].get("data-timeline-date") == "Oct 2026",
-        "the AgenCue timeline date is incorrect",
+        "the AgentCue timeline date is incorrect",
     )
 
     fold_start = html.index('<li id="directed-hypergraphs"')

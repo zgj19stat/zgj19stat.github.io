@@ -14,7 +14,8 @@ areas:
 hyperedges:
   - id: transfer-learning
     title: "Transfer Learning"
-    path: "M 438 54 C 493 31, 566 52, 625 96 C 685 141, 711 205, 690 262 C 675 303, 700 347, 686 393 C 670 444, 613 462, 565 432 C 514 400, 486 370, 441 358 C 391 344, 345 326, 320 292 C 295 257, 319 223, 350 197 C 386 167, 395 75, 438 54 Z"
+    # Convex ellipse: center (525, 255), radii (214, 195), rotation 23.000 degrees.
+    path: "M 721.988 338.616 C 679.908 437.751, 557.601 480.679, 448.807 434.498 C 340.014 388.318, 285.932 270.518, 328.012 171.384 C 370.092 72.249, 492.399 29.321, 601.193 75.502 C 709.986 121.682, 764.068 239.482, 721.988 338.616 Z"
     label_x: 486
     label_y: 38
     members:
@@ -26,7 +27,8 @@ hyperedges:
 
   - id: latent-space-model
     title: "Latent Space Model"
-    path: "M 68 69 C 110 40, 174 53, 221 91 C 270 130, 296 191, 285 253 C 276 306, 236 342, 208 374 C 184 401, 187 447, 158 480 C 131 511, 84 506, 60 476 C 38 448, 46 406, 50 370 C 53 330, 39 292, 35 251 C 29 195, 26 98, 68 69 Z"
+    # Convex ellipse: center (155, 275), radii (123, 228), rotation 0.000 degrees.
+    path: "M 278 275 C 278 400.921, 222.931 503, 155 503 C 87.069 503, 32 400.921, 32 275 C 32 149.079, 87.069 47, 155 47 C 222.931 47, 278 149.079, 278 275 Z"
     label_x: 52
     label_y: 54
     members:
@@ -38,7 +40,8 @@ hyperedges:
 
   - id: hub-community-detection
     title: "Hub / Community Detection"
-    path: "M 195 178 C 230 150, 279 168, 310 204 C 335 232, 374 235, 405 257 C 438 281, 436 320, 407 340 C 376 360, 337 344, 306 326 C 276 308, 238 319, 205 300 C 171 280, 164 235, 180 202 C 185 192, 185 186, 195 178 Z"
+    # Convex ellipse: center (285, 252), radii (113, 59), rotation 22.000 degrees.
+    path: "M 389.772 294.331 C 377.565 324.543, 320.762 330.082, 262.898 306.704 C 205.034 283.325, 168.022 239.882, 180.228 209.669 C 192.435 179.457, 249.238 173.918, 307.102 197.296 C 364.966 220.675, 401.978 264.118, 389.772 294.331 Z"
     label_x: 198
     label_y: 168
     members:
@@ -48,7 +51,8 @@ hyperedges:
 
   - id: multi-source-data
     title: "Multi-source Data"
-    path: "M 316 245 C 348 220, 390 240, 423 272 C 454 302, 482 309, 526 303 C 578 296, 644 319, 681 359 C 714 396, 699 442, 654 464 C 611 485, 575 514, 519 529 C 466 543, 405 527, 374 489 C 345 453, 354 410, 338 373 C 324 340, 290 265, 316 245 Z"
+    # Convex ellipse: center (500, 379), radii (225, 122), rotation 29.000 degrees.
+    path: "M 696.789 488.082 C 664.124 547.013, 549.537 545.948, 440.853 485.704 C 332.169 425.459, 270.545 328.849, 303.211 269.918 C 335.876 210.987, 450.463 212.052, 559.147 272.296 C 667.831 332.541, 729.455 429.151, 696.789 488.082 Z"
     label_x: 454
     label_y: 536
     members:
@@ -59,18 +63,20 @@ hyperedges:
 
   - id: generalization
     title: "Generalization"
-    path: "M 298 423 C 328 400, 370 413, 398 430 C 420 443, 453 426, 478 438 C 505 451, 510 482, 492 504 C 470 531, 430 526, 401 516 C 373 507, 342 526, 316 512 C 286 496, 278 438, 298 423 Z"
-    label_x: 300
-    label_y: 421
+    # Convex ellipse: center (389.5, 466), radii (99, 44), rotation 1.051 degrees.
+    path: "M 488.483 467.816 C 488.038 492.113, 443.36 510.996, 388.693 509.993 C 334.026 508.99, 290.071 488.48, 290.517 464.184 C 290.962 439.887, 335.64 421.004, 390.307 422.007 C 444.974 423.01, 488.929 443.52, 488.483 467.816 Z"
+    label_x: 323
+    label_y: 411
     members:
       - bad-genius-harness-evolution
       - ladder
 
   - id: agent
     title: "Agent"
-    path: "M 93 405 C 128 383, 178 394, 218 417 C 249 435, 276 424, 316 426 C 358 428, 387 451, 381 479 C 374 510, 336 526, 301 511 C 269 498, 242 493, 206 506 C 166 520, 112 513, 84 486 C 60 462, 66 422, 93 405 Z"
-    label_x: 96
-    label_y: 400
+    # Convex ellipse: center (230, 457.5), radii (148, 48.5), rotation 4.086 degrees.
+    path: "M 377.624 468.045 C 375.715 494.762, 308.075 511.7, 226.545 505.877 C 145.014 500.053, 80.468 473.673, 82.376 446.955 C 84.285 420.238, 151.925 403.3, 233.455 409.123 C 314.986 414.947, 379.532 441.327, 377.624 468.045 Z"
+    label_x: 135
+    label_y: 406
     members:
       - agent-cue
       - bad-genius-harness-evolution
@@ -329,8 +335,8 @@ works:
   - id: agent-cue
     area: agent-research
     stage: manuscript
-    title: "AgenCue: Statistical Summaries for Guiding Decentralized Multi-Agent Self-Organization"
-    map_label: "AgenCue"
+    title: "AgentCue: Statistical Summaries for Guiding Decentralized Multi-Agent Self-Organization"
+    map_label: "AgentCue"
     map_meta: "Manuscript · Oct 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Xinyou Chen, Kejian Zhang, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
