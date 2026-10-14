@@ -341,6 +341,9 @@ works:
     authors_html: >-
       <strong>Guojun Zhu</strong>, Xinyou Chen, Kejian Zhang, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Manuscript, Oct. 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2610.16621"
     map:
       x: 148
       y: 422

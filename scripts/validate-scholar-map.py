@@ -334,6 +334,14 @@ def main() -> int:
     agent_cue_start = html.index('<li id="agent-cue"')
     agent_cue_end = html.index("</li>", agent_cue_start)
     agent_cue_entry = html[agent_cue_start:agent_cue_end]
+    require(
+        agent_cue_entry.count('href="https://arxiv.org/abs/2610.16621"') == 1,
+        "the AgentCue entry must expose exactly one official arXiv link",
+    )
+    require(
+        '>arXiv</a>' in agent_cue_entry,
+        "the AgentCue arXiv link label is missing",
+    )
     require("Manuscript, Oct. 2026." in agent_cue_entry, "the AgentCue manuscript date is missing")
     require("Manuscript · Oct 2026" in html, "the AgentCue map metadata is missing")
     require(
