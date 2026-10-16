@@ -140,6 +140,9 @@ def validate_profile_sections(path: Path) -> None:
     require("https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024" in html,
             "teaching course-note link missing")
     award_items = [" ".join(item.split()) for item in re.findall(r"<li>(.*?)</li>", html, re.DOTALL)]
+    require("Merit Student" not in html, "removed Merit Student awards remain on the homepage")
+    require("Graduate Student Research Forum" not in html,
+            "removed 2024 Graduate Student Research Forum award remains on the homepage")
     for award in (
         "2026 National Scholarship for Doctoral Students",
         "2026 China Scholarship Council Scholarship, National Construction High-Level University Public Graduate Program",

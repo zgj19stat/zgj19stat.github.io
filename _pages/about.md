@@ -57,12 +57,9 @@ Teaching Assistant (Undergraduate Courses), University of Chinese Academy of Sci
 
 * 2026 National Scholarship for Doctoral Students
 * 2026 China Scholarship Council Scholarship, National Construction High-Level University Public Graduate Program
-* 2026 Merit Student, University of Chinese Academy of Sciences
 * 2025 Doctoral Student Program of the Young S&T Talents Cultivation Project, CAST
 * 2025 Outstanding Paper Award (Top 10), 11th National Forum for Postgraduate Students in Statistics.
-* 2025 Merit Student, University of Chinese Academy of Sciences
 * 2025 Poster Presentation Award, Annual Meeting of the Young Statisticians Association & 3rd International Conference on Statistical Theory and Applications.
-* 2024 Third Prize, Graduate Student Research Forum, University of Chinese Academy of Sciences.
 * 2023 Excellent Graduates of the College, Wuhan University
 * 2023 Excellent Bachelor Dissertation Award, Wuhan University
 * 2022 Finalist (Top 2%), 2022 Mathematical Contest In Modeling
