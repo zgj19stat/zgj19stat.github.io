@@ -78,14 +78,20 @@ def validate_home(path: Path) -> None:
     require("I am currently visiting" in html[:news_start], "About me must stay above Recent news")
     require("I will visit the" not in html[:news_start], "the About me NUS description must stay in the present tense")
     news_html = html[news_start:counter_start]
-    news_items = re.findall(r"<li>(.*?)</li>", news_html, re.DOTALL)
+    require("recent-news.css" in " ".join(parser.assets), "Recent news stylesheet is missing")
+    require('<ul class="recent-news" role="list" aria-labelledby="recent-news">' in news_html,
+            "Recent news must retain its accessible list structure")
+    news_items = re.findall(r'<li class="recent-news__item">(.*?)</li>', news_html, re.DOTALL)
     require(len(news_items) == 3, "Recent news must contain exactly the three requested updates")
     require(not re.search(r"<a\b", news_html, re.IGNORECASE), "Recent news must not contain hyperlinks")
     news_text = [" ".join(unescape(re.sub(r"<[^>]+>", "", item)).split()) for item in news_items]
     require(
-        re.findall(r"<strong>(.*?)</strong>", news_html) == ["Oct. 2026", "Oct. 2026", "Aug. 2026"],
+        re.findall(r'<time class="recent-news__date" datetime="([^"]+)">([^<]+)</time>', news_html)
+        == [("2026-10", "Oct. 2026"), ("2026-10", "Oct. 2026"), ("2026-08", "Aug. 2026")],
         "Recent news dates must appear in reverse chronological order",
     )
+    require(news_html.count('class="recent-news__event"') == 3,
+            "each news date must have a separate event column")
     require(
         "Our paper" in news_text[0]
         and "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data" in news_text[0]
@@ -147,3 +153,4 @@ if __name__ == "__main__":
     except AssertionError as error:
         print(f"Validation failed: {error}", file=sys.stderr)
         raise SystemExit(1)
+
