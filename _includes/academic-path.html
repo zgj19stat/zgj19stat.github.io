@@ -1,7 +1,7 @@
 <section class="academic-path" aria-labelledby="academic-path-title" data-academic-path data-time-zone="Asia/Shanghai">
   <div class="academic-path__heading">
     <div>
-      <h2 id="academic-path-title">Education</h2>
+      {% if include.heading_level == 1 %}<h1 id="academic-path-title">Education</h1>{% else %}<h2 id="academic-path-title">Education</h2>{% endif %}
       <p>Academic Path</p>
     </div>
     <p class="academic-path__hint">Wuhan <span aria-hidden="true">→</span> Beijing <span aria-hidden="true">→</span> Singapore</p>
