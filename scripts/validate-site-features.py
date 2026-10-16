@@ -153,11 +153,7 @@ def main() -> int:
     validate_profile_sections(site_root / "index.html")
     pdf = site_root / "files" / "CV.pdf"
     require(pdf.is_file() and pdf.read_bytes().startswith(b"%PDF-"), "downloadable CV PDF is missing")
-    # Jekyll preserves extensionless redirect_from routes as files, not directories.
-    resume = site_root / "resume"
-    if resume.is_dir():
-        resume = resume / "index.html"
-    for redirect in (site_root / "cv" / "index.html", resume):
+    for redirect in (site_root / "cv" / "index.html", site_root / "resume" / "index.html"):
         require(redirect.is_file(), f"legacy CV route missing: {redirect}")
         redirect_html = redirect.read_text(encoding="utf-8")
         require("/files/CV.pdf" in redirect_html or "/cv/" in redirect_html,
