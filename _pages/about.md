@@ -3,6 +3,7 @@ permalink: /
 title: "About me"
 author_profile: true
 visit_counter: true
+recent_news: true
 redirect_from: 
   - /about/
   - /about.html
@@ -24,8 +25,20 @@ I am passionate about exploring these areas from both theoretical and applied pe
 
 ## Recent news
 
-- **Oct. 2026** Our paper "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data" is accepted by *Biometrics*.
-- **Oct. 2026** I receive the National Scholarship for Doctoral Students.
-- **Aug. 2026** I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at National University of Singapore from September 1, 2026 to August 31, 2027.
+<ul class="recent-news" role="list" aria-labelledby="recent-news">
+  <li class="recent-news__item">
+    <time class="recent-news__date" datetime="2026-10">Oct. 2026</time>
+    <p class="recent-news__event">Our paper “A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data” is accepted by <em>Biometrics</em>.</p>
+  </li>
+  <li class="recent-news__item">
+    <time class="recent-news__date" datetime="2026-10">Oct. 2026</time>
+    <p class="recent-news__event">I receive the National Scholarship for Doctoral Students.</p>
+  </li>
+  <li class="recent-news__item">
+    <time class="recent-news__date" datetime="2026-08">Aug. 2026</time>
+    <p class="recent-news__event">I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at National University of Singapore from September 1, 2026 to August 31, 2027.</p>
+  </li>
+</ul>
 
 {% include visitor-counter.html %}
+
