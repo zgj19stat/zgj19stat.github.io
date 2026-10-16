@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import sys
 import re
+from html import unescape
 from html.parser import HTMLParser
 from pathlib import Path
 
@@ -69,7 +70,38 @@ def validate_home(path: Path) -> None:
         in html,
         "the homepage does not describe the NUS visit in the present tense",
     )
-    require("I will visit the" not in html, "the old future-tense NUS description remains")
+    news_heading = '<h2 id="recent-news">Recent news</h2>'
+    require(html.count(news_heading) == 1, "the homepage Recent news heading is missing or duplicated")
+    news_start = html.index(news_heading)
+    counter_start = html.index("data-visitor-counter")
+    require(news_start < counter_start, "Recent news must appear before the visitor counter")
+    require("I am currently visiting" in html[:news_start], "About me must stay above Recent news")
+    require("I will visit the" not in html[:news_start], "the About me NUS description must stay in the present tense")
+    news_html = html[news_start:counter_start]
+    news_items = re.findall(r"<li>(.*?)</li>", news_html, re.DOTALL)
+    require(len(news_items) == 3, "Recent news must contain exactly the three requested updates")
+    news_text = [" ".join(unescape(re.sub(r"<[^>]+>", "", item)).split()) for item in news_items]
+    require(
+        re.findall(r"<strong>(.*?)</strong>", news_html) == ["Oct. 2026", "Oct. 2026", "Aug. 2026"],
+        "Recent news dates must appear in reverse chronological order",
+    )
+    require(
+        "Our paper" in news_text[0]
+        and "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data" in news_text[0]
+        and "is accepted by Biometrics." in news_text[0]
+        and 'href="/publications/#functional-latent-space-model"' in news_items[0],
+        "the Biometrics acceptance news or publication anchor is incorrect",
+    )
+    require(
+        news_text[1] == "Oct. 2026 I receive the National Scholarship for Doctoral Students.",
+        "the doctoral scholarship news is incorrect",
+    )
+    require(
+        news_text[2] == "Aug. 2026 I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at "
+        "National University of Singapore from September 1, 2026 to August 31, 2027."
+        and 'href="https://www.nus.edu.sg/"' in news_items[2],
+        "the dated NUS visit announcement or university link is incorrect",
+    )
 
 
 def validate_cv(path: Path) -> None:
@@ -106,7 +138,7 @@ def main() -> int:
     site_root = Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
     validate_home(site_root / "index.html")
     validate_cv(site_root / "cv" / "index.html")
-    print("Validated homepage visit counter and three-stage CV academic path.")
+    print("Validated homepage Recent news, visit counter, and three-stage CV academic path.")
     return 0
 
 
