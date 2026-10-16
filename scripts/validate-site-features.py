@@ -80,6 +80,7 @@ def validate_home(path: Path) -> None:
     news_html = html[news_start:counter_start]
     news_items = re.findall(r"<li>(.*?)</li>", news_html, re.DOTALL)
     require(len(news_items) == 3, "Recent news must contain exactly the three requested updates")
+    require(not re.search(r"<a\b", news_html, re.IGNORECASE), "Recent news must not contain hyperlinks")
     news_text = [" ".join(unescape(re.sub(r"<[^>]+>", "", item)).split()) for item in news_items]
     require(
         re.findall(r"<strong>(.*?)</strong>", news_html) == ["Oct. 2026", "Oct. 2026", "Aug. 2026"],
@@ -88,9 +89,8 @@ def validate_home(path: Path) -> None:
     require(
         "Our paper" in news_text[0]
         and "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data" in news_text[0]
-        and "is accepted by Biometrics." in news_text[0]
-        and 'href="/publications/#functional-latent-space-model"' in news_items[0],
-        "the Biometrics acceptance news or publication anchor is incorrect",
+        and "is accepted by Biometrics." in news_text[0],
+        "the Biometrics acceptance news is incorrect",
     )
     require(
         news_text[1] == "Oct. 2026 I receive the National Scholarship for Doctoral Students.",
@@ -98,9 +98,8 @@ def validate_home(path: Path) -> None:
     )
     require(
         news_text[2] == "Aug. 2026 I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at "
-        "National University of Singapore from September 1, 2026 to August 31, 2027."
-        and 'href="https://www.nus.edu.sg/"' in news_items[2],
-        "the dated NUS visit announcement or university link is incorrect",
+        "National University of Singapore from September 1, 2026 to August 31, 2027.",
+        "the dated NUS visit announcement is incorrect",
     )
 
 
