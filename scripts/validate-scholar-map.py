@@ -70,7 +70,7 @@ EXPECTED_TIMELINE_LABELS = {
     "conditional-generative-multisource": ("90", "153", "middle"),
     "joint-disease-interconnections": ("705", "344", "end"),
     "directed-hypergraphs": ("660", "213", "middle"),
-    "distributed-hub-detection": ("570", "213", "middle"),
+    "distributed-hub-detection": ("705", "262", "end"),
     "functional-latent-space-model": ("705", "133", "end"),
     "disease-network": ("510", "153", "middle"),
     "agent-cue": ("705", "504", "end"),
@@ -360,11 +360,28 @@ def main() -> int:
     require("Under review, Aug. 2026." in fold_entry, "the FOLD review status or date is missing")
     require("Under review · Aug 2026" in html, "the FOLD map metadata is not updated")
 
+    hub_start = html.index('<li id="distributed-hub-detection"')
+    hub_end = html.index("</li>", hub_start)
+    hub_entry = html[hub_start:hub_end]
+    require(
+        "<em>Science China Mathematics</em> (English Edition) — Major revision in progress, October 2026." in hub_entry,
+        "the Distributed Hub journal, revision status, or date is incorrect",
+    )
+    require(
+        "Science China Mathematics (English Edition) · Major revision in progress · Oct 2026" in html,
+        "the Distributed Hub map metadata is not updated",
+    )
+    require(
+        parser.paper_nodes["distributed-hub-detection"].get("data-timeline-date") == "Oct 2026"
+        and parser.paper_nodes["distributed-hub-detection"].get("data-timeline-x") == "720",
+        "Distributed Hub must be positioned in October 2026 on the timeline",
+    )
+
     flsm_start = html.index('<li id="functional-latent-space-model"')
     flsm_end = html.index("</li>", flsm_start)
     flsm_entry = html[flsm_start:flsm_end]
-    require("Accepted by <em>Biometrics</em>, Oct. 2026." in flsm_entry, "the FLSM acceptance is missing")
-    require("Accepted by Biometrics · Oct 2026" in html, "the FLSM map metadata is not updated")
+    require("<em>Biometrics</em> — Accepted, October 2026." in flsm_entry, "the FLSM journal, acceptance, or date is incorrect")
+    require("Biometrics · Accepted · Oct 2026" in html, "the FLSM map metadata is not updated")
     require(
         parser.paper_nodes["functional-latent-space-model"].get("data-timeline-date") == "Oct 2026",
         "the FLSM timeline date is not updated",

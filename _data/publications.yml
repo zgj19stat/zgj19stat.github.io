@@ -265,10 +265,10 @@ works:
     stage: manuscript
     title: "Distributed Hub Detection in Heterogeneous Graphical Models"
     map_label: "Distributed Hub"
-    map_meta: "Manuscript · May 2026"
+    map_meta: "Science China Mathematics (English Edition) · Major revision in progress · Oct 2026"
     authors_html: >-
       Rongzhuo Nie, Sanguo Zhang, Lili Zhao, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Under review, May 2026."
+    details_html: "<em>Science China Mathematics</em> (English Edition) — Major revision in progress, October 2026."
     map:
       x: 380
       y: 285
@@ -276,22 +276,22 @@ works:
       label_y: 261
       label_anchor: "middle"
     timeline:
-      x: 570
+      x: 720
       y: 230
-      label_x: 570
-      label_y: 213
-      label_anchor: "middle"
-      date: "May 2026"
+      label_x: 705
+      label_y: 262
+      label_anchor: "end"
+      date: "Oct 2026"
 
   - id: functional-latent-space-model
     area: network-and-graphical-models
     stage: manuscript
     title: "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data"
     map_label: "FLSM"
-    map_meta: "Accepted by Biometrics · Oct 2026"
+    map_meta: "Biometrics · Accepted · Oct 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Ruiyue Wang, Rong Li, Sanguo Zhang, Ben-Chang Shia, Shuangge Ma, Hao Mei<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Accepted by <em>Biometrics</em>, Oct. 2026."
+    details_html: "<em>Biometrics</em> — Accepted, October 2026."
     map:
       x: 115
       y: 133

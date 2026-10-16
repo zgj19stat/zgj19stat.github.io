@@ -22,6 +22,10 @@ I also have an established research background in these areas through my previou
 
 I am passionate about exploring these areas from both theoretical and applied perspectives. If you share these interests or have an idea for a potential project, please feel free to contact me via email zhuguojun23[at]mails[dot]ucas[dot]ac[dot]cn to begin a discussion.
 
+## Recent news
 
+- **Oct. 2026** Our paper "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data" is accepted by *Biometrics*.
+- **Oct. 2026** I receive the National Scholarship for Doctoral Students.
+- **Aug. 2026** I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at National University of Singapore from September 1, 2026 to August 31, 2027.
 
 {% include visitor-counter.html %}
