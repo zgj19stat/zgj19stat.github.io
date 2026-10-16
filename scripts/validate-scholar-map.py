@@ -294,14 +294,14 @@ def main() -> int:
     require(
         "Joint Latent Space Modeling of Time-Varying Disease Interconnections and Trends: "
         "Analysis of the Taiwan Health Insurance Research Database" in html,
-        "the LUMEN working-paper title is missing",
+        "the LUMEN title is missing",
     )
     lumen_start = html.index('<li id="joint-disease-interconnections"')
     lumen_end = html.index("</li>", lumen_start)
     lumen_entry = html[lumen_start:lumen_end]
-    require("Manuscript, Oct. 2026." in lumen_entry, "the LUMEN manuscript status or date is missing")
+    require("Under review, Oct. 2026." in lumen_entry, "the LUMEN review status or date is missing")
     require("Working Paper" not in lumen_entry, "the old LUMEN working-paper label remains")
-    require("Manuscript · Oct 2026" in html, "the LUMEN map metadata is not updated")
+    require("Under review · Oct 2026" in html, "the LUMEN map metadata is not updated")
     require(
         parser.paper_nodes["joint-disease-interconnections"].get("data-timeline-date") == "Oct 2026",
         "the LUMEN timeline date is not updated",

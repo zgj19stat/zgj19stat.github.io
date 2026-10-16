@@ -1,6 +1,8 @@
 ---
 permalink: /
-title: "About me"
+title: "Guojun Zhu"
+hide_page_title: true
+academic_path: true
 author_profile: true
 visit_counter: true
 recent_news: true
@@ -9,7 +11,9 @@ redirect_from:
   - /about.html
 ---
 
-I'm a fourth-year Ph.D. student at [School of Mathematical Sciences](https://math.ucas.edu.cn/), [University of Chinese Academy of Science](https://www.ucas.ac.cn/), advised by [Sanguo Zhang](https://people.ucas.edu.cn/~sgzhang?language=en). I am currently visiting the [Department of Statistics and Data Science](https://www.stat.nus.edu.sg/), [National University of Singapore](https://www.nus.edu.sg/), as a visiting Ph.D. student from September 1, 2026 to August 31, 2027, hosted by [Doudou Zhou](https://doudouzhou.github.io/).
+{% include academic-path.html heading_level=1 %}
+
+## Research Interest
 
 I am actively seeking and welcoming research collaborations. My interests cover many of the current focal points in **the agentic era**, with a particular emphasis on:
 
@@ -40,5 +44,25 @@ I am passionate about exploring these areas from both theoretical and applied pe
   </li>
 </ul>
 
-{% include visitor-counter.html %}
+## Teaching Experiences
 
+Teaching Assistant (Postgraduate Courses), University of Chinese Academy of Sciences
+* Advanced Mathematical Statistics (Fall 2024, Fall 2025)
+* Stochastic Process (Spring 2025, Spring 2026)
+
+Teaching Assistant (Undergraduate Courses), University of Chinese Academy of Sciences
+* Probability and Statistics (Fall 2024) [(Exercise Course Note)](https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024)
+
+## Awards
+
+* 2026 National Scholarship for Doctoral Students
+* 2026 China Scholarship Council Scholarship, National Construction High-Level University Public Graduate Program
+* 2025 Doctoral Student Program of the Young S&T Talents Cultivation Project, CAST
+* 2025 Outstanding Paper Award (Top 10), 11th National Forum for Postgraduate Students in Statistics.
+* 2025 Poster Presentation Award, Annual Meeting of the Young Statisticians Association & 3rd International Conference on Statistical Theory and Applications.
+* 2023 Excellent Graduates of the College, Wuhan University
+* 2023 Excellent Bachelor Dissertation Award, Wuhan University
+* 2022 Finalist (Top 2%), 2022 Mathematical Contest In Modeling
+* 2021 Second Prize, CUMCM (Contemporary Undergraduate Mathematical Contest in Modeling)
+
+{% include visitor-counter.html %}

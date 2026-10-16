@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Validate the generated homepage counter and CV academic path."""
+"""Validate homepage sections, research news, and PDF CV navigation."""
 
 from __future__ import annotations
 
@@ -65,19 +65,23 @@ def validate_home(path: Path) -> None:
     require("visitor-counter.css" in " ".join(parser.assets), "visitor counter stylesheet is missing")
     require("visitor-counter.js" in " ".join(parser.assets), "visitor counter script is missing")
     require("Total visits" in html and "Since Aug 2026" in html, "visitor counter labels are missing")
-    require(
-        "I am currently visiting the <a href=\"https://www.stat.nus.edu.sg/\">Department of Statistics and Data Science</a>"
-        in html,
-        "the homepage does not describe the NUS visit in the present tense",
-    )
+    sections = ['id="academic-path-title"', 'id="research-interest"', 'id="recent-news"',
+                'id="teaching-experiences"', 'id="awards"']
+    require(all(html.count(section) == 1 for section in sections), "homepage section missing or duplicated")
+    positions = [html.index(section) for section in sections]
+    require(positions == sorted(positions), "homepage sections are not in the requested order")
+    require('<h1 id="academic-path-title">Education</h1>' in html, "Education must be the first main heading")
+    require("I am currently visiting the" not in html and "I’m a fourth-year" not in html,
+            "the old opening biography must be replaced by Education")
+    require(re.search(r'<a[^>]+href="[^"]*/files/CV\.pdf"[^>]*>\s*CV\s*</a>', html) is not None,
+            "CV navigation must open the PDF directly")
     news_heading = '<h2 id="recent-news">Recent news</h2>'
     require(html.count(news_heading) == 1, "the homepage Recent news heading is missing or duplicated")
     news_start = html.index(news_heading)
     counter_start = html.index("data-visitor-counter")
     require(news_start < counter_start, "Recent news must appear before the visitor counter")
-    require("I am currently visiting" in html[:news_start], "About me must stay above Recent news")
-    require("I will visit the" not in html[:news_start], "the About me NUS description must stay in the present tense")
-    news_html = html[news_start:counter_start]
+    news_end = html.index("</ul>", news_start) + len("</ul>")
+    news_html = html[news_start:news_end]
     require("recent-news.css" in " ".join(parser.assets), "Recent news stylesheet is missing")
     require('<ul class="recent-news" role="list" aria-labelledby="recent-news">' in news_html,
             "Recent news must retain its accessible list structure")
@@ -109,8 +113,8 @@ def validate_home(path: Path) -> None:
     )
 
 
-def validate_cv(path: Path) -> None:
-    require(path.is_file(), f"generated CV page not found: {path}")
+def validate_profile_sections(path: Path) -> None:
+    require(path.is_file(), f"generated homepage not found: {path}")
     html = path.read_text(encoding="utf-8")
     parser = FeatureParser()
     parser.feed(html)
@@ -131,7 +135,14 @@ def validate_cv(path: Path) -> None:
     require("Host: <a href=\"https://doudouzhou.github.io/\">Doudou Zhou</a>" in html,
             "the NUS host is missing")
     require("Advanced Mathematical Statistics (Fall 2024, Fall 2025)" in html, "teaching content changed")
+    require("Stochastic Process (Spring 2025, Spring 2026)" in html, "graduate teaching entry missing")
+    require("Probability and Statistics (Fall 2024)" in html, "undergraduate teaching entry missing")
+    require("https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024" in html,
+            "teaching course-note link missing")
     award_items = [" ".join(item.split()) for item in re.findall(r"<li>(.*?)</li>", html, re.DOTALL)]
+    require("Merit Student" not in html, "removed Merit Student awards remain on the homepage")
+    require("Graduate Student Research Forum" not in html,
+            "removed 2024 Graduate Student Research Forum award remains on the homepage")
     for award in (
         "2026 National Scholarship for Doctoral Students",
         "2026 China Scholarship Council Scholarship, National Construction High-Level University Public Graduate Program",
@@ -142,8 +153,16 @@ def validate_cv(path: Path) -> None:
 def main() -> int:
     site_root = Path(sys.argv[1] if len(sys.argv) > 1 else "_site")
     validate_home(site_root / "index.html")
-    validate_cv(site_root / "cv" / "index.html")
-    print("Validated homepage Recent news, visit counter, and three-stage CV academic path.")
+    validate_profile_sections(site_root / "index.html")
+    pdf = site_root / "files" / "CV.pdf"
+    require(pdf.is_file() and pdf.read_bytes().startswith(b"%PDF-"), "downloadable CV PDF is missing")
+    for redirect in (site_root / "cv" / "index.html", site_root / "resume" / "index.html"):
+        require(redirect.is_file(), f"legacy CV route missing: {redirect}")
+        redirect_html = redirect.read_text(encoding="utf-8")
+        require("/files/CV.pdf" in redirect_html or "/cv/" in redirect_html,
+                f"legacy CV route does not lead to the PDF: {redirect}")
+        require('http-equiv="refresh"' in redirect_html.lower(), "legacy CV route must redirect")
+    print("Validated homepage Education, Research Interest, news, teaching, awards, counter, and PDF CV navigation.")
     return 0
 
 
@@ -153,4 +172,3 @@ if __name__ == "__main__":
     except AssertionError as error:
         print(f"Validation failed: {error}", file=sys.stderr)
         raise SystemExit(1)
-

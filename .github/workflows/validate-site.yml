@@ -28,7 +28,7 @@ jobs:
       - name: Validate research map and publication anchors
         run: python3 scripts/validate-scholar-map.py _site/publications/index.html
 
-      - name: Validate homepage counter and CV academic path
+      - name: Validate homepage sections and PDF CV navigation
         run: python3 scripts/validate-site-features.py _site
 
       - name: Check interactive JavaScript
