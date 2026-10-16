@@ -70,7 +70,7 @@ EXPECTED_TIMELINE_LABELS = {
     "conditional-generative-multisource": ("90", "153", "middle"),
     "joint-disease-interconnections": ("705", "344", "end"),
     "directed-hypergraphs": ("660", "213", "middle"),
-    "distributed-hub-detection": ("705", "254", "end"),
+    "distributed-hub-detection": ("705", "262", "end"),
     "functional-latent-space-model": ("705", "133", "end"),
     "disease-network": ("510", "153", "middle"),
     "agent-cue": ("705", "504", "end"),
