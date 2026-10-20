@@ -12,6 +12,9 @@ html[lang="zh-CN"] body { font-family: -apple-system, BlinkMacSystemFont, "Segoe
 html[lang="zh-CN"] .page__content { line-height: 1.85; }
 html[lang="zh-CN"] .publication-list { line-height: 1.6; }
 html[lang="zh-CN"] .research-hypergraph__panel { line-height: 1.65; }
+html[lang="zh-CN"] .academic-path__meta { flex-direction: column; align-items: flex-start; }
+html[lang="zh-CN"] .academic-path__status { white-space: nowrap; }
+.page__content { overflow-wrap: anywhere; }
 .talk-list > li { margin-bottom: 1.5em; }
 @media (max-width: 900px) {
   .profile-nav { gap: .8rem; flex-wrap: wrap; }
