@@ -6,7 +6,7 @@ news:
       text: 'Our paper “A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data” is accepted by <em>Biometrics</em>.'
     zh:
       date: "2026年10月"
-      text: '我们的论文 “A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data” 被 <em>Biometrics</em> 接收。'
+      text: '我们的论文“A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data”获 <em>Biometrics</em> 接收。'
   - id: scholarship-2026
     date: "2026-10"
     en:
@@ -22,7 +22,7 @@ news:
       text: "I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at National University of Singapore from September 1, 2026 to August 31, 2027."
     zh:
       date: "2026年8月"
-      text: "我将于2026年9月1日至2027年8月31日访问新加坡国立大学统计与数据科学系，合作导师为Doudou Zhou 教授。"
+      text: "我将于2026年9月1日至2027年8月31日在新加坡国立大学统计与数据科学系访学，合作导师为 Doudou Zhou 教授。"
 teaching:
   - id: graduate
     en: "Teaching Assistant (Postgraduate Courses), University of Chinese Academy of Sciences"
@@ -51,7 +51,7 @@ awards:
   - id: cast-2025
     year: 2025
     en: "Doctoral Student Program of the Young S&T Talents Cultivation Project, CAST"
-    zh: "中国科协青年人才托举工程博士生专项计划"
+    zh: "中国科协青年人才培育工程博士生专项计划"
   - id: paper-2025
     year: 2025
     en: "Outstanding Paper Award (Top 10), 11th National Forum for Postgraduate Students in Statistics."

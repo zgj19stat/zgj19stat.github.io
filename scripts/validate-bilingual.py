@@ -48,6 +48,8 @@ for page in (en, zh):
     news = re.search(r'<ul class="recent-news".*?</ul>', page.html, re.S).group()
     assert "<a " not in news
 assert "教育经历" in zh.html and "教学经历" in zh.html
+assert "中国科协青年人才培育工程博士生专项计划" in zh.html
+assert "中国科协青年人才托举工程博士生专项计划" not in zh.html
 
 en, zh = [Page(root / p / "index.html") for p in ("talks", "cn/talks")]
 assert [a["data-talk-id"] for a in en.attrs("data-talk-id")] == [a["data-talk-id"] for a in zh.attrs("data-talk-id")]
