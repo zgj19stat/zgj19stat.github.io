@@ -9,7 +9,7 @@
 <li id="{{ talk.id }}" data-talk-id="{{ talk.id }}">
   {{ copy.title }}<br>
   {{ copy.event }}<br>
-  {{ copy.location }}, <time datetime="{{ talk.date }}">{{ copy.date }}</time>.
+  {{ copy.location }}{% if site_lang == "zh" %}，{% else %}, {% endif %}<time datetime="{{ talk.date }}">{{ copy.date }}</time>{% if site_lang == "zh" %}。{% else %}.{% endif %}
   {% if copy.note %}<br>{{ copy.note }}{% endif %}
 </li>
 {% endfor %}

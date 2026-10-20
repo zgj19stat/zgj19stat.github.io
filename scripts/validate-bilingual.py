@@ -31,7 +31,7 @@ for en_path, zh_path in pairs:
         assert len(page.attrs("data-language-switch")) == 1
         assert page.attrs("data-language-switch")[0]["href"].endswith(other)
         alternates = [a for t, a in page.tags if t == "link" and a.get("rel") == "alternate"]
-        assert {a["hreflang"] for a in alternates} >= {"en", "zh-CN", "x-default"}
+        assert {a.get("hreflang") for a in alternates} >= {"en", "zh-CN", "x-default"}
         assert not re.search(r"\{[{%]", page.html), "unrendered Liquid"
         ids = [a["id"] for a in page.attrs("id")]
         assert len(ids) == len(set(ids)), "duplicate HTML IDs"
