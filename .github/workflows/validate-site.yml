@@ -31,11 +31,15 @@ jobs:
       - name: Validate homepage sections and PDF CV navigation
         run: python3 scripts/validate-site-features.py _site
 
+      - name: Validate paired languages and unchanged research data
+        run: python3 scripts/validate-bilingual.py _site
+
       - name: Check interactive JavaScript
         run: |
           node --check assets/js/research-hypergraph.js
           node --check assets/js/academic-path.js
           node --check assets/js/visitor-counter.js
+          node --check assets/js/bilingual.js
 
       - name: Test visitor counter Worker
         run: node --test cloudflare/visitor-counter/test/worker.test.mjs

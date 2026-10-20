@@ -1,31 +1,11 @@
 ---
 layout: archive
+lang: en
+translation_key: talks
 title: "Talks and Posters"
 permalink: /talks/
 author_profile: true
 ---
 
-## Talks
 
-- A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data<br>
-The 4th Joint Conference on Statistics and Data Science<br>
-Guiyang, China, Jul 13, 2026.<br>
-
-- Model- and similarity-free transfer learning for classification under label noise<br>
-第十一届全国高校研究生统计论坛<br>
-Taiyuan, China, Oct 26, 2025.<br>
-I am greatly honored to be invited to receive an Outstanding Paper Award (Top 10) and to present at the Forum's plenary session.
-
-- Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency<br>
-中国科学院大学2024年研究生学术论坛-人工智能分论坛<br>
-Beijing, China, Nov 30, 2024.
-
-- Contrastive Learning-Based Algorithm for Label Noise Learning<br>
-2023年中国现场统计研究会资源与环境统计分会第16届学术年会<br>
-Liaoning, China, Sep 24, 2023.
-
-## Posters
-
-- Latent Space Modeling for Human Disease Network with Temporal Variations: Analysis of Medicare Data<br>
-青年统计学家协会2025年年会暨第三届统计理论及其应用国际研讨会<br>
-Jinan, China, Apr 19, 2025.
+{% include talk-list.html %}

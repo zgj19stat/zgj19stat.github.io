@@ -6,9 +6,9 @@
 
   var timeZone = root.getAttribute("data-time-zone") || "Asia/Shanghai";
   var labels = {
-    completed: "Completed",
-    current: "Current",
-    upcoming: "Upcoming"
+    completed: root.getAttribute("data-status-completed") || "Completed",
+    current: root.getAttribute("data-status-current") || "Current",
+    upcoming: root.getAttribute("data-status-upcoming") || "Upcoming"
   };
 
   function dateKeyInTimeZone(date) {

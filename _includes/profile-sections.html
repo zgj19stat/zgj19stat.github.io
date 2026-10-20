@@ -1,0 +1,27 @@
+{% include locale.html %}
+<h2 id="recent-news">{{ ui.news }}</h2>
+<ul class="recent-news" role="list" aria-labelledby="recent-news">
+{% for item in site.data.profile.news %}
+  <li class="recent-news__item" data-news-id="{{ item.id }}">
+    <time class="recent-news__date" datetime="{{ item.date }}">{{ item[site_lang].date }}</time>
+    <p class="recent-news__event">{{ item[site_lang].text }}</p>
+  </li>
+{% endfor %}
+</ul>
+
+<h2 id="teaching-experiences">{{ ui.teaching }}</h2>
+{% for item in site.data.profile.teaching %}
+<p>{{ item[site_lang] }}</p>
+<ul>
+{% for course in item.courses %}
+  <li>{{ course[site_lang] }}{% if course.url %} <a href="{{ course.url }}">{% if site_lang == "zh" %}（习题课讲义）{% else %}(Exercise Course Note){% endif %}</a>{% endif %}</li>
+{% endfor %}
+</ul>
+{% endfor %}
+
+<h2 id="awards">{{ ui.awards }}</h2>
+<ul>
+{% for award in site.data.profile.awards %}
+  <li data-award-id="{{ award.id }}">{{ award.year }} {{ award[site_lang] }}</li>
+{% endfor %}
+</ul>

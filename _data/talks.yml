@@ -1,0 +1,67 @@
+- id: flsm-2026
+  kind: talk
+  date: "2026-07-13"
+  en:
+    title: "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data"
+    event: "The 4th Joint Conference on Statistics and Data Science"
+    location: "Guiyang, China"
+    date: "Jul. 13, 2026"
+  zh:
+    title: "时变网络的函数型潜在空间模型及其在临床结局数据中的应用"
+    event: "第四届统计与数据科学联合会议"
+    location: "中国·贵阳"
+    date: "2026年7月13日"
+- id: label-noise-2025
+  kind: talk
+  date: "2025-10-26"
+  en:
+    title: "Model- and similarity-free transfer learning for classification under label noise"
+    event: "The 11th National Forum for Postgraduate Students in Statistics"
+    location: "Taiyuan, China"
+    date: "Oct. 26, 2025"
+    note: "I am greatly honored to be invited to receive an Outstanding Paper Award (Top 10) and to present at the Forum's plenary session."
+  zh:
+    title: "标签噪声下不依赖模型与相似性的分类迁移学习"
+    event: "第十一届全国高校研究生统计论坛"
+    location: "中国·太原"
+    date: "2025年10月26日"
+    note: "获论坛十佳优秀论文奖，并受邀作大会报告。"
+- id: stwgan-2024
+  kind: talk
+  date: "2024-11-30"
+  en:
+    title: "Conditional Generative Learning from Invariant Representations in Multi-Source: Robustness and Efficiency"
+    event: "Artificial Intelligence Session, 2024 Graduate Academic Forum, University of Chinese Academy of Sciences"
+    location: "Beijing, China"
+    date: "Nov. 30, 2024"
+  zh:
+    title: "基于多源不变表征的条件生成学习：稳健性与效率"
+    event: "中国科学院大学2024年研究生学术论坛——人工智能分论坛"
+    location: "中国·北京"
+    date: "2024年11月30日"
+- id: contrastive-2023
+  kind: talk
+  date: "2023-09-24"
+  en:
+    title: "Contrastive Learning-Based Algorithm for Label Noise Learning"
+    event: "The 16th Annual Conference of the Resources and Environmental Statistics Branch, Chinese Association for Applied Statistics"
+    location: "Liaoning, China"
+    date: "Sep. 24, 2023"
+  zh:
+    title: "基于对比学习的标签噪声学习算法"
+    event: "中国现场统计研究会资源与环境统计分会第16届学术年会"
+    location: "中国·辽宁"
+    date: "2023年9月24日"
+- id: mtflsm-2025
+  kind: poster
+  date: "2025-04-19"
+  en:
+    title: "Latent Space Modeling for Human Disease Network with Temporal Variations: Analysis of Medicare Data"
+    event: "2025 Annual Meeting of the Young Statisticians Association and the 3rd International Conference on Statistical Theory and Applications"
+    location: "Jinan, China"
+    date: "Apr. 19, 2025"
+  zh:
+    title: "人类疾病网络时间变化的潜在空间建模：Medicare 数据分析"
+    event: "青年统计学家协会2025年年会暨第三届统计理论及其应用国际研讨会"
+    location: "中国·济南"
+    date: "2025年4月19日"
