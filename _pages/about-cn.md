@@ -16,16 +16,16 @@ recent_news: true
 
 <h2 id="research-interest">研究兴趣</h2>
 
-我积极寻求并欢迎研究合作。目前，我主要关注**智能体时代**的以下研究方向：
+我目前的研究主要围绕**智能体**展开，重点关注：
 
 - 智能体评测、智能体推理、多智能体系统
 
-通过此前的研究，以及与 [Shuangge Ma](https://ysph.yale.edu/profile/shuangge-ma/)、[Hao Mei](https://www.hswebsite.org/EN/DepartmentFaulty/Department_of_Biostatistics_and_Epidemiology/63f32e5c2a944b699e83f28e6751a275.htm) 和 [Mingyang Ren](https://ren-mingyang.github.io/) 等学者的合作，我也在以下方向积累了研究基础。虽然这些并非我当前研究的主要重心，但我仍然欢迎相关合作：
+此前，我与 [Shuangge Ma](https://ysph.yale.edu/profile/shuangge-ma/)、[Hao Mei](https://www.hswebsite.org/EN/DepartmentFaulty/Department_of_Biostatistics_and_Epidemiology/63f32e5c2a944b699e83f28e6751a275.htm) 和 [Mingyang Ren](https://ren-mingyang.github.io/) 等学者合作，在以下方向开展了研究。虽然目前的研究重心有所调整，我仍然欢迎这些方向的合作：
 
 - 域泛化、迁移学习与多源数据分析
 - 潜在空间模型、社区与枢纽节点检测、网络分析
 
-我希望从理论和应用两个方面探索这些问题。如果你对上述方向感兴趣，或有值得共同研究的问题，欢迎通过邮箱 zhuguojun23[at]mails[dot]ucas[dot]ac[dot]cn 与我联系。
+我关注这些问题的理论方法与实际应用。如果你有相关的研究想法，欢迎通过邮箱 zhuguojun23[at]mails[dot]ucas[dot]ac[dot]cn 与我交流。
 
 {% include profile-sections.html %}
 
