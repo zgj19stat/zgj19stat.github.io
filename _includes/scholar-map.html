@@ -1,25 +1,28 @@
+{% include locale.html %}
 {% assign publication_data = site.data.publications %}
 
-<section class="research-hypergraph" aria-labelledby="research-map-title" data-map-view="themes">
+<section class="research-hypergraph" aria-labelledby="research-map-title" data-map-view="themes"
+  data-copy-themes-description="{{ ui.map_description }}" data-copy-timeline-description="{{ ui.timeline_description }}"
+  data-copy-themes-hint="{{ ui.map_hint }}" data-copy-timeline-hint="{{ ui.timeline_hint }}">
   <div class="research-hypergraph__heading">
     <div>
-      <h2 id="research-map-title">Research Navigation Map</h2>
-      <p data-map-description>An interactive hypergraph of research themes and their shared works.</p>
+      <h2 id="research-map-title">{{ ui.map_title }}</h2>
+      <p data-map-description>{{ ui.map_description }}</p>
     </div>
     <div class="research-hypergraph__heading-actions">
-      <div class="research-hypergraph__view-switch" role="group" aria-label="Research map view">
-        <button type="button" data-map-view-button="themes" aria-pressed="true">Themes</button>
-        <button type="button" data-map-view-button="timeline" aria-pressed="false">Timeline</button>
+      <div class="research-hypergraph__view-switch" role="group" aria-label="{% if site_lang == 'zh' %}研究导航图视图{% else %}Research map view{% endif %}">
+        <button type="button" data-map-view-button="themes" aria-pressed="true">{{ ui.themes }}</button>
+        <button type="button" data-map-view-button="timeline" aria-pressed="false">{{ ui.timeline }}</button>
       </div>
-      <p class="research-hypergraph__hint" data-map-hint>Hover or focus to explore · Select a work to view its entry</p>
+      <p class="research-hypergraph__hint" data-map-hint>{{ ui.map_hint }}</p>
     </div>
   </div>
 
   <div class="research-hypergraph__shell">
     <div class="research-hypergraph__canvas" data-research-map-canvas data-hit-radius="18">
       <svg viewBox="0 0 750 550" role="img" aria-labelledby="research-map-svg-title research-map-svg-desc">
-        <title id="research-map-svg-title">Interactive research map with theme and timeline views</title>
-        <desc id="research-map-svg-desc">Twelve works can be explored as six overlapping research-theme contours or along a fixed chronology from January 2025 to October 2026. Manuscripts are hollow and publications are filled.</desc>
+        <title id="research-map-svg-title">{% if site_lang == 'zh' %}可切换研究主题和时间轴的交互式导航图{% else %}Interactive research map with theme and timeline views{% endif %}</title>
+        <desc id="research-map-svg-desc">{% if site_lang == 'zh' %}十二项研究工作通过六条研究主题超边关联，也可按2025年1月至2026年10月的时间顺序浏览。空心点表示手稿，实心点表示已发表论文。{% else %}Twelve works can be explored as six overlapping research-theme contours or along a fixed chronology from January 2025 to October 2026. Manuscripts are hollow and publications are filled.{% endif %}</desc>
 
         <g class="research-hypergraph__theme-layer research-hypergraph__edge-fills" aria-hidden="true">
           {% for edge in publication_data.hyperedges %}
@@ -125,7 +128,7 @@
                   y="{{ edge.label_y }}"
                   tabindex="0"
                   role="button"
-                  aria-label="Explore {{ edge.title }}, {{ edge.members.size }} works"
+                  aria-label="{% if site_lang == 'zh' %}探索 {{ edge.title }}，{{ edge.members.size }} 项工作{% else %}Explore {{ edge.title }}, {{ edge.members.size }} works{% endif %}"
                   aria-pressed="false"
                   data-hyperedge-label="{{ edge.id }}">{{ edge.title }}</text>
           {% endfor %}
@@ -135,35 +138,35 @@
 
     <aside class="research-hypergraph__panel" data-research-map-panel aria-live="polite" aria-atomic="true">
       <div class="research-hypergraph__panel-default">
-        <p class="research-hypergraph__eyebrow">Explore the map</p>
-        <h3>Research themes as hyperedges</h3>
-        <p>Move near a colored contour to see the works it connects. Select a contour to keep it highlighted, or select a paper to jump to its full entry.</p>
-        <div class="research-hypergraph__legend" aria-label="Map legend">
+        <p class="research-hypergraph__eyebrow">{% if site_lang == 'zh' %}探索研究导航图{% else %}Explore the map{% endif %}</p>
+        <h3>{% if site_lang == 'zh' %}用超边连接研究主题{% else %}Research themes as hyperedges{% endif %}</h3>
+        <p>{% if site_lang == 'zh' %}将鼠标移至彩色轮廓附近，即可查看关联工作。点击轮廓可保持高亮；选择论文节点可跳转至完整条目。{% else %}Move near a colored contour to see the works it connects. Select a contour to keep it highlighted, or select a paper to jump to its full entry.{% endif %}</p>
+        <div class="research-hypergraph__legend" aria-label="{% if site_lang == 'zh' %}图例{% else %}Map legend{% endif %}">
           <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--manuscript" aria-hidden="true"></i>Manuscript</span>
           <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--publication" aria-hidden="true"></i>Publication</span>
         </div>
-        <p class="research-hypergraph__method-note">Contours show curated thematic membership, not citation relationships.</p>
+        <p class="research-hypergraph__method-note">{% if site_lang == 'zh' %}轮廓表示研究主题的归属关系，并不代表论文间的引用关系。{% else %}Contours show curated thematic membership, not citation relationships.{% endif %}</p>
       </div>
     </aside>
   </div>
 
   <div class="research-hypergraph__templates" hidden>
     <section data-map-default-template="timeline">
-      <p class="research-hypergraph__eyebrow">Chronological view</p>
-      <h3>From Jan 2025 to Oct 2026</h3>
-      <p>The same twelve works are positioned by manuscript or publication date. Select any node to open its full entry.</p>
-      <div class="research-hypergraph__legend" aria-label="Timeline legend">
+      <p class="research-hypergraph__eyebrow">{% if site_lang == 'zh' %}按时间浏览{% else %}Chronological view{% endif %}</p>
+      <h3>{% if site_lang == 'zh' %}2025年1月—2026年10月{% else %}From Jan 2025 to Oct 2026{% endif %}</h3>
+      <p>{% if site_lang == 'zh' %}同一组十二项研究工作按手稿或发表日期排列。选择任意节点即可查看完整条目。{% else %}The same twelve works are positioned by manuscript or publication date. Select any node to open its full entry.{% endif %}</p>
+      <div class="research-hypergraph__legend" aria-label="{% if site_lang == 'zh' %}时间轴图例{% else %}Timeline legend{% endif %}">
         <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--manuscript" aria-hidden="true"></i>Manuscript</span>
         <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--publication" aria-hidden="true"></i>Publication</span>
       </div>
-      <p class="research-hypergraph__method-note">Horizontal position encodes month and year; vertical offsets only prevent labels from overlapping.</p>
+      <p class="research-hypergraph__method-note">{% if site_lang == 'zh' %}横向位置表示年月；纵向错位仅用于避免标签重叠。{% else %}Horizontal position encodes month and year; vertical offsets only prevent labels from overlapping.{% endif %}</p>
     </section>
 
     {% for edge in publication_data.hyperedges %}
       <section data-map-template="hyperedge:{{ edge.id }}">
-        <p class="research-hypergraph__eyebrow">Research theme</p>
+        <p class="research-hypergraph__eyebrow">{% if site_lang == "zh" %}研究主题{% else %}Research theme{% endif %}</p>
         <h3>{{ edge.title }}</h3>
-        <p class="research-hypergraph__count">{{ edge.members.size }} works in this hyperedge</p>
+        <p class="research-hypergraph__count">{% if site_lang == 'zh' %}此主题关联 {{ edge.members.size }} 项工作{% else %}{{ edge.members.size }} works in this hyperedge{% endif %}</p>
         <ul class="research-hypergraph__work-list">
           {% for member_id in edge.members %}
             {% assign member = publication_data.works | where: "id", member_id | first %}
@@ -183,14 +186,14 @@
       <section data-map-template="work:{{ work.id }}">
         <p class="research-hypergraph__eyebrow">{{ work.map_meta }}</p>
         <h3>{{ work.title }}</h3>
-        <div class="research-hypergraph__theme-chips" aria-label="Research themes">
+        <div class="research-hypergraph__theme-chips" aria-label="{% if site_lang == 'zh' %}研究主题{% else %}Research themes{% endif %}">
           {% for edge in publication_data.hyperedges %}
             {% if edge.members contains work.id %}
               <span class="research-hypergraph__theme-chip research-hypergraph__theme-chip--{{ edge.id }}">{{ edge.title }}</span>
             {% endif %}
           {% endfor %}
         </div>
-        <a class="research-hypergraph__jump" href="#{{ work.id }}">View publication entry <span aria-hidden="true">↓</span></a>
+        <a class="research-hypergraph__jump" href="#{{ work.id }}">{% if site_lang == 'zh' %}查看论文条目{% else %}View publication entry{% endif %} <span aria-hidden="true">↓</span></a>
       </section>
     {% endfor %}
   </div>

@@ -1,23 +1,21 @@
 {% include base_path %}
-
+{% include locale.html %}
+{% assign page_pair = site.data.languages[page.translation_key] | default: site.data.languages.home %}
 <div class="masthead">
   <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav" class="greedy-nav">
-        <button><div class="navicon"></div></button>
-        <ul class="visible-links">
-          <li class="masthead__menu-item masthead__menu-item--lg"><a href="{{ base_path }}/">{{ site.title }}</a></li>
-          {% for link in site.data.navigation.main %}
-            {% if link.url contains 'http' %}
-              {% assign domain = '' %}
-              {% else %}
-              {% assign domain = base_path %}
-            {% endif %}
-            <li class="masthead__menu-item"><a href="{{ domain }}{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}
-        </ul>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
-    </div>
+    <nav id="profile-nav" class="profile-nav" aria-label="{% if site_lang == 'zh' %}主导航{% else %}Main navigation{% endif %}">
+      <a class="profile-nav__brand" href="{{ site.data.languages.home[site_lang] | prepend: base_path }}">{{ ui.home }}</a>
+      <button class="profile-nav__toggle" type="button" aria-expanded="false" aria-controls="profile-links" aria-label="{% if site_lang == 'zh' %}展开导航{% else %}Toggle navigation{% endif %}"><span aria-hidden="true">☰</span></button>
+      <ul class="profile-nav__links" id="profile-links">
+        <li><a href="{{ site.data.languages.publications[site_lang] | prepend: base_path }}"{% if page.translation_key == 'publications' %} aria-current="page"{% endif %}>{% if site_lang == 'zh' %}论文成果{% else %}Publications{% endif %}</a></li>
+        <li><a href="{{ site.data.languages.talks[site_lang] | prepend: base_path }}"{% if page.translation_key == 'talks' %} aria-current="page"{% endif %}>{% if site_lang == 'zh' %}报告与海报{% else %}Talks and Posters{% endif %}</a></li>
+        <li><a href="{{ base_path }}/files/{% if site_lang == 'zh' %}CV_Chinese.pdf{% else %}CV.pdf{% endif %}">{% if site_lang == 'zh' %}简历{% else %}CV{% endif %}</a></li>
+      </ul>
+      {% if site_lang == "zh" %}
+      <a class="profile-nav__language" data-language-switch href="{{ page_pair.en | prepend: base_path }}" lang="en" hreflang="en" aria-label="Switch this page to English">EN</a>
+      {% else %}
+      <a class="profile-nav__language" data-language-switch href="{{ page_pair.zh | prepend: base_path }}" lang="zh-CN" hreflang="zh-CN" aria-label="切换此页面为中文">中文</a>
+      {% endif %}
+    </nav>
   </div>
 </div>

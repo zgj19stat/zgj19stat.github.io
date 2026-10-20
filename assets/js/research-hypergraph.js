@@ -285,14 +285,10 @@
 
   function updateViewCopy() {
     if (description) {
-      description.textContent = currentView === "timeline"
-        ? "The same works arranged along a fixed research chronology."
-        : "An interactive hypergraph of research themes and their shared works.";
+      description.textContent = root.getAttribute("data-copy-" + currentView + "-description");
     }
     if (hint) {
-      hint.textContent = currentView === "timeline"
-        ? "Hover or focus to inspect · Select a work to view its entry"
-        : "Hover or focus to explore · Select a work to view its entry";
+      hint.textContent = root.getAttribute("data-copy-" + currentView + "-hint");
     }
   }
 

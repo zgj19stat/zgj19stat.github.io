@@ -1,0 +1,30 @@
+/* Shared navigation keeps language switching visible on small screens. */
+.profile-nav { display: flex; align-items: center; gap: 1.35rem; position: relative; min-width: 0; }
+.profile-nav a { color: #494e52; text-decoration: none; }
+.profile-nav a:hover, .profile-nav a[aria-current="page"] { color: #237c95; }
+.profile-nav a:focus-visible, .profile-nav button:focus-visible { outline: 2px solid #237c95; outline-offset: 5px; }
+.profile-nav__brand { font-weight: 700; margin-right: auto; min-width: 0; }
+.profile-nav__links { display: flex; align-items: center; gap: 1.35rem; list-style: none; margin: 0; padding: 0; flex-shrink: 0; }
+.profile-nav__links li { margin: 0; white-space: nowrap; }
+.profile-nav__language { border-left: 1px solid #dce1e6; padding-left: 1.15rem; white-space: nowrap; flex-shrink: 0; font-size: .9em; }
+.profile-nav__toggle { display: none; }
+html[lang="zh-CN"] body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif; }
+html[lang="zh-CN"] .page__content { line-height: 1.85; }
+html[lang="zh-CN"] .publication-list { line-height: 1.6; }
+html[lang="zh-CN"] .research-hypergraph__panel { line-height: 1.65; }
+html[lang="zh-CN"] .academic-path__meta { flex-direction: column; align-items: flex-start; }
+html[lang="zh-CN"] .academic-path__status { white-space: nowrap; }
+.page__content { overflow-wrap: anywhere; }
+.talk-list > li { margin-bottom: 1.5em; }
+@media (max-width: 900px) {
+  .profile-nav { gap: .8rem; flex-wrap: wrap; }
+  .profile-nav__brand { flex: 1; font-size: .92em; }
+  .profile-nav__language { padding-left: .8rem; }
+  .profile-nav__links { width: 100%; order: 4; flex-wrap: wrap; gap: .6rem 1.2rem; padding-top: .7rem; }
+  .js .profile-nav__toggle { display: block; border: 0; background: transparent; color: #494e52; padding: .4rem; cursor: pointer; font-size: 1em; line-height: 1; }
+  .js .profile-nav__links { display: none; }
+  .js .profile-nav.is-open .profile-nav__links { display: flex; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .profile-nav * { transition: none; }
+}

@@ -39,7 +39,7 @@
   {% assign seo_author_twitter = seo_author_twitter | replace: "@", "" %}
 {% endif %}
 
-<meta property="og:locale" content="{{ site.locale | default: "en" }}">
+<meta property="og:locale" content="{{ page.locale | default: site.locale | default: "en" }}">
 <meta property="og:site_name" content="{{ site.title }}">
 <meta property="og:title" content="{{ page.title | default: site.title | markdownify | strip_html | strip_newlines | escape_once }}">
 
@@ -135,5 +135,11 @@
 {% endif %}
 {% if site.yandex_site_verification %}
   <meta name="yandex-verification" content="{{ site.yandex_site_verification }}">
+{% endif %}
+{% if page.translation_key %}
+{% assign paired_pages = site.data.languages[page.translation_key] %}
+<link rel="alternate" hreflang="en" href="{{ paired_pages.en | prepend: seo_url }}">
+<link rel="alternate" hreflang="zh-CN" href="{{ paired_pages.zh | prepend: seo_url }}">
+<link rel="alternate" hreflang="x-default" href="{{ paired_pages.en | prepend: seo_url }}">
 {% endif %}
 <!-- end SEO -->

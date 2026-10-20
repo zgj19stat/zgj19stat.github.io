@@ -1,0 +1,78 @@
+news:
+  - id: biometrics-2026
+    date: "2026-10"
+    en:
+      date: "Oct. 2026"
+      text: 'Our paper “A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data” is accepted by <em>Biometrics</em>.'
+    zh:
+      date: "2026年10月"
+      text: '我们的论文 “A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data” 被 <em>Biometrics</em> 接收。'
+  - id: scholarship-2026
+    date: "2026-10"
+    en:
+      date: "Oct. 2026"
+      text: "I receive the National Scholarship for Doctoral Students."
+    zh:
+      date: "2026年10月"
+      text: "获得博士研究生国家奖学金。"
+  - id: nus-visit-2026
+    date: "2026-08"
+    en:
+      date: "Aug. 2026"
+      text: "I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at National University of Singapore from September 1, 2026 to August 31, 2027."
+    zh:
+      date: "2026年8月"
+      text: "我将于2026年9月1日至2027年8月31日访问新加坡国立大学统计与数据科学系，合作导师为Doudou Zhou 教授。"
+teaching:
+  - id: graduate
+    en: "Teaching Assistant (Postgraduate Courses), University of Chinese Academy of Sciences"
+    zh: "中国科学院大学研究生课程助教"
+    courses:
+      - en: "Advanced Mathematical Statistics (Fall 2024, Fall 2025)"
+        zh: "高等数理统计（2024年秋季、2025年秋季）"
+      - en: "Stochastic Process (Spring 2025, Spring 2026)"
+        zh: "随机过程（2025年春季、2026年春季）"
+  - id: undergraduate
+    en: "Teaching Assistant (Undergraduate Courses), University of Chinese Academy of Sciences"
+    zh: "中国科学院大学本科生课程助教"
+    courses:
+      - en: "Probability and Statistics (Fall 2024)"
+        zh: "概率论与数理统计（2024年秋季）"
+        url: "https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024"
+awards:
+  - id: national-2026
+    year: 2026
+    en: "National Scholarship for Doctoral Students"
+    zh: "博士研究生国家奖学金"
+  - id: csc-2026
+    year: 2026
+    en: "China Scholarship Council Scholarship, National Construction High-Level University Public Graduate Program"
+    zh: "国家留学基金委国家建设高水平大学公派研究生项目资助"
+  - id: cast-2025
+    year: 2025
+    en: "Doctoral Student Program of the Young S&T Talents Cultivation Project, CAST"
+    zh: "中国科协青年人才托举工程博士生专项计划"
+  - id: paper-2025
+    year: 2025
+    en: "Outstanding Paper Award (Top 10), 11th National Forum for Postgraduate Students in Statistics."
+    zh: "第十一届全国高校研究生统计论坛十佳优秀论文奖"
+  - id: poster-2025
+    year: 2025
+    en: "Poster Presentation Award, Annual Meeting of the Young Statisticians Association & 3rd International Conference on Statistical Theory and Applications."
+    zh: "青年统计学家协会年会暨第三届统计理论及其应用国际研讨会海报展示奖"
+  - id: graduate-2023
+    year: 2023
+    en: "Excellent Graduates of the College, Wuhan University"
+    zh: "武汉大学院级优秀毕业生"
+  - id: thesis-2023
+    year: 2023
+    en: "Excellent Bachelor Dissertation Award, Wuhan University"
+    zh: "武汉大学优秀学士学位论文"
+  - id: mcm-2022
+    year: 2022
+    en: "Finalist (Top 2%), 2022 Mathematical Contest In Modeling"
+    zh: "美国大学生数学建模竞赛 Finalist（前2%）"
+  - id: cumcm-2021
+    year: 2021
+    en: "Second Prize, CUMCM (Contemporary Undergraduate Mathematical Contest in Modeling)"
+    zh: "全国大学生数学建模竞赛二等奖"

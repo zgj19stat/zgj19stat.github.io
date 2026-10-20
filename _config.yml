@@ -42,6 +42,7 @@ exclude:
   - .jekyll-assets-cache
   - .sass-cache
   - cloudflare
+  - docs
   - Gemfile
   - Gemfile.lock
   - LICENSE

@@ -1,10 +1,11 @@
+{% include locale.html %}
 {% include base_path %}
 
 {% if site.author.github or site.author.bitbucket or site.atom_feed.hide != true %}
 <div class="page__footer-follow">
   <ul class="social-icons">
     {% if site.data.ui-text[site.locale].follow_label %}
-      <li><strong>{{ site.data.ui-text[site.locale].follow_label }}</strong></li>
+      <li><strong>{% if site_lang == "zh" %}关注：{% else %}{{ site.data.ui-text[site.locale].follow_label }}{% endif %}</strong></li>
     {% endif %}
     {% if site.author.github %}
       <li><a href="http://github.com/{{ site.author.github }}"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a></li>
@@ -20,6 +21,6 @@
 {% endif %}
 
 <div class="page__footer-copyright">
-  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}, {{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, a fork of <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
-  Site last updated {{ "now" | date: '%Y-%m-%d' %}}
+  &copy; {{ site.time | date: '%Y' }} {{ site.name | default: site.title }}, {% if site_lang == "zh" %}基于{% else %}Powered by{% endif %} <a href="http://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://github.com/academicpages/academicpages.github.io">AcademicPages</a>, {% if site_lang == "zh" %}源自{% else %}a fork of{% endif %} <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.<br />
+  {% if site_lang == "zh" %}网站更新于{% else %}Site last updated{% endif %} {{ "now" | date: '%Y-%m-%d' %}}
 </div>

@@ -1,0 +1,17 @@
+{% include locale.html %}
+{% assign kinds = "talk,poster" | split: "," %}
+{% for kind in kinds %}
+<h2>{% if kind == "talk" %}{{ ui.talks }}{% else %}{{ ui.posters }}{% endif %}</h2>
+<ul class="talk-list">
+{% assign talks = site.data.talks | where: "kind", kind | sort: "date" | reverse %}
+{% for talk in talks %}
+{% assign copy = talk[site_lang] %}
+<li id="{{ talk.id }}" data-talk-id="{{ talk.id }}">
+  {{ copy.title }}<br>
+  {{ copy.event }}<br>
+  {{ copy.location }}{% if site_lang == "zh" %}，{% else %}, {% endif %}<time datetime="{{ talk.date }}">{{ copy.date }}</time>{% if site_lang == "zh" %}。{% else %}.{% endif %}
+  {% if copy.note %}<br>{{ copy.note }}{% endif %}
+</li>
+{% endfor %}
+</ul>
+{% endfor %}

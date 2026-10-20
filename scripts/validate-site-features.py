@@ -85,7 +85,7 @@ def validate_home(path: Path) -> None:
     require("recent-news.css" in " ".join(parser.assets), "Recent news stylesheet is missing")
     require('<ul class="recent-news" role="list" aria-labelledby="recent-news">' in news_html,
             "Recent news must retain its accessible list structure")
-    news_items = re.findall(r'<li class="recent-news__item">(.*?)</li>', news_html, re.DOTALL)
+    news_items = re.findall(r'<li class="recent-news__item"[^>]*>(.*?)</li>', news_html, re.DOTALL)
     require(len(news_items) == 3, "Recent news must contain exactly the three requested updates")
     require(not re.search(r"<a\b", news_html, re.IGNORECASE), "Recent news must not contain hyperlinks")
     news_text = [" ".join(unescape(re.sub(r"<[^>]+>", "", item)).split()) for item in news_items]
@@ -139,7 +139,7 @@ def validate_profile_sections(path: Path) -> None:
     require("Probability and Statistics (Fall 2024)" in html, "undergraduate teaching entry missing")
     require("https://github.com/zgj19stat/Probability-and-Statistics-Fall-2024" in html,
             "teaching course-note link missing")
-    award_items = [" ".join(item.split()) for item in re.findall(r"<li>(.*?)</li>", html, re.DOTALL)]
+    award_items = [" ".join(item.split()) for item in re.findall(r"<li(?: [^>]*)?>(.*?)</li>", html, re.DOTALL)]
     require("Merit Student" not in html, "removed Merit Student awards remain on the homepage")
     require("Graduate Student Research Forum" not in html,
             "removed 2024 Graduate Student Research Forum award remains on the homepage")

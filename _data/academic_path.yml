@@ -1,4 +1,10 @@
 - id: whu
+  zh:
+    dates: "2019年9月 – 2023年6月"
+    role: "数学学士"
+    unit: "数学与统计学院"
+    institution: "武汉大学"
+    location: "中国·武汉"
   start: "2019-09-01"
   end: "2023-06-30"
   dates: "Sep. 2019 – Jun. 2023"
@@ -10,6 +16,13 @@
   location: "Wuhan, China"
 
 - id: ucas
+  zh:
+    dates: "2023年9月 – 至今"
+    role: "统计学博士研究生"
+    unit: "数学科学学院"
+    institution: "中国科学院大学"
+    location: "中国·北京"
+    mentor_label: "导师"
   start: "2023-09-01"
   dates: "Sep. 2023 – Present"
   role: "Ph.D. in Statistics"
@@ -23,6 +36,13 @@
   mentor_url: "https://people.ucas.edu.cn/~sgzhang?language=en"
 
 - id: nus
+  zh:
+    dates: "2026年9月 – 2027年8月"
+    role: "统计学访问博士生"
+    unit: "统计与数据科学系"
+    institution: "新加坡国立大学"
+    location: "新加坡"
+    mentor_label: "合作导师"
   start: "2026-09-01"
   end: "2027-08-31"
   dates: "Sep. 2026 – Aug. 2027"
