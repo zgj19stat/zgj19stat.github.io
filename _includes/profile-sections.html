@@ -9,6 +9,14 @@
 {% endfor %}
 </ul>
 
+<h2 id="academic-service">{{ ui.service }}</h2>
+<p><strong>{{ ui.reviewer }}</strong></p>
+<ul aria-labelledby="academic-service">
+{% for item in site.data.profile.service %}
+  <li data-service-id="{{ item.id }}"><em>{{ item.venue }}</em>{% if item.year %}, {{ item.year }}{% endif %}</li>
+{% endfor %}
+</ul>
+
 <h2 id="teaching-experiences">{{ ui.teaching }}</h2>
 {% for item in site.data.profile.teaching %}
 <p>{{ item[site_lang] }}</p>
