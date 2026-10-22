@@ -66,7 +66,7 @@ def validate_home(path: Path) -> None:
     require("visitor-counter.js" in " ".join(parser.assets), "visitor counter script is missing")
     require("Total visits" in html and "Since Aug 2026" in html, "visitor counter labels are missing")
     sections = ['id="academic-path-title"', 'id="research-interest"', 'id="recent-news"',
-                'id="teaching-experiences"', 'id="awards"']
+                'id="academic-service"', 'id="teaching-experiences"', 'id="awards"']
     require(all(html.count(section) == 1 for section in sections), "homepage section missing or duplicated")
     positions = [html.index(section) for section in sections]
     require(positions == sorted(positions), "homepage sections are not in the requested order")

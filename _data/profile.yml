@@ -23,6 +23,12 @@ news:
     zh:
       date: "2026年8月"
       text: "我将于2026年9月1日至2027年8月31日在新加坡国立大学统计与数据科学系访学，合作导师为 Doudou Zhou 教授。"
+service:
+  - id: aoas
+    venue: "The Annals of Applied Statistics (AOAS)"
+  - id: iclr-2027
+    venue: "International Conference on Learning Representations (ICLR)"
+    year: 2027
 teaching:
   - id: graduate
     en: "Teaching Assistant (Postgraduate Courses), University of Chinese Academy of Sciences"

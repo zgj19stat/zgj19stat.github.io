@@ -39,10 +39,20 @@ for en_path, zh_path in pairs:
         assert any(a.get("href", "").endswith("/files/" + cv) for t, a in page.tags if t == "a")
 
 en, zh = [Page(root / p / "index.html") for p in ("", "cn")]
-for key in ("data-news-id", "data-award-id", "data-academic-stage"):
+for key in ("data-news-id", "data-service-id", "data-award-id", "data-academic-stage"):
     assert [a[key] for a in en.attrs(key)] == [a[key] for a in zh.attrs(key)]
 assert len(zh.attrs("data-news-id")) == 3
 assert len(zh.attrs("data-award-id")) == 9
+for page, heading, role in ((en, "Academic Service", "Reviewer"), (zh, "学术服务", "审稿工作")):
+    assert [a["data-service-id"] for a in page.attrs("data-service-id")] == ["aoas", "iclr-2027"]
+    assert page.html.count('<h2 id="academic-service">' + heading + '</h2>') == 1
+    service = re.search(r'<h2 id="academic-service">.*?</ul>', page.html, re.S).group()
+    assert '<strong>' + role + '</strong>' in service
+    assert '<em>The Annals of Applied Statistics (AOAS)</em>' in service
+    assert '<em>International Conference on Learning Representations (ICLR)</em>, 2027' in service
+    sections = ['id="recent-news"', 'id="academic-service"', 'id="teaching-experiences"', 'id="awards"']
+    positions = [page.html.index(section) for section in sections]
+    assert positions == sorted(positions)
 for page in (en, zh):
     assert "Merit Student" not in page.html and "Graduate Student Research Forum" not in page.html
     news = re.search(r'<ul class="recent-news".*?</ul>', page.html, re.S).group()
@@ -64,6 +74,6 @@ entries = lambda p: re.findall(r'<li id="[^"]+" class="publication-item".*?</li>
 assert len(entries(en)) == 12 and entries(en) == entries(zh)
 for name in ("CV.pdf", "CV_Chinese.pdf"):
     assert (root / "files" / name).read_bytes().startswith(b"%PDF-")
-assert hashlib.sha256((root / "files/CV.pdf").read_bytes()).hexdigest() == "76b13aac9ad311a0dee4e2ae52706ee76724a4ed4108df84e244b2ca5267f099", "English CV changed"
-assert hashlib.sha256((root / "files/CV_Chinese.pdf").read_bytes()).hexdigest() == "3265ebb60a6cb226a577470326be57696eda9efd11a9c01231aab3768b1e4d4b", "Chinese CV changed"
+assert hashlib.sha256((root / "files/CV.pdf").read_bytes()).hexdigest() == "2d3c61a9a23ec951aef938276c6bf95d9b7be5ca2bbce24958194c4bdb05965b", "English CV changed"
+assert hashlib.sha256((root / "files/CV_Chinese.pdf").read_bytes()).hexdigest() == "c00bd024403b8b3edec9334df33e36db136e46526aa38ef22219bb28b02d1038", "Chinese CV changed"
 print("PASS: six bilingual pages, navigation, shared records, map geometry, and PDF links")
