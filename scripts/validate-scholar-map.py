@@ -364,11 +364,11 @@ def main() -> int:
     hub_end = html.index("</li>", hub_start)
     hub_entry = html[hub_start:hub_end]
     require(
-        "<em>Science China Mathematics</em> (English Edition) — Major revision in progress, October 2026." in hub_entry,
+        "<em>Science China Mathematics</em> (English Edition) — Major revision and revised, October 2026." in hub_entry,
         "the Distributed Hub journal, revision status, or date is incorrect",
     )
     require(
-        "Science China Mathematics (English Edition) · Major revision in progress · Oct 2026" in html,
+        "Science China Mathematics (English Edition) · Major revision and revised · Oct 2026" in html,
         "the Distributed Hub map metadata is not updated",
     )
     require(

@@ -265,10 +265,10 @@ works:
     stage: manuscript
     title: "Distributed Hub Detection in Heterogeneous Graphical Models"
     map_label: "Distributed Hub"
-    map_meta: "Science China Mathematics (English Edition) · Major revision in progress · Oct 2026"
+    map_meta: "Science China Mathematics (English Edition) · Major revision and revised · Oct 2026"
     authors_html: >-
       Rongzhuo Nie, Sanguo Zhang, Lili Zhao, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "<em>Science China Mathematics</em> (English Edition) — Major revision in progress, October 2026."
+    details_html: "<em>Science China Mathematics</em> (English Edition) — Major revision and revised, October 2026."
     map:
       x: 380
       y: 285
