@@ -342,8 +342,8 @@ def main() -> int:
         '>arXiv</a>' in agent_cue_entry,
         "the AgentCue arXiv link label is missing",
     )
-    require("Manuscript, Oct. 2026." in agent_cue_entry, "the AgentCue manuscript date is missing")
-    require("Manuscript · Oct 2026" in html, "the AgentCue map metadata is missing")
+    require("Under review, Oct. 2026." in agent_cue_entry, "the AgentCue review status or date is missing")
+    require("Under review · Oct 2026" in parser.paper_nodes["agent-cue"].get("data-map-meta", ""), "the AgentCue map metadata is missing")
     require(
         parser.paper_nodes["agent-cue"].get("data-theme-x") == "148"
         and parser.paper_nodes["agent-cue"].get("data-theme-y") == "422",

@@ -337,10 +337,10 @@ works:
     stage: manuscript
     title: "AgentCue: Statistical Summaries for Guiding Decentralized Multi-Agent Self-Organization"
     map_label: "AgentCue"
-    map_meta: "Manuscript · Oct 2026"
+    map_meta: "Under review · Oct 2026"
     authors_html: >-
       <strong>Guojun Zhu</strong>, Xinyou Chen, Kejian Zhang, Sanguo Zhang, Doudou Zhou<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Manuscript, Oct. 2026."
+    details_html: "Under review, Oct. 2026."
     links:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2610.16621"
