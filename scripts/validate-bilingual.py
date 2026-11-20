@@ -74,6 +74,6 @@ entries = lambda p: re.findall(r'<li id="[^"]+" class="publication-item".*?</li>
 assert len(entries(en)) == 12 and entries(en) == entries(zh)
 for name in ("CV.pdf", "CV_Chinese.pdf"):
     assert (root / "files" / name).read_bytes().startswith(b"%PDF-")
-assert hashlib.sha256((root / "files/CV.pdf").read_bytes()).hexdigest() == "67bf70031c6f80ec224ccaf9d0d1497cdf6ea45f0ecdd81ec8d83455348aeb40", "English CV changed"
-assert hashlib.sha256((root / "files/CV_Chinese.pdf").read_bytes()).hexdigest() == "5520388bb213ae6d000260792ad068b6c5bbdfcb198148552f97a07168e61174", "Chinese CV changed"
+assert hashlib.sha256((root / "files/CV.pdf").read_bytes()).hexdigest() == "dffd6532b729cdb264a95f78957b20a4e615bcca52c86fd184cbd962f8d4f6e7", "English CV changed"
+assert hashlib.sha256((root / "files/CV_Chinese.pdf").read_bytes()).hexdigest() == "e6a96cd543eb128025ca3c046000c1a615d8d720f8ea1a756dbcd5a1bb82fb03", "Chinese CV changed"
 print("PASS: six bilingual pages, navigation, shared records, map geometry, and PDF links")
