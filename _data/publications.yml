@@ -246,6 +246,9 @@ works:
     authors_html: >-
       <strong>Guojun Zhu</strong>, Haofei Wang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Under review, Aug. 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2611.29655"
     map:
       x: 230
       y: 207
