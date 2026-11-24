@@ -20,9 +20,9 @@
 
   <div class="research-hypergraph__shell">
     <div class="research-hypergraph__canvas" data-research-map-canvas data-hit-radius="18">
-      <svg viewBox="0 0 750 550" role="img" aria-labelledby="research-map-svg-title research-map-svg-desc">
+      <svg viewBox="0 0 780 550" role="img" aria-labelledby="research-map-svg-title research-map-svg-desc">
         <title id="research-map-svg-title">{% if site_lang == 'zh' %}可切换研究主题和时间轴的交互式导航图{% else %}Interactive research map with theme and timeline views{% endif %}</title>
-        <desc id="research-map-svg-desc">{% if site_lang == 'zh' %}图中共有十二篇论文，按六个研究主题相连，也可切换为2025年1月至2026年10月的时间轴。空心点表示手稿，实心点表示已发表论文。{% else %}Twelve works can be explored as six overlapping research-theme contours or along a fixed chronology from January 2025 to October 2026. Manuscripts are hollow and publications are filled.{% endif %}</desc>
+        <desc id="research-map-svg-desc">{% if site_lang == 'zh' %}图中共有 {{ publication_data.works.size }} 篇论文，按 {{ publication_data.hyperedges.size }} 个研究主题相连，也可切换为2025年1月至2026年11月的时间轴。空心点表示手稿，实心点表示已发表论文。{% else %}Explore {{ publication_data.works.size }} works across {{ publication_data.hyperedges.size }} research themes or along a timeline from January 2025 to November 2026. Manuscripts are hollow and publications are filled.{% endif %}</desc>
 
         <g class="research-hypergraph__theme-layer research-hypergraph__edge-fills" aria-hidden="true">
           {% for edge in publication_data.hyperedges %}
@@ -50,13 +50,13 @@
         </g>
 
         <g class="research-hypergraph__timeline-layer" data-map-timeline aria-hidden="true">
-          <rect class="research-hypergraph__timeline-band" x="435" y="72" width="300" height="448" rx="18"></rect>
+          <rect class="research-hypergraph__timeline-band" x="435" y="72" width="330" height="448" rx="18"></rect>
           <text class="research-hypergraph__timeline-year" x="270" y="88" text-anchor="middle">2025</text>
           <text class="research-hypergraph__timeline-year" x="570" y="88" text-anchor="middle">2026</text>
-          <path class="research-hypergraph__timeline-axis" d="M 70 275 H 735"></path>
+          <path class="research-hypergraph__timeline-axis" d="M 70 275 H 765"></path>
           <line class="research-hypergraph__timeline-divider" x1="435" y1="94" x2="435" y2="507"></line>
 
-          {% assign timeline_ticks = "90:Jan ’25,450:Jan,510:Mar,540:Apr,570:May,630:Jul,660:Aug,690:Sep,720:Oct" | split: "," %}
+          {% assign timeline_ticks = "90:Jan ’25,450:Jan,510:Mar,540:Apr,570:May,630:Jul,660:Aug,690:Sep,720:Oct,750:Nov" | split: "," %}
           {% for tick in timeline_ticks %}
             {% assign tick_parts = tick | split: ":" %}
             <line class="research-hypergraph__timeline-tick" x1="{{ tick_parts[0] }}" y1="268" x2="{{ tick_parts[0] }}" y2="282"></line>
@@ -153,8 +153,8 @@
   <div class="research-hypergraph__templates" hidden>
     <section data-map-default-template="timeline">
       <p class="research-hypergraph__eyebrow">{% if site_lang == 'zh' %}按时间浏览{% else %}Chronological view{% endif %}</p>
-      <h3>{% if site_lang == 'zh' %}2025年1月—2026年10月{% else %}From Jan 2025 to Oct 2026{% endif %}</h3>
-      <p>{% if site_lang == 'zh' %}十二篇论文按手稿或发表日期排列，点击节点即可查看论文介绍。{% else %}The same twelve works are positioned by manuscript or publication date. Select any node to open its full entry.{% endif %}</p>
+      <h3>{% if site_lang == 'zh' %}2025年1月—2026年11月{% else %}From Jan 2025 to Nov 2026{% endif %}</h3>
+      <p>{% if site_lang == 'zh' %}论文按手稿或发表日期排列，点击节点即可查看论文介绍。{% else %}Works are positioned by manuscript or publication date. Select any node to open its full entry.{% endif %}</p>
       <div class="research-hypergraph__legend" aria-label="{% if site_lang == 'zh' %}时间轴图例{% else %}Timeline legend{% endif %}">
         <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--manuscript" aria-hidden="true"></i>Manuscript</span>
         <span><i class="research-hypergraph__legend-node research-hypergraph__legend-node--publication" aria-hidden="true"></i>Publication</span>
