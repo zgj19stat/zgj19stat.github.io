@@ -116,7 +116,10 @@ works:
     map_label: "MOSAIC"
     map_meta: "Manuscript · Jul 2026"
     authors_html: >-
-      Junhan Yu, Kejian Zhang, Doudou Zhou, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Authors listed in alphabetical order">&dagger;</sup>
+      Junhan Yu<sup class="author-note" aria-label="Authors listed in alphabetical order">&dagger;</sup>,
+      Kejian Zhang<sup class="author-note" aria-label="Authors listed in alphabetical order">&dagger;</sup>,
+      Doudou Zhou<sup class="author-note" aria-label="Authors listed in alphabetical order">&dagger;</sup><sup class="author-note" aria-label="Corresponding author">&#42;</sup>,
+      <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Authors listed in alphabetical order">&dagger;</sup>
     details_html: "Under review, Jul 2026."
     links:
       - label: "arXiv"
@@ -194,7 +197,7 @@ works:
     map_label: "STWGAN"
     map_meta: "Publication · AISTATS · 2025"
     authors_html: >-
-      <strong>Guojun Zhu</strong>, Sanguo Zhang, Mingyang Ren
+      <strong>Guojun Zhu</strong>, Sanguo Zhang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "<em>28-th Annual Conference on Artificial Intelligence and Statistics (AISTATS)</em>, Jan 2025."
     links:
       - label: "Article"

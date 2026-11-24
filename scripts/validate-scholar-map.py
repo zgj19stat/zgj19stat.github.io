@@ -394,7 +394,7 @@ def main() -> int:
         "the map description does not match its works and themes",
     )
     require("From Jan 2025 to Nov 2026" in html, "the timeline range is not updated")
-    require(html.count('aria-label="Corresponding author"') == 13, "unexpected number of corresponding-author marks")
+    require(html.count('aria-label="Corresponding author"') == 15, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
 
