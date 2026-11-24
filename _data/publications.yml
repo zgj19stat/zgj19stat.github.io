@@ -33,6 +33,7 @@ hyperedges:
     label_y: 71
     members:
       - functional-latent-space-model
+      - cine
       - directed-hypergraphs
       - disease-network
       - joint-disease-interconnections
@@ -213,6 +214,29 @@ works:
       label_y: 153
       label_anchor: "middle"
       date: "Jan 2025"
+
+  - id: cine
+    area: network-and-graphical-models
+    stage: manuscript
+    title: "Cross-Order Information-Guided Estimation for Non-Uniform Hypergraphs"
+    map_label: "CINE"
+    map_meta: "Manuscript · Nov 2026"
+    authors_html: >-
+      Rongzhuo Nie<sup class="author-note" aria-label="Co-first author">&#35;</sup>, Menghao Wang<sup class="author-note" aria-label="Co-first author">&#35;</sup>, Sanguo Zhang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Manuscript, Nov. 2026."
+    map:
+      x: 150
+      y: 207
+      label_x: 150
+      label_y: 189
+      label_anchor: "middle"
+    timeline:
+      x: 750
+      y: 105
+      label_x: 750
+      label_y: 87
+      label_anchor: "middle"
+      date: "Nov 2026"
 
   - id: joint-disease-interconnections
     area: network-and-graphical-models

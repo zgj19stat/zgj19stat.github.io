@@ -21,6 +21,7 @@ EXPECTED_HYPEREDGES = {
     },
     "latent-space-model": {
         "functional-latent-space-model",
+        "cine",
         "directed-hypergraphs",
         "disease-network",
         "joint-disease-interconnections",
@@ -53,6 +54,7 @@ EXPECTED_MAP_LABELS = {
     "information-transfer": "Transfer-Label-Noise",
     "federated-class-incremental-learning": "STSA",
     "conditional-generative-multisource": "STWGAN",
+    "cine": "CINE",
     "directed-hypergraphs": "FOLD",
     "distributed-hub-detection": "Distributed Hub",
     "functional-latent-space-model": "FLSM",
@@ -68,6 +70,7 @@ EXPECTED_TIMELINE_LABELS = {
     "information-transfer": ("540", "374", "middle"),
     "federated-class-incremental-learning": ("450", "414", "middle"),
     "conditional-generative-multisource": ("90", "153", "middle"),
+    "cine": ("750", "87", "middle"),
     "joint-disease-interconnections": ("705", "344", "end"),
     "directed-hypergraphs": ("660", "213", "middle"),
     "distributed-hub-detection": ("705", "262", "end"),
@@ -228,15 +231,13 @@ def main() -> int:
     parser.feed(html)
 
     expected_work_ids = set().union(*EXPECTED_HYPEREDGES.values())
-    require(len(expected_work_ids) == 12, "the expected hypergraph must contain twelve unique works")
-    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the twelve expected works")
+    require(set(parser.paper_nodes) == expected_work_ids, "map nodes do not match the expected works")
     require(set(parser.publication_items) == expected_work_ids, "publication entries do not match map nodes")
     require(parser.hyperedges == EXPECTED_HYPEREDGES, "generated hyperedge memberships are incorrect")
-    require(sum(len(members) for members in parser.hyperedges.values()) == 21, "expected twenty-one node-hyperedge incidences")
     validate_contours(parser)
 
     stages = Counter(attributes.get("data-stage") for attributes in parser.paper_nodes.values())
-    require(stages == {"manuscript": 9, "publication": 3}, f"unexpected map status counts: {stages}")
+    require(stages == {"manuscript": 10, "publication": 3}, f"unexpected map status counts: {stages}")
 
     map_labels = {work_id: attributes.get("data-map-label", "") for work_id, attributes in parser.paper_nodes.items()}
     require(map_labels == EXPECTED_MAP_LABELS, f"unexpected map labels: {map_labels}")
@@ -245,14 +246,14 @@ def main() -> int:
     require(set(parser.view_buttons) == {"themes", "timeline"}, "the map must expose Themes and Timeline controls")
     require(parser.view_buttons["themes"].get("aria-pressed") == "true", "Themes must be selected by default")
     require(parser.view_buttons["timeline"].get("aria-pressed") == "false", "Timeline must be unselected by default")
-    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the twelve expected works")
+    require(parser.timeline_stems == expected_work_ids, "timeline stems do not match the expected works")
     require(
         set(parser.paper_labels["themes"]) == expected_work_ids,
-        "theme-view labels do not match the twelve expected works",
+        "theme-view labels do not match the expected works",
     )
     require(
         set(parser.paper_labels["timeline"]) == expected_work_ids,
-        "timeline-view labels do not match the twelve expected works",
+        "timeline-view labels do not match the expected works",
     )
     actual_timeline_labels = {
         work_id: (
@@ -272,7 +273,8 @@ def main() -> int:
         "the expanded timeline envelope is missing",
     )
     require(
-        len(parser.paper_hit_targets) == 12 and all(target.get("r") == "16" for target in parser.paper_hit_targets),
+        len(parser.paper_hit_targets) == len(expected_work_ids)
+        and all(target.get("r") == "16" for target in parser.paper_hit_targets),
         "each paper node must have a stable enlarged hit target",
     )
     require("research-hypergraph__area-headings" not in html, "redundant research-area headings remain in the map")
@@ -388,11 +390,11 @@ def main() -> int:
     )
 
     require(
-        "Twelve works can be explored as six overlapping research-theme contours" in html,
-        "the map description does not match its twelve works and six themes",
+        f"Explore {len(expected_work_ids)} works across {len(EXPECTED_HYPEREDGES)} research themes" in html,
+        "the map description does not match its works and themes",
     )
-    require("From Jan 2025 to Oct 2026" in html, "the timeline range is not updated")
-    require(html.count('aria-label="Corresponding author"') == 11, "unexpected number of corresponding-author marks")
+    require("From Jan 2025 to Nov 2026" in html, "the timeline range is not updated")
+    require(html.count('aria-label="Corresponding author"') == 13, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
 
