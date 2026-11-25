@@ -227,6 +227,9 @@ works:
     authors_html: >-
       Rongzhuo Nie<sup class="author-note" aria-label="Co-first author">&#35;</sup>, Menghao Wang<sup class="author-note" aria-label="Co-first author">&#35;</sup>, Sanguo Zhang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
     details_html: "Manuscript, Nov. 2026."
+    links:
+      - label: "arXiv"
+        url: "https://arxiv.org/abs/2611.32430"
     map:
       x: 150
       y: 207
