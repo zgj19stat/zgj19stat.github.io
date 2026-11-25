@@ -223,10 +223,10 @@ works:
     stage: manuscript
     title: "Cross-Order Information-Guided Estimation for Non-Uniform Hypergraphs"
     map_label: "CINE"
-    map_meta: "Manuscript · Nov 2026"
+    map_meta: "Under review · Nov 2026"
     authors_html: >-
       Rongzhuo Nie<sup class="author-note" aria-label="Co-first author">&#35;</sup>, Menghao Wang<sup class="author-note" aria-label="Co-first author">&#35;</sup>, Sanguo Zhang, Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>
-    details_html: "Manuscript, Nov. 2026."
+    details_html: "Under review, Nov. 2026."
     links:
       - label: "arXiv"
         url: "https://arxiv.org/abs/2611.32430"
