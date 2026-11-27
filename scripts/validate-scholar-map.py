@@ -16,6 +16,7 @@ EXPECTED_HYPEREDGES = {
         "pattern-calibrated-multimodal-prediction",
         "distributed-hub-detection",
         "information-transfer",
+        "locally-transfer",
         "federated-class-incremental-learning",
         "conditional-generative-multisource",
     },
@@ -52,6 +53,7 @@ EXPECTED_MAP_LABELS = {
     "ladder": "LADDER",
     "pattern-calibrated-multimodal-prediction": "MOSAIC",
     "information-transfer": "Transfer-Label-Noise",
+    "locally-transfer": "Locally-Transfer",
     "federated-class-incremental-learning": "STSA",
     "conditional-generative-multisource": "STWGAN",
     "cine": "CINE",
@@ -68,6 +70,7 @@ EXPECTED_TIMELINE_LABELS = {
     "ladder": ("630", "87", "middle"),
     "pattern-calibrated-multimodal-prediction": ("630", "414", "middle"),
     "information-transfer": ("540", "374", "middle"),
+    "locally-transfer": ("735", "389", "end"),
     "federated-class-incremental-learning": ("450", "414", "middle"),
     "conditional-generative-multisource": ("90", "153", "middle"),
     "cine": ("750", "87", "middle"),
@@ -237,7 +240,7 @@ def main() -> int:
     validate_contours(parser)
 
     stages = Counter(attributes.get("data-stage") for attributes in parser.paper_nodes.values())
-    require(stages == {"manuscript": 10, "publication": 3}, f"unexpected map status counts: {stages}")
+    require(stages == {"manuscript": 11, "publication": 3}, f"unexpected map status counts: {stages}")
 
     map_labels = {work_id: attributes.get("data-map-label", "") for work_id, attributes in parser.paper_nodes.items()}
     require(map_labels == EXPECTED_MAP_LABELS, f"unexpected map labels: {map_labels}")
@@ -394,7 +397,7 @@ def main() -> int:
         "the map description does not match its works and themes",
     )
     require("From Jan 2025 to Nov 2026" in html, "the timeline range is not updated")
-    require(html.count('aria-label="Corresponding author"') == 16, "unexpected number of corresponding-author marks")
+    require(html.count('aria-label="Corresponding author"') == 18, "unexpected number of corresponding-author marks")
     require("research-hypergraph.css" in " ".join(parser.assets), "research map stylesheet is missing")
     require("research-hypergraph.js" in " ".join(parser.assets), "research map script is missing")
 

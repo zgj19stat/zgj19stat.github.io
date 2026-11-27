@@ -22,6 +22,7 @@ hyperedges:
       - pattern-calibrated-multimodal-prediction
       - distributed-hub-detection
       - information-transfer
+      - locally-transfer
       - federated-class-incremental-learning
       - conditional-generative-multisource
 
@@ -217,6 +218,30 @@ works:
       label_y: 153
       label_anchor: "middle"
       date: "Jan 2025"
+
+  - id: locally-transfer
+    area: network-and-graphical-models
+    stage: manuscript
+    title: "Beyond Overall Similarity: Element-Wise Local Transfer Learning for High-Dimensional Gaussian Graphical Models"
+    map_label: "Locally-Transfer"
+    map_meta: "Under review · Nov 2026"
+    authors_html: >-
+      Liyang Yang, <strong>Guojun Zhu</strong><sup class="author-note" aria-label="Corresponding author">&#42;</sup>,
+      Mingyang Ren<sup class="author-note" aria-label="Corresponding author">&#42;</sup>
+    details_html: "Under review, Nov. 2026."
+    map:
+      x: 642
+      y: 220
+      label_x: 623
+      label_y: 224
+      label_anchor: "end"
+    timeline:
+      x: 750
+      y: 385
+      label_x: 735
+      label_y: 389
+      label_anchor: "end"
+      date: "Nov 2026"
 
   - id: cine
     area: network-and-graphical-models
