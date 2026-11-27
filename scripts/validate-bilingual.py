@@ -71,7 +71,7 @@ en, zh = [Page(root / p / "index.html") for p in ("publications", "cn/publicatio
 for key in ("data-work-id", "data-hyperedge-shape", "data-timeline-stem"):
     assert en.attrs(key) == zh.attrs(key), f"map geometry/metadata differs: {key}"
 entries = lambda p: re.findall(r'<li id="[^"]+" class="publication-item".*?</li>', p.html, re.S)
-assert len(entries(en)) == 13 and entries(en) == entries(zh)
+assert len(entries(en)) == 14 and entries(en) == entries(zh)
 for name in ("CV.pdf", "CV_Chinese.pdf"):
     assert (root / "files" / name).read_bytes().startswith(b"%PDF-")
 assert hashlib.sha256((root / "files/CV.pdf").read_bytes()).hexdigest() == "dffd6532b729cdb264a95f78957b20a4e615bcca52c86fd184cbd962f8d4f6e7", "English CV changed"
