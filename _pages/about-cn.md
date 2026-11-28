@@ -20,7 +20,7 @@ recent_news: true
 
 - 智能体评测、智能体推理、多智能体系统
 
-此前，我与 [Shuangge Ma](https://ysph.yale.edu/profile/shuangge-ma/)、[Hao Mei](https://www.hswebsite.org/EN/DepartmentFaulty/Department_of_Biostatistics_and_Epidemiology/63f32e5c2a944b699e83f28e6751a275.htm) 和 [Mingyang Ren](https://ren-mingyang.github.io/) 等学者合作，在以下方向开展了研究。虽然目前的研究重心有所调整，我仍然欢迎这些方向的合作：
+此前，我与[马双鸽教授](https://ysph.yale.edu/profile/shuangge-ma/)、[梅好教授](https://www.hswebsite.org/EN/DepartmentFaulty/Department_of_Biostatistics_and_Epidemiology/63f32e5c2a944b699e83f28e6751a275.htm)和[任明旸教授](https://ren-mingyang.github.io/)等学者合作，在以下方向开展了研究。虽然目前的研究重心有所调整，我仍然欢迎这些方向的合作：
 
 - 域泛化、迁移学习与多源数据分析
 - 潜在空间模型、社区与枢纽节点检测、网络分析

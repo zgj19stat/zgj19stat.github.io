@@ -7,7 +7,7 @@
       <a class="profile-nav__brand" href="{{ site.data.languages.home[site_lang] | prepend: base_path }}">{{ ui.home }}</a>
       <button class="profile-nav__toggle" type="button" aria-expanded="false" aria-controls="profile-links" aria-label="{% if site_lang == 'zh' %}展开导航{% else %}Toggle navigation{% endif %}"><span aria-hidden="true">☰</span></button>
       <ul class="profile-nav__links" id="profile-links">
-        <li><a href="{{ site.data.languages.publications[site_lang] | prepend: base_path }}"{% if page.translation_key == 'publications' %} aria-current="page"{% endif %}>{% if site_lang == 'zh' %}论文成果{% else %}Publications{% endif %}</a></li>
+        <li><a href="{{ site.data.languages.publications[site_lang] | prepend: base_path }}"{% if page.translation_key == 'publications' %} aria-current="page"{% endif %}>{% if site_lang == 'zh' %}学术研究{% else %}Research{% endif %}</a></li>
         <li><a href="{{ site.data.languages.talks[site_lang] | prepend: base_path }}"{% if page.translation_key == 'talks' %} aria-current="page"{% endif %}>{% if site_lang == 'zh' %}报告与海报{% else %}Talks and Posters{% endif %}</a></li>
         <li><a href="{{ base_path }}/files/{% if site_lang == 'zh' %}CV_Chinese.pdf{% else %}CV.pdf{% endif %}">{% if site_lang == 'zh' %}简历{% else %}CV{% endif %}</a></li>
       </ul>

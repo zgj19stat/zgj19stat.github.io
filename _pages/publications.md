@@ -2,7 +2,7 @@
 layout: archive
 lang: en
 translation_key: publications
-title: "Publications"
+title: "Research"
 permalink: /publications/
 author_profile: true
 research_map: true

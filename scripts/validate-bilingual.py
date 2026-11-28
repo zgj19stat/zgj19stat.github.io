@@ -43,6 +43,8 @@ for key in ("data-news-id", "data-service-id", "data-award-id", "data-academic-s
     assert [a[key] for a in en.attrs(key)] == [a[key] for a in zh.attrs(key)]
 assert len(zh.attrs("data-news-id")) == 4
 assert "我的合作者姜宇航" in zh.html and "获评“杰出报告人”" in zh.html
+for professor in ("张三国教授", "周豆豆教授", "马双鸽教授", "梅好教授", "任明旸教授"):
+    assert f">{professor}</a>" in zh.html, f"Missing Chinese homepage link for {professor}"
 assert len(zh.attrs("data-award-id")) == 9
 for page, heading, role in ((en, "Academic Service", "Reviewer"), (zh, "学术服务", "审稿工作")):
     assert [a["data-service-id"] for a in page.attrs("data-service-id")] == ["aoas", "iclr-2027"]
@@ -76,5 +78,5 @@ assert len(entries(en)) == 14 and entries(en) == entries(zh)
 for name in ("CV.pdf", "CV_Chinese.pdf"):
     assert (root / "files" / name).read_bytes().startswith(b"%PDF-")
 assert hashlib.sha256((root / "files/CV.pdf").read_bytes()).hexdigest() == "93fda1a4a0f8a08b6916db94a59d6674b7c1789ca7485ff9338b1eabc75925ff", "English CV changed"
-assert hashlib.sha256((root / "files/CV_Chinese.pdf").read_bytes()).hexdigest() == "1979e26f050654bed57821d0997e4d6225e0b7fc4ed185fc32cf1b5eaa171975", "Chinese CV changed"
+assert hashlib.sha256((root / "files/CV_Chinese.pdf").read_bytes()).hexdigest() == "2b536c0d5261d28a3b7f17571aadf51fa6080d265389693525b3ab4ca941f8f5", "Chinese CV changed"
 print("PASS: six bilingual pages, navigation, shared records, map geometry, and PDF links")

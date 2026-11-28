@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "论文成果"
+title: "学术研究"
 permalink: /cn/publications/
 lang: zh
 locale: zh_CN

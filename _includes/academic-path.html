@@ -41,7 +41,7 @@
           </p>
           <p class="academic-path__location">{{ stage_copy.location }}</p>
           {% if stage.mentor %}
-            <p class="academic-path__mentor">{{ stage_copy.mentor_label }}: <a href="{{ stage.mentor_url }}">{{ stage.mentor }}</a></p>
+            <p class="academic-path__mentor">{{ stage_copy.mentor_label }}{% if site_lang == "zh" %}：{% else %}: {% endif %}<a href="{{ stage_copy.mentor_url | default: stage.mentor_url }}">{{ stage_copy.mentor | default: stage.mentor }}</a></p>
           {% endif %}
         </article>
       </li>
