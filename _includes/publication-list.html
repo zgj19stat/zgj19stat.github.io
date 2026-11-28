@@ -27,6 +27,7 @@
               <span class="publication-item__title">{{ work.title }}</span><br>
               <span class="publication-item__authors">{{ work.authors_html }}</span><br>
               <span class="publication-item__details">{{ work.details_html }}</span>{% for link in work.links %} [<a href="{{ link.url }}">{{ link.label }}</a>]{% endfor %}
+              {% if work.award_note %}<br><small><em>{{ work.award_note | escape }}</em></small>{% endif %}
             </li>
           {% endfor %}
         </ul>
