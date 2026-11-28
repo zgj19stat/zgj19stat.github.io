@@ -1,4 +1,12 @@
 news:
+  - id: ladder-presenter-2026
+    date: "2026-11"
+    en:
+      date: "Nov. 2026"
+      text: 'My mentee Yuhang Jiang won an Outstanding Presenter Award for his talk on our paper “Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting” at the UCAS Graduate Forum on Artificial Intelligence.'
+    zh:
+      date: "2026年11月"
+      text: '我的合作者姜宇航在中国科学院大学人工智能研究生学术论坛上报告了我们的论文《Chaos Is a LADDER: Domain Generalization Beyond Invariance via Reweighting》，获评“杰出报告人”。'
   - id: biometrics-2026
     date: "2026-10"
     en:

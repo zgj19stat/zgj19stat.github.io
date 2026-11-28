@@ -41,7 +41,8 @@ for en_path, zh_path in pairs:
 en, zh = [Page(root / p / "index.html") for p in ("", "cn")]
 for key in ("data-news-id", "data-service-id", "data-award-id", "data-academic-stage"):
     assert [a[key] for a in en.attrs(key)] == [a[key] for a in zh.attrs(key)]
-assert len(zh.attrs("data-news-id")) == 3
+assert len(zh.attrs("data-news-id")) == 4
+assert "我的合作者姜宇航" in zh.html and "获评“杰出报告人”" in zh.html
 assert len(zh.attrs("data-award-id")) == 9
 for page, heading, role in ((en, "Academic Service", "Reviewer"), (zh, "学术服务", "审稿工作")):
     assert [a["data-service-id"] for a in page.attrs("data-service-id")] == ["aoas", "iclr-2027"]

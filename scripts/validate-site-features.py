@@ -86,28 +86,33 @@ def validate_home(path: Path) -> None:
     require('<ul class="recent-news" role="list" aria-labelledby="recent-news">' in news_html,
             "Recent news must retain its accessible list structure")
     news_items = re.findall(r'<li class="recent-news__item"[^>]*>(.*?)</li>', news_html, re.DOTALL)
-    require(len(news_items) == 3, "Recent news must contain exactly the three requested updates")
+    require(len(news_items) == 4, "Recent news must contain the four requested updates")
     require(not re.search(r"<a\b", news_html, re.IGNORECASE), "Recent news must not contain hyperlinks")
     news_text = [" ".join(unescape(re.sub(r"<[^>]+>", "", item)).split()) for item in news_items]
     require(
         re.findall(r'<time class="recent-news__date" datetime="([^"]+)">([^<]+)</time>', news_html)
-        == [("2026-10", "Oct. 2026"), ("2026-10", "Oct. 2026"), ("2026-08", "Aug. 2026")],
+        == [("2026-11", "Nov. 2026"), ("2026-10", "Oct. 2026"), ("2026-10", "Oct. 2026"), ("2026-08", "Aug. 2026")],
         "Recent news dates must appear in reverse chronological order",
     )
-    require(news_html.count('class="recent-news__event"') == 3,
+    require(news_html.count('class="recent-news__event"') == len(news_items),
             "each news date must have a separate event column")
     require(
-        "Our paper" in news_text[0]
-        and "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data" in news_text[0]
-        and "is accepted by Biometrics." in news_text[0],
+        "My mentee Yuhang Jiang won an Outstanding Presenter Award" in news_text[0]
+        and "Chaos Is a LADDER" in news_text[0],
+        "the LADDER presenter award news is incorrect",
+    )
+    require(
+        "Our paper" in news_text[1]
+        and "A Functional Latent Space Model for Time-varying Networks with Applications to Clinical Outcomes Data" in news_text[1]
+        and "is accepted by Biometrics." in news_text[1],
         "the Biometrics acceptance news is incorrect",
     )
     require(
-        news_text[1] == "Oct. 2026 I receive the National Scholarship for Doctoral Students.",
+        news_text[2] == "Oct. 2026 I receive the National Scholarship for Doctoral Students.",
         "the doctoral scholarship news is incorrect",
     )
     require(
-        news_text[2] == "Aug. 2026 I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at "
+        news_text[3] == "Aug. 2026 I will be visiting Prof. Doudou Zhou in the Department of Statistics and Data Science at "
         "National University of Singapore from September 1, 2026 to August 31, 2027.",
         "the dated NUS visit announcement is incorrect",
     )
